@@ -1,0 +1,7 @@
+interface:
+  display_name: "Suno Songwriter"
+  short_description: "Suno v5.5 songs, instrumentals, multilingual prompts"
+  default_prompt: "Use $suno-lyrics to write or revise a Suno v5.5-ready vocal, instrumental, or multilingual track with title, style prompt, excluded styles, lyrics or arrangement, language notes, slider suggestions, and checks."
+
+policy:
+  allow_implicit_invocation: true
