@@ -105,3 +105,14 @@ Covers:
 - anti-lock-in rule
 - genre examples
 - style prompt examples
+
+## Evals And Smoke Tests
+
+Read `references/evals.md` when testing whether the skill triggers correctly or produces the expected output shape across vocal, instrumental, multilingual, Suno controls, reference-lyrics transformation, structure, and style-selection tasks.
+
+Covers:
+- smoke test matrix
+- should-trigger queries
+- should-not-trigger queries
+- regression checks
+- output quality rubric

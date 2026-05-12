@@ -18,6 +18,7 @@ Use references selectively:
 - Read `references/instrumental.md` for lofi, OST, game loops, ambient, trailer cues, or other non-lyric tracks.
 - Read `references/multilingual.md` for non-English lyrics, translation, bilingual writing, dialect, script, romanization, or pronunciation.
 - Read `references/style-selection.md` when genre, vocalist, instrumentation, or production palette is missing, generic, or over-reused.
+- Read `references/evals.md` when testing skill triggering, smoke-test coverage, regression behavior, or output quality.
 
 ## Core Workflow
 
