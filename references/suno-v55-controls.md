@@ -38,6 +38,18 @@ Avoid:
 pop, sad, cool, no country, no drums, no guitar, not too slow, make it viral
 ```
 
+A useful quick frame for the positive direction is three anchors plus modifiers: core genre/subgenre, vibe/texture, and the lead instrument or signature sound, then add tempo, vocal, and production. For example `Delta blues, dusty and analog, slide resonator guitar` or `synthwave, neon-cold and propulsive, fat analog bass and gated drums` — then extend with BPM, vocal, mix.
+
+### No Artist Names
+
+Do not write `sounds like <artist>`, `<artist> type beat`, or song titles in the Style field. Suno's copyright filters increasingly reject these or return a flattened, generic take. Describe the era, scene, and production instead:
+
+- not `sounds like Drake` -> `early-2010s Toronto melodic rap, moody nocturnal R&B production, sparse 808s, reverbed vocal`
+- not `like a Tarantino soundtrack` -> `1960s surf rock and spaghetti-western score, twangy reverb guitar, dramatic horns`
+- not `make it sound like <band>` -> name the subgenre, the decade, the rhythm section, and the mix character that band is known for
+
+This also keeps the prompt portable to other AI music tools and easier to tweak one trait at a time.
+
 ## Excluded Styles
 
 Use Suno's `Excluded Styles` input as a negative prompt field. Put unwanted sound traits there instead of crowding the positive Style field with many `no...` phrases.
@@ -152,6 +164,7 @@ Suggest the Magic Wand in the Styles field for personalized suggestions, then re
 - Output chaotic: lower Weirdness by 10-20%.
 - Vocal identity drifts: lower Weirdness and simplify vocal descriptors.
 - Wrong genre appears: add it to `Excluded Styles` and keep Style Influence medium-high.
+- Generic or blocked result from an artist reference: remove the artist name and rebuild the Style line from era, subgenre, rhythm section, and mix character.
 - Mix feels muddy: add positive style terms such as `clean production`, `wide stereo`, `clear vocal upfront`.
 - Prompt feels overcontrolled: remove half the adjectives before changing sliders.
 - When iterating, change one thing at a time: prompt, Weirdness, or Style Influence.

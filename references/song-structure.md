@@ -104,6 +104,21 @@ Can:
 - resolve the story
 - leave an unresolved question
 
+## Section Tag Descriptors
+
+A section tag can carry a short performance or energy cue, not just a label. Suno reads `[Whispered Verse]` or `[Explosive Chorus]` as a dynamics instruction for that section.
+
+Useful descriptors:
+- intensity: `[Quiet Verse]`, `[Half-time Verse 2]`, `[Building Pre-Chorus]`, `[Explosive Chorus]`, `[Double-time Outro]`
+- arrangement: `[Stripped Bridge, vocal and piano only]`, `[A Cappella Intro]`, `[Drums-only Breakdown]`, `[Full Band Final Chorus]`
+- delivery: `[Spoken Verse]`, `[Shouted Chorus]`, `[Harmonized Bridge]`, `[Ad-lib Outro]`
+
+Rules:
+- Keep the descriptor to a few words. Long descriptions inside a tag get unreliable.
+- Use a descriptor only where the energy or texture genuinely changes; tagging every section "explosive" flattens the dynamics.
+- Keep persistent genre, instrument, and production direction in `Style:`. Use tag descriptors for moment-to-moment changes, not the base sound.
+- For instrumental tracks, the same idea applies to cue tags: `[Sparse Theme A]`, `[Layered Build]`, `[Climax, full orchestra]`, `[Fade Loop Point]`.
+
 ## Common Forms
 
 ### ABAB

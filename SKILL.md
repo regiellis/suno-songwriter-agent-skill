@@ -44,6 +44,8 @@ Use bracketed section tags. For vocal songs:
 - `[Bridge]` for a contrast or twist before the final chorus
 - `[Outro]` or `[Coda]` to close
 
+You can add a short performance or energy descriptor inside a section tag to cue a dynamic change, for example `[Whispered Verse]`, `[Half-time Verse 2]`, `[Explosive Chorus, big guitars]`, `[Stripped Bridge, vocal and piano only]`, `[Double-time Outro]`. Keep these to a few words, use them only where the energy actually shifts, and keep instrument/production direction in `Style:` rather than stacking it into every tag.
+
 For instrumentals:
 - `[Intro]`, `[Theme A]`, `[Theme B]`, `[Breakdown]`, `[Build]`, `[Climax]`, `[Loop Point]`, `[Outro]`
 - For lofi/background music, prefer loopable sections and subtle variation.
@@ -195,6 +197,7 @@ If pronunciation is likely to fail, provide phonetic spelling or romanization in
 - Prefer concrete imagery over abstract filler.
 - Replace vague emotion labels with behavior, setting, sensory detail, or a sharper claim.
 - Avoid AI-default symmetry where every line says the same thing in different words.
+- Do not name living artists, bands, or songs in `Style:` (`sounds like <artist>`). Suno's copyright filters can reject or blandly average it. Translate the reference into era, scene, and production traits instead, for example `early-2010s Toronto melodic rap, hazy nocturnal R&B production` rather than naming the artist. A vague request like `happy rock song` is a credit-waster for the same reason: it gives Suno nothing specific to lock onto.
 
 ## Separate Style Field From Lyrics
 

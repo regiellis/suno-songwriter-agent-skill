@@ -17,6 +17,17 @@ If it was copied from habit, replace at least three dimensions:
 
 Do not reuse `cinematic alt-R&B`, `gospel pads`, `warm male vocal`, `piano and strings`, or similar defaults unless requested or clearly justified by the brief.
 
+## Translating Reference Artists
+
+When the user says "make it sound like [artist or band]", do not pass the name through to `Style:` — Suno's copyright filters can reject it or return a flattened result. Decode the reference into traits instead:
+
+- era / decade and scene: `late-90s East Coast hip hop`, `early-2010s Toronto melodic rap`, `1980s Manchester post-punk`
+- rhythm section: tempo feel, drum character, bass role
+- lead/signature sound: the instrument or texture most associated with that sound
+- production character: lo-fi vs hi-fi, analog vs digital, dry vs cavernous, narrow vs wide
+
+Example: instead of `sounds like a boom-bap legend`, write `late-90s East Coast boom bap, dusty and hard-hitting, chopped soul sample, knocking SP-1200 drums, upright bass, gritty vinyl mix`. This is also more portable to other AI music tools.
+
 ## Style Selection Matrix
 
 | Theme / Intent | Possible Lanes | Notes |
