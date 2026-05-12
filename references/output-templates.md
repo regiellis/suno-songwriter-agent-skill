@@ -167,7 +167,7 @@ Checks:
 ## Quick Vocal Prompt Pattern
 
 ```text
-Use $suno-lyrics to write a <genre> song about <theme>.
+Use $suno-songwriter to write a <genre> song about <theme>.
 Mood: <mood>.
 Vocal: <vocal identity or trained Voice>.
 Language: <language, dialect/region, script preference>.
@@ -180,7 +180,7 @@ Return title, Suno v5.5 style line, excluded styles, Custom Mode lyrics, notes, 
 ## Quick Instrumental Prompt Pattern
 
 ```text
-Use $suno-lyrics to create a Suno v5.5 instrumental <lofi beat / OST cue / ambient track / game loop>.
+Use $suno-songwriter to create a Suno v5.5 instrumental <lofi beat / OST cue / ambient track / game loop>.
 Mood: <mood>.
 Use: <instruments, tempo, production texture>.
 Scene or use case: <study loop, boss battle, title screen, sad film cue, menu music>.

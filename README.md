@@ -1,4 +1,4 @@
-# Suno Lyrics
+# Suno Songwriter
 
 Portable agent skill for creating Suno v5.5-ready vocal songs, instrumental tracks, style prompts, excluded styles, slider suggestions, multilingual lyric adaptations, and broader AI music prompts.
 
@@ -82,7 +82,7 @@ Common routing:
 Vocal song:
 
 ```text
-Use $suno-lyrics to write a Suno v5.5-ready song about protecting a child from the world.
+Use $suno-songwriter to write a Suno v5.5-ready song about protecting a child from the world.
 Genre: modern country.
 Vocal: male.
 Return title, style, excluded styles, lyrics, slider suggestions, and checks.
@@ -91,7 +91,7 @@ Return title, style, excluded styles, lyrics, slider suggestions, and checks.
 Instrumental:
 
 ```text
-Use $suno-lyrics to create a no-vocal OST cue for a snow-covered village before a boss fight.
+Use $suno-songwriter to create a no-vocal OST cue for a snow-covered village before a boss fight.
 Use orchestral strings, celesta, low brass, and taiko.
 Return title, style, excluded styles, arrangement, slider suggestions, and checks.
 ```
@@ -99,7 +99,7 @@ Return title, style, excluded styles, arrangement, slider suggestions, and check
 Multilingual adaptation:
 
 ```text
-Use $suno-lyrics to adapt this chorus into Mexican Spanish for a singable Latin pop hook.
+Use $suno-songwriter to adapt this chorus into Mexican Spanish for a singable Latin pop hook.
 Keep the emotional meaning, not the exact wording.
 Return language notes and pronunciation notes if needed.
 ```
@@ -107,7 +107,7 @@ Return language notes and pronunciation notes if needed.
 Prompt controls:
 
 ```text
-Use $suno-lyrics to improve this Suno v5.5 prompt.
+Use $suno-songwriter to improve this Suno v5.5 prompt.
 Suggest Style, Excluded Styles, Weirdness, and Style Influence.
 The song should be polished dance pop but not EDM or hyperpop.
 ```
@@ -117,16 +117,16 @@ The song should be polished dance pop but not EDM or hyperpop.
 This repository is the source copy. One active installed copy may live at:
 
 ```text
-/Users/rellis/.agents/skills/suno-lyrics
+/Users/rellis/.agents/skills/suno-songwriter
 ```
 
 Sync source to installed copy with:
 
 ```bash
-cp SKILL.md /Users/rellis/.agents/skills/suno-lyrics/SKILL.md
-rm -rf /Users/rellis/.agents/skills/suno-lyrics/references
-cp -R references /Users/rellis/.agents/skills/suno-lyrics/references
-cp agents/openai.yaml /Users/rellis/.agents/skills/suno-lyrics/agents/openai.yaml
+cp SKILL.md /Users/rellis/.agents/skills/suno-songwriter/SKILL.md
+rm -rf /Users/rellis/.agents/skills/suno-songwriter/references
+cp -R references /Users/rellis/.agents/skills/suno-songwriter/references
+cp agents/openai.yaml /Users/rellis/.agents/skills/suno-songwriter/agents/openai.yaml
 ```
 
 Adapt the destination path for other harnesses.
@@ -142,8 +142,8 @@ ruby -e 'require "yaml"; YAML.load_file("SKILL.md"); YAML.load_file("agents/open
 Check source and installed copies:
 
 ```bash
-diff -rq SKILL.md /Users/rellis/.agents/skills/suno-lyrics/SKILL.md
-diff -rq references /Users/rellis/.agents/skills/suno-lyrics/references
+diff -rq SKILL.md /Users/rellis/.agents/skills/suno-songwriter/SKILL.md
+diff -rq references /Users/rellis/.agents/skills/suno-songwriter/references
 ```
 
 Manual smoke tests should cover:

@@ -1,5 +1,5 @@
 ---
-name: suno-lyrics
+name: suno-songwriter
 description: Use this skill when the user wants to write, revise, translate, adapt, or prompt an AI-generated song or instrumental track, especially for Suno v5.5 Custom Mode. Apply it for lyrics, hooks, multilingual songs, language/dialect choices, song structure, style prompts, instrumental arrangement notes, lofi beats, OST/soundtrack cues, genre/mood/BPM/vocal/instrument direction, Voices, Custom Models, My Taste, anti-generic rewrites, and portable prompts for other AI music tools. Trigger even if the user asks casually for a song, chorus, verse, rap, ballad, foreign-language lyric, translation, instrumental, background music, or "make this work in Suno." Do not use for unrelated music theory, audio engineering, DAW mixing, licensing, or factual questions about artists.
 ---
 
