@@ -5,19 +5,22 @@ description: Use this skill when the user wants to write, revise, translate, ada
 
 # Suno Songs, Lyrics, And Instrumental Prompts
 
-Use this skill to create release-quality AI song inputs. Target Suno v5.5 first, then keep the result portable enough for other AI music systems by separating style, lyrics, structure, and performance notes.
+Use this skill to create release-quality AI song inputs. Target Suno v5.5 first (current as of 2026-05; if the platform's model has moved on, the field names and craft still apply — re-check version-specific limits), then keep the result portable enough for other AI music systems by separating style, lyrics, structure, and performance notes.
 
 Use references selectively:
 - Read `references/templates.md` first only when you need the reference index.
 - Read `references/output-templates.md` for complete output skeletons and quick invocation patterns.
-- Read `references/suno-v55-controls.md` for Style, Excluded Styles, Weirdness, Style Influence, Voices, Custom Models, My Taste, or Suno troubleshooting.
-- Read `references/songwriting-craft.md` for lyric writing, revision, hooks, rhyme, meter, vivid detail, and reference-lyric transformation.
-- Read `references/song-structure.md` when choosing or fixing verse/chorus order, pre-chorus use, bridge placement, AABA/AAA forms, 12-bar blues, EDM/drop forms, rap forms, or instrumental cue forms.
+- Read `references/suno-v55-controls.md` for Style, Excluded Styles, Weirdness, Style Influence, the Title field, Voices, Custom Models, My Taste, content filters, or Suno troubleshooting.
+- Read `references/suno-meta-tags.md` for cues inside the lyrics body: instrumental moments, vocal delivery, multiple vocalists, ad-libs, sound effects, and `[End]` length control.
+- Read `references/studio-and-iteration.md` for choosing between takes, Extend, Cover/Remix, Replace Section, Crop, stems, remaster, and the edit-vs-re-roll decision.
+- Read `references/songwriting-craft.md` for lyric writing, revision, hooks, rhyme, meter, point of view, vivid detail, and reference-lyric transformation.
+- Read `references/song-structure.md` when choosing or fixing verse/chorus order, pre-chorus use, bridge placement, section-tag descriptors, AABA/AAA forms, 12-bar blues, EDM/drop forms, rap forms, or instrumental cue forms.
 - Read `references/rule-of-3.md` when improving memorability, repeated phrases, melodic/rhythmic motifs, chorus payoff, or arrangement focus.
 - Read `references/eighty-twenty.md` when prioritizing the hook, identifying the highest-impact 20%, reducing over-polish, or balancing familiar genre signals with fresh ideas.
-- Read `references/instrumental.md` for lofi, OST, game loops, ambient, trailer cues, or other non-lyric tracks.
+- Read `references/instrumental.md` for lofi, OST, game loops, ambient, trailer cues, vocal chops, or other non-lyric tracks.
 - Read `references/multilingual.md` for non-English lyrics, translation, bilingual writing, dialect, script, romanization, or pronunciation.
 - Read `references/style-selection.md` when genre, vocalist, instrumentation, or production palette is missing, generic, or over-reused.
+- Read `references/genre-palettes.md` for a concrete BPM/instrument/production/vocal/structure menu per lane, used as a picker — not as defaults.
 - Read `references/evals.md` when testing skill triggering, smoke-test coverage, regression behavior, or output quality.
 
 ## Core Workflow
@@ -45,6 +48,10 @@ Use bracketed section tags. For vocal songs:
 - `[Outro]` or `[Coda]` to close
 
 You can add a short performance or energy descriptor inside a section tag to cue a dynamic change, for example `[Whispered Verse]`, `[Half-time Verse 2]`, `[Explosive Chorus, big guitars]`, `[Stripped Bridge, vocal and piano only]`, `[Double-time Outro]`. Keep these to a few words, use them only where the energy actually shifts, and keep instrument/production direction in `Style:` rather than stacking it into every tag.
+
+The lyrics body also accepts inline cues on their own line: instrumental moments (`[Guitar Solo]`, `[Instrumental Break]`, `[Beat Drop]`), vocal delivery (`[Spoken]`, `[Whispered]`, `[Harmonies]`), vocalist hand-offs (`[Male Voice]`, `[Female Voice]`, `[Duet]`), ad-libs in parens (`(yeah)`), sound effects (`[Applause]`), and ending control (`[End]`, `[Fade Out]`). Use them sparingly — too many get ignored or sung aloud. `[End]` after the final section is the reliable way to stop Suno inventing extra verses. See `references/suno-meta-tags.md`.
+
+Suno can silently reject or blandly average a generation that trips a content/copyright filter — real-person names (in `Style:` *and* lyrics), brand names, heavy profanity, or graphic content. If a result comes back blank or oddly generic, suspect the filter before the sliders; soften or imply the offending material and note the change in `Suno v5.5 Notes:`.
 
 For instrumentals:
 - `[Intro]`, `[Theme A]`, `[Theme B]`, `[Breakdown]`, `[Build]`, `[Climax]`, `[Loop Point]`, `[Outro]`

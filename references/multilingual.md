@@ -68,13 +68,20 @@ Language Notes: Japanese, native script with optional romaji hook; compact J-pop
 
 ## Pronunciation
 
-If pronunciation is likely to fail, add concise notes:
+Suno (and AI music models generally) frequently anglicize vowels, mangle tonal languages, stress the wrong syllable, or slur unfamiliar consonant clusters — more so when the vocal model wasn't trained heavily on that language. Plan for it instead of hoping.
+
+Two tools:
+
+1. **In-line phonetic respelling** — rewrite the troublesome word *in the lyric line itself* the way it should sound, when the literal spelling reliably fails. Example: write `cora-SOHN` instead of `corazón` if the model keeps saying "kor-uh-zon". Use this sparingly — only on words that actually break — and note it so the user can revert for a lyric sheet.
+2. **`Pronunciation Notes:` block** — keep the lyrics clean and put guidance separately:
 
 ```text
-Pronunciation Notes: Keep "corazon" as "co-ra-ZON"; avoid over-anglicizing vowels.
+Pronunciation Notes: "corazón" = "co-ra-SOHN" (stress the last syllable, open "o"); keep "ll" in "lluvia" soft, not "y".
 ```
 
-Use romanization only when useful. Do not clutter every line with phonetics unless requested.
+Other levers: choose romanization over native script if the model handles it better for that language; pick simpler near-synonyms over words with hard clusters; lower Weirdness, which helps vocal stability. If quality matters for release, recommend native-speaker review and a re-take or Replace Section on bad lines (see `references/studio-and-iteration.md`).
+
+Do not clutter every line with phonetics unless requested.
 
 ## Language Structure Notes
 

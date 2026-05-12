@@ -23,6 +23,14 @@ Every section should move that promise. If a section repeats the same emotional 
 - Bridge: new angle, confession, contradiction, time jump, or final realization.
 - Outro: resolve, echo the hook, or leave one memorable image.
 
+Make the chorus *mechanically* plainer than the verses, not just "more emotional": shorter lines, fewer new images, fewer proper nouns, more repetition of the title phrase, more open vowels at line ends. AI music models (Suno included) differentiate chorus from verse partly by this contrast — if the chorus lyrics are as dense and detail-packed as the verse, the generated chorus often fails to lift.
+
+## Point Of View And Tense
+
+Pick a point of view (first person, second person "you", third person, or a we/group voice) and hold it unless a shift is deliberate (e.g. verse in third person, chorus turning to "you"). Accidental POV drift makes a lyric feel AI-generated.
+
+Same for tense: a memory song usually stays past; a confrontation usually stays present. If you move between them, make the move land on a section boundary and serve the story (flashback verse, present-tense chorus). Check this on the revision pass.
+
 ## Hook Strength
 
 Ask:
@@ -126,9 +134,11 @@ If the reference may be copyrighted or from an existing song, avoid close paraph
 ## Revision Checklist
 
 - Does each section have a distinct job?
-- Is the chorus simpler and more repeatable than the verses?
+- Is the chorus mechanically simpler and more repeatable than the verses (shorter lines, fewer images, more title repetition)?
 - Are the longest lines singable?
 - Is the hook emotionally clear?
+- Is the point of view consistent (or shifted on purpose)?
+- Is the tense consistent (or shifted on purpose, on a section boundary)?
 - Are there 1-3 vivid human details?
 - Are cliches replaced or justified?
 - Is the source material transformed enough when reference lyrics were provided?

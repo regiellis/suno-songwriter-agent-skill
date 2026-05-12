@@ -12,6 +12,10 @@ Keep fields clean:
 - `Arrangement:` musical cue map for instrumental tracks.
 - `Suno v5.5 Notes:` short operational guidance only when useful.
 
+## Title Field
+
+Suno has a separate Title field. It is mostly a label, but the model does read it — a vivid, on-theme title nudges mood and lyrical content, and a generic one (`Untitled`, `Song 1`) wastes a small signal. Use the same `Title:` you put in the output. Do not stuff genre or production words into the title; that belongs in `Style:`.
+
 ## Style Field
 
 Use a compact positive prompt:
@@ -157,6 +161,21 @@ my unique sound, jazz metal hyperpop reggae country opera, exactly like six unre
 
 Suggest the Magic Wand in the Styles field for personalized suggestions, then revise the result for genre, mood, tempo, vocal, instruments, and exclusions.
 
+## Content Filters
+
+Suno can silently reject, blank, or blandly average a generation when the inputs trip a content or copyright filter. Common triggers:
+
+- names of real living people, bands, or song titles — in `Style:` **and** in `Lyrics:` (see `Style Field` § No Artist Names)
+- brand and trademark names
+- explicit profanity or slurs (some profanity is allowed; heavy use is risky)
+- graphic violence, sexual content, or self-harm depiction in the lyrics
+
+If a generation comes back blank or weirdly generic, suspect the filter before the sliders. Fixes: replace the proper noun with a description, soften or imply the explicit content, or move the edge into subtext. Note any deliberate softening in `Suno v5.5 Notes:` so the user knows why a line changed.
+
+## Iteration
+
+Suno returns two takes per generation — treat the first run as picking the stronger seed, not the final answer. Build from the better take with Extend / Replace Section / Remix rather than re-rolling the whole prompt. When you do re-roll, change one lever at a time: prompt, Weirdness, or Style Influence. For Extend, Cover/Remix, Replace Section, Crop, stems, and the edit-vs-re-roll decision, see `references/studio-and-iteration.md`.
+
 ## Troubleshooting
 
 - Style ignored: raise Style Influence by 10-15%, front-load genre, remove conflicting tags.
@@ -165,6 +184,11 @@ Suggest the Magic Wand in the Styles field for personalized suggestions, then re
 - Vocal identity drifts: lower Weirdness and simplify vocal descriptors.
 - Wrong genre appears: add it to `Excluded Styles` and keep Style Influence medium-high.
 - Generic or blocked result from an artist reference: remove the artist name and rebuild the Style line from era, subgenre, rhythm section, and mix character.
+- Blank or oddly generic generation: suspect a content/copyright filter — check for real names, brands, or explicit lyrics before touching sliders.
+- Vocals mumbled or unintelligible: cut syllables per line, use stronger open vowels, simplify the syntax, and slow the implied delivery; then Replace Section rather than re-rolling the whole take.
+- Model invents extra verses you didn't write: add `[End]` after the last section in the lyrics (see `references/suno-meta-tags.md`); to remove an already-generated extra section, use Replace Section.
+- Chorus sounds like just another verse: make the chorus lyrics mechanically simpler — shorter lines, fewer new images, more repetition of the title phrase.
+- Pronunciation or accent drift (esp. non-English): respell the problem word phonetically in the lyric line, or add a `Pronunciation Notes:` line; for one bad word in a good take, Replace Section.
 - Mix feels muddy: add positive style terms such as `clean production`, `wide stereo`, `clear vocal upfront`.
 - Prompt feels overcontrolled: remove half the adjectives before changing sliders.
 - When iterating, change one thing at a time: prompt, Weirdness, or Style Influence.

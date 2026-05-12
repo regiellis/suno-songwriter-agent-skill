@@ -26,6 +26,34 @@ Covers:
 - My Taste
 - prompt troubleshooting
 
+## Suno Meta-Tags
+
+Read `references/suno-meta-tags.md` when the lyrics need cues beyond plain section headers: instrumental moments, vocal delivery, multiple vocalists, ad-libs, sound effects, or ending control.
+
+Covers:
+- section headers vs inline cues
+- `[Guitar Solo]`, `[Instrumental Break]`, `[Beat Drop]`
+- `[Spoken]`, `[Whispered]`, `[Harmonies]`
+- `[Male Voice]` / `[Female Voice]` / `[Duet]`
+- ad-libs and backing phrases
+- sound-effect tags
+- `[End]` / `[Fade Out]` length control
+- failure modes (tags sung aloud, too many tags ignored)
+
+## Studio And Iteration
+
+Read `references/studio-and-iteration.md` when the user is iterating on a generation or preparing a production: choosing between takes, Extend, Cover/Remix, Replace Section, Crop, stems, remaster, and the edit-vs-re-roll decision.
+
+Covers:
+- two clips per run
+- Extend
+- Cover / Remix / restyle
+- Replace Section / Edit / inpainting
+- Crop / trim
+- stems and DAW handoff
+- remaster
+- edit-vs-re-roll decision table
+
 ## Songwriting Craft
 
 Read `references/songwriting-craft.md` when writing or revising lyrics, hooks, verses, choruses, bridges, or rhyme/meter.
@@ -105,6 +133,15 @@ Covers:
 - anti-lock-in rule
 - genre examples
 - style prompt examples
+
+## Genre Palettes
+
+Read `references/genre-palettes.md` when you need a concrete BPM band, signature instruments, production textures, vocal identities, or typical structure for a lane — used as a picker to fill gaps and avoid lock-in, not as a set of defaults.
+
+Covers:
+- palette table across pop, rock, hip hop, electronic, folk/country, soul/gospel, world/regional, score, and niche lanes
+- how to pick from the table without locking in
+- BPM bands, instrument menus, production vocabulary, vocal identities, default structures
 
 ## Evals And Smoke Tests
 

@@ -52,6 +52,11 @@ Multilingual outputs should include:
 | R1 | Reference lyrics transformation | `Use $suno-songwriter to write a new song inspired by these lyrics: <paste known/reference lyrics>. Change the story to protecting a child.` | Extracts theme, writes new title/hook/images, avoids close phrasing reuse. |
 | S1 | Style selection | `Use $suno-songwriter to write a song about winning a street race, no genre specified.` | Chooses or offers a fitting lane; labels assumptions; avoids repeated default palette. |
 | ST1 | Structure | `Use $suno-songwriter to turn this loose idea into an ABABCB pop-rock structure with a bridge twist.` | Uses song-structure reference behavior; sections fit ABABCB and bridge changes meaning. |
+| MT1 | Meta-tags | `Use $suno-songwriter for a classic rock song with a guitar solo after the second chorus, and make sure Suno doesn't tack on extra verses.` | Lyrics include `[Guitar Solo]` on its own line and `[End]` after the last section; notes mention them. |
+| AR1 | Artist reference | `Use $suno-songwriter to make a track that sounds like Drake.` | No artist name in `Style:`; rewritten to era/scene/production (e.g. early-2010s Toronto melodic rap, nocturnal R&B); brief note on why. |
+| SD1 | Section descriptors | `Use $suno-songwriter for an indie song with whispered verses and a huge explosive chorus.` | Uses descriptors in section tags (`[Whispered Verse]`, `[Explosive Chorus]`), not just adjectives crammed into `Style:`. |
+| IT1 | Iteration | `Use $suno-songwriter — how do I fix one weak verse in a Suno track I otherwise like?` | Recommends Replace Section / Edit over re-rolling; may mention keeping syllable count close; references studio workflow. |
+| GP1 | Genre palette | `Use $suno-songwriter to write a UK garage track about a missed last train.` | Style line uses UK-garage-appropriate BPM (~130-138), shuffled drums, sub bass, vocal chops; not a generic dance prompt. |
 
 ## Should-Trigger Queries
 
@@ -81,6 +86,14 @@ These should trigger the skill:
   },
   {
     "query": "adapt this hook into Brazilian Portuguese so it sings naturally",
+    "should_trigger": true
+  },
+  {
+    "query": "how do I stop Suno from adding extra verses to my song",
+    "should_trigger": true
+  },
+  {
+    "query": "make me a track that sounds like a 90s boom bap classic",
     "should_trigger": true
   }
 ]
@@ -129,6 +142,10 @@ Use these after changing the skill:
 - Does `Excluded Styles` avoid contradicting `Style`?
 - Does style selection avoid repeatedly defaulting to the same genre/palette?
 - Do slider ranges match the intended risk level?
+- Does an artist-name request get rewritten to era/scene/production instead of passed through to `Style:`?
+- Does a "Suno keeps adding verses" concern produce an `[End]` tag rather than only prose advice?
+- Are section-tag descriptors used where the energy actually shifts, not stacked on every section?
+- Does a "fix one section" request recommend Replace Section over a full re-roll?
 - Does the response load only relevant reference behavior rather than all guidance?
 
 ## Output Quality Rubric

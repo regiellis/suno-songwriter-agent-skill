@@ -131,6 +131,22 @@ Section form:
 [Final Hit]
 ```
 
+## Vocal Chops And Non-Lexical Vocals
+
+"Instrumental" does not always mean "zero human voice." Many tracks want wordless vocals as texture: chopped/pitched samples, choir "aahs", "oohs", "la la" hooks, chants, hums, breaths.
+
+If the user wants these:
+- Do **not** put a blanket `no vocals` in `Style:`/`Excluded Styles:` — that fights the request. Instead exclude only what you don't want, e.g. `Excluded Styles: lead vocals, rap vocals, spoken word`.
+- Describe the wordless vocal in `Style:`: `ethereal vocal chops`, `wordless choir aahs`, `chanted "hey" hook`, `breathy hums`.
+- In `Arrangement:`, mark where they enter: `[Theme B] add chopped vocal stabs over the groove`, `[Climax] full wordless choir`.
+- If you need actual syllables sung, put them in `Lyrics:` with section tags and keep them non-lexical (`Ooh, ah, na na na`), and say so in `Suno v5.5 Notes:`.
+
+If the user genuinely wants nothing vocal at all, keep `no vocals` in both fields and exclude `choir`, `vocal chops`, and `chants` explicitly.
+
+## Stems And Handoff
+
+When the instrumental is headed for a DAW, a video edit, or layering with live performance, mention stems in `Suno v5.5 Notes:` (e.g. `Plan: generate, pick take, split stems, score to picture`). For loops and stingers, note that Crop can trim the take to length. See `references/studio-and-iteration.md` for the full post-generation workflow.
+
 ## Instrumental Output Checks
 
 - Arrangement form:

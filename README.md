@@ -50,14 +50,17 @@ Keep the portable behavior in `SKILL.md` and `references/`; keep product-specifi
 - `SKILL.md` - main skill instructions and trigger description
 - `references/templates.md` - reference index and routing map
 - `references/output-templates.md` - reusable output skeletons and prompt patterns
-- `references/suno-v55-controls.md` - Style, Excluded Styles, sliders, personalization, and troubleshooting
-- `references/songwriting-craft.md` - hooks, sections, rhyme, meter, vivid detail, and lyric transformation
-- `references/song-structure.md` - section jobs, common forms, bridge/pre-chorus choices, and structure fixes
+- `references/suno-v55-controls.md` - Style, Excluded Styles, sliders, Title field, personalization, content filters, and troubleshooting
+- `references/suno-meta-tags.md` - inline lyric cues: instrumental moments, vocal delivery, multiple vocalists, ad-libs, sound effects, and `[End]` length control
+- `references/studio-and-iteration.md` - choosing takes, Extend, Cover/Remix, Replace Section, Crop, stems, remaster, and the edit-vs-re-roll decision
+- `references/songwriting-craft.md` - hooks, sections, rhyme, meter, point of view, vivid detail, and lyric transformation
+- `references/song-structure.md` - section jobs, section-tag descriptors, common forms, bridge/pre-chorus choices, and structure fixes
 - `references/rule-of-3.md` - statement, repetition, twist, motif payoff, and arrangement focus
 - `references/eighty-twenty.md` - hook-first prioritization, high-impact revision, and 80% familiar / 20% fresh balance
-- `references/instrumental.md` - lofi, OST, game loops, ambience, and non-lyric arrangements
+- `references/instrumental.md` - lofi, OST, game loops, ambience, vocal chops, and non-lyric arrangements
 - `references/multilingual.md` - translation, adaptation, dialect, script, and pronunciation guidance
 - `references/style-selection.md` - genre/palette selection and anti-lock-in examples
+- `references/genre-palettes.md` - per-lane BPM/instrument/production/vocal/structure menu, used as a picker not as defaults
 - `references/evals.md` - smoke tests, trigger queries, regression checks, and output rubric
 
 ## Reference Loading Guide
@@ -68,6 +71,8 @@ Common routing:
 
 - Full output skeletons: `references/output-templates.md`
 - Suno controls and sliders: `references/suno-v55-controls.md`
+- Inline lyric cues / meta-tags: `references/suno-meta-tags.md`
+- Post-generation workflow (Extend, Remix, Replace Section, stems): `references/studio-and-iteration.md`
 - Lyric craft and rewrites: `references/songwriting-craft.md`
 - Song forms and section order: `references/song-structure.md`
 - Stronger repetition/payoff: `references/rule-of-3.md`
@@ -75,6 +80,7 @@ Common routing:
 - Instrumental tracks: `references/instrumental.md`
 - Non-English or bilingual lyrics: `references/multilingual.md`
 - Genre and palette choice: `references/style-selection.md`
+- Concrete per-lane palette menu: `references/genre-palettes.md`
 - Skill testing and smoke tests: `references/evals.md`
 
 ## Typical Invocations
