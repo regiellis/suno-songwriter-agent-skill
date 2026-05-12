@@ -57,10 +57,12 @@ Keep the portable behavior in `SKILL.md` and `references/`; keep product-specifi
 - `references/song-structure.md` - section jobs, section-tag descriptors, common forms, bridge/pre-chorus choices, and structure fixes
 - `references/rule-of-3.md` - statement, repetition, twist, motif payoff, and arrangement focus
 - `references/eighty-twenty.md` - hook-first prioritization, high-impact revision, and 80% familiar / 20% fresh balance
-- `references/instrumental.md` - lofi, OST, game loops, ambience, vocal chops, and non-lyric arrangements
-- `references/multilingual.md` - translation, adaptation, dialect, script, and pronunciation guidance
+- `references/instrumental.md` - lofi, OST, game loops, ambience, idents, vocal chops, and non-lyric arrangements
+- `references/screen-music.md` - anime openings/endings, TV theme songs, end-credit songs, trailer cuts, idents, game themes, and edit-length guidance
+- `references/multilingual.md` - translation, adaptation, dialect, script, pronunciation, and Korean lanes beyond K-pop
 - `references/style-selection.md` - genre/palette selection and anti-lock-in examples
 - `references/genre-palettes.md` - per-lane BPM/instrument/production/vocal/structure menu, used as a picker not as defaults
+- `references/remix-and-style-match.md` - lyric remix/flip, writing in an artist's style/cadence without copying lyrics, and lyric-style analysis
 - `references/evals.md` - smoke tests, trigger queries, regression checks, and output rubric
 
 ## Reference Loading Guide
@@ -78,9 +80,11 @@ Common routing:
 - Stronger repetition/payoff: `references/rule-of-3.md`
 - Hook-first revision: `references/eighty-twenty.md`
 - Instrumental tracks: `references/instrumental.md`
-- Non-English or bilingual lyrics: `references/multilingual.md`
+- Anime OP/ED, TV themes, trailers, idents, game themes: `references/screen-music.md`
+- Non-English or bilingual lyrics (incl. Korean beyond K-pop): `references/multilingual.md`
 - Genre and palette choice: `references/style-selection.md`
 - Concrete per-lane palette menu: `references/genre-palettes.md`
+- Lyric remix / write in an artist's style / lyric-style analysis: `references/remix-and-style-match.md`
 - Skill testing and smoke tests: `references/evals.md`
 
 ## Typical Invocations

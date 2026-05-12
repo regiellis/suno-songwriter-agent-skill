@@ -46,10 +46,18 @@ Pair this with `references/style-selection.md` (lane selection, anti-lock-in) an
 | Cinematic / hybrid trailer | 90–140 | low strings, brass, taiko, hybrid impacts, choir, synth pulses | wide, dynamic, epic | `no vocals` or choir | Tension / Build / Climax / Button |
 | Orchestral OST | 60–130 | strings, woodwinds, harp, brass, light percussion | hall ambience, dynamic, thematic | `no vocals` | cue-arc: intro / develop / climax / resolve |
 | Chiptune / game | 100–160 | square/triangle leads, noise drums, arpeggios | clean 8/16-bit, bright | `no vocals` | loopable A/B with intensity layer |
+| Anime OP (J-rock/J-pop) | 150–185 (mid-tempo OPs exist) | driving electric guitars, synths, busy drums, piano riff, strings stabs | energetic, anthemic, polished | soaring Japanese lead, English hook accents | TV-size: intro riff / verse / pre / chorus / tag |
+| Anime ED | 70–110 | acoustic/clean guitar, electric piano, soft synths, brushed drums, strings | warm, reflective, intimate | gentle bittersweet Japanese lead | one verse / chorus in TV cut, mellow |
+| TV theme / sitcom theme | 100–140 | bright guitars, piano, organ, hand percussion, light horns | clean, hooky, warm | sing-along lead or group vocals (or instrumental sting) | 30–60s: hook-first, minimal build |
 | Latin pop | 90–115 | nylon/acoustic guitar, congas, timbales, piano, brass | warm, percussion-forward, radio-clean | passionate Spanish lead, harmonies | Verse / Pre / Chorus |
 | Reggaeton | 88–98 | dembow rhythm, deep kick, synth bass, plucks | punchy club mix, vocal-forward | rhythmic Spanish lead, ad-libs | Intro / Verse / Hook |
 | Afrobeats | 100–115 | log drum / syncopated percussion, bright guitars, mellow synths | clean, spacious, groovy | smooth lead, layered backing | Verse / Hook driven |
 | K-pop-inspired | 100–130 | glossy synths, trap/EDM drums, guitar, brass stabs | hyper-polished, section-contrast heavy | multi-vocalist, English hook accents, rap section | Intro / Verse / Pre / Chorus / Post / Dance Break / Bridge / Final |
+| Korean ballad | 60–80 | piano, strings, soft drums, acoustic/electric guitar, light synth pads | warm, dynamic build, vocal-forward | powerful emotive Korean lead, big belted chorus | Verse / Pre / Chorus / Bridge (key-change-style lift) |
+| K-hip hop / K-R&B | 70–95 (or 130–145 half-time) | trap or boom-bap drums, jazzy keys, 808s, mellow guitar, vinyl warmth | smooth, moody, clean vocal mix | sung-rap and melodic Korean lead, English ad-libs | Intro / Verse / Hook / Verse / Hook |
+| Korean indie / folk | 80–120 | jangly/clean electric guitar, acoustic guitar, soft synths, brushed drums | intimate, slightly lo-fi, natural | gentle conversational Korean lead, light harmony | ABAB / ABABCB, restrained |
+| Trot | 100–140 | accordion, synth brass, shuffle drums, electric guitar, organ | bright, retro, punchy | bold vibrato-heavy Korean lead | verse / refrain, lots of repetition |
+| City pop | 100–125 | slap/fretless bass, electric piano, clean funk guitar, brass, lush synths | warm, glossy, 80s AOR sheen | smooth Japanese lead, airy backing | verse / pre / chorus, groove-driven |
 | Bossa nova / MPB | 70–100 | nylon guitar, brushed drums, upright bass, soft piano, flute | intimate, warm, uncluttered | breathy Portuguese lead | AABA-leaning, gentle |
 | Chanson / French pop | 75–110 | accordion, piano, strings, brushed drums | warm cafe ambience, vocal-forward | intimate French lead | verse-driven, refrain |
 | Bollywood-inspired | 90–140 | dholak/tabla, strings, flute, sitar, modern synths/drums | lush, dramatic, layered | expressive lead, big group sections | verse / refrain / instrumental break |
@@ -66,3 +74,5 @@ Pair this with `references/style-selection.md` (lane selection, anti-lock-in) an
 - Do not let any one row become your house style. The skill explicitly bans defaulting to `cinematic alt-R&B`, `gospel pads`, `warm male vocal`, `piano and strings` — and that applies to every other row here too.
 - Sub-genres and fusions are fine and often better than a bare lane label. Combine deliberately, not by piling on tags (see `references/rule-of-3.md` § Arrangement Rule Of 3).
 - For non-English lanes, match lyric phrasing to the language, not just the genre label (see `references/multilingual.md`).
+- "Korean music" is not only K-pop — Korean ballad, K-hip hop, K-R&B, Korean indie/folk, OST, and trot are distinct lanes; ask or infer which (see `references/multilingual.md`).
+- For anime OP/ED, TV themes, idents, trailer cuts, and game themes, see `references/screen-music.md` for the form and edit-length specifics; the rows above are just the sonic starting point.

@@ -57,6 +57,12 @@ Multilingual outputs should include:
 | SD1 | Section descriptors | `Use $suno-songwriter for an indie song with whispered verses and a huge explosive chorus.` | Uses descriptors in section tags (`[Whispered Verse]`, `[Explosive Chorus]`), not just adjectives crammed into `Style:`. |
 | IT1 | Iteration | `Use $suno-songwriter — how do I fix one weak verse in a Suno track I otherwise like?` | Recommends Replace Section / Edit over re-rolling; may mention keeping syllable count close; references studio workflow. |
 | GP1 | Genre palette | `Use $suno-songwriter to write a UK garage track about a missed last train.` | Style line uses UK-garage-appropriate BPM (~130-138), shuffled drums, sub bass, vocal chops; not a generic dance prompt. |
+| SC1 | Anime OP | `Use $suno-songwriter to write an anime opening for a shounen action series, TV-size.` | Vocal song; fast anthemic J-rock/J-pop style; instrumental riff intro; hook lands early; `Suno v5.5 Notes:` states the ~90s cut and uses `[End]`; Japanese (or labeled) vocals. |
+| SC2 | TV theme | `Use $suno-songwriter for a 45-second sitcom theme song, warm and hooky.` | Short hook-first structure, minimal build, button ending; vocal song or sting clearly chosen; length stated. |
+| K1 | Korean lane (not K-pop) | `Use $suno-songwriter to write a Korean ballad about a long-distance goodbye.` | Korean ballad palette (slow, piano/strings, big emotive chorus), Korean lyrics, language notes; does not default to K-pop dance structure. |
+| RX1 | Lyric remix | `Use $suno-songwriter to remix my lyrics into a drill track, keep the premise, change everything else: <user's own lyrics>.` | States kept-vs-changed in one line; rewrites to drill (BPM, structure, density); new lines/images; `Remix Notes:`; does not preserve original phrasing. |
+| SM1 | Style match | `Use $suno-songwriter to write original rap lyrics in the cadence and style of Mos Def — don't use his actual lyrics.` | Builds a style fingerprint (dense internal rhyme, conscious themes, jazz-inflected sonic lane); writes original lines on a fresh subject; no artist name in `Style:`; `Style Reference:` line states what was modeled and that lyrics are original; refuses/avoids quoting real lyrics. |
+| SM2 | Lyric-style analysis | `Use $suno-songwriter to analyze the cadence and style of these lyrics: <paste user's lyrics>.` | Returns a structured fingerprint (cadence / rhyme / line shape / diction / themes / sonic lane); does not quote long source spans back; offers to write original lyrics matching it. |
 
 ## Should-Trigger Queries
 
@@ -94,6 +100,22 @@ These should trigger the skill:
   },
   {
     "query": "make me a track that sounds like a 90s boom bap classic",
+    "should_trigger": true
+  },
+  {
+    "query": "write me an anime opening theme, energetic and fast",
+    "should_trigger": true
+  },
+  {
+    "query": "write original lyrics in the style of Mos Def, don't copy his songs",
+    "should_trigger": true
+  },
+  {
+    "query": "remix these lyrics into a country ballad",
+    "should_trigger": true
+  },
+  {
+    "query": "write a Korean ballad about missing someone",
     "should_trigger": true
   }
 ]
@@ -146,6 +168,9 @@ Use these after changing the skill:
 - Does a "Suno keeps adding verses" concern produce an `[End]` tag rather than only prose advice?
 - Are section-tag descriptors used where the energy actually shifts, not stacked on every section?
 - Does a "fix one section" request recommend Replace Section over a full re-roll?
+- Does a style-match request produce original lyrics (no reproduced/close-paraphrased source lines) with a `Style Reference:` line and no artist name in `Style:`?
+- Does a "Korean song" request avoid auto-defaulting to K-pop when the brief implies ballad, hip hop, or indie?
+- Does a screen-tied request route output correctly (anime OP/ED, end-credit song = `Lyrics:`; trailer cut, ident, atmospheric main title = `Arrangement:`) and state the edit length?
 - Does the response load only relevant reference behavior rather than all guidance?
 
 ## Output Quality Rubric

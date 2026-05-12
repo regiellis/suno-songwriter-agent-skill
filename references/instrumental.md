@@ -2,6 +2,8 @@
 
 Use this reference for non-lyric or mostly non-lyric tracks: lofi beats, OST cues, game loops, ambient, trailer music, underscore, menu themes, battle themes, meditation music, and background music.
 
+For music tied to picture and to an edit length — anime openings/endings, TV theme songs, idents, trailer cuts, game themes — see also `references/screen-music.md`; this file owns the purely instrumental cue craft, that one owns the screen-specific forms (including vocal ones like anime OP/ED).
+
 ## Instrumental Mode Rules
 
 - Use `Arrangement:` instead of `Lyrics:`.
@@ -129,6 +131,18 @@ Section form:
 [Break]
 [Full Climax]
 [Final Hit]
+```
+
+For the screen-specific three-beat trailer structure (setup → turn/braam → action build → climax → button), teaser vs full-trailer length, and when a licensed vocal song goes over the cut instead, see `references/screen-music.md` § Trailer Cuts.
+
+## Idents / Stings / Bumpers
+
+3–15 seconds: channel idents, logo audio, segment bumpers, app sounds. One motif, one gesture, a clean resolution or a clean loop. Treat as a micro-cue — describe the single sound idea, name the exact length, and end with `[End]` (or mark `[Loop Point]` if it must loop).
+
+```text
+[Logo Hit]
+[Resolve]
+[End]
 ```
 
 ## Vocal Chops And Non-Lexical Vocals

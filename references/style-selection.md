@@ -40,8 +40,9 @@ Example: instead of `sounds like a boom-bap legend`, write `late-90s East Coast 
 | story song, memory, small-town detail | country, Americana, folk, singer-songwriter, indie rock | Prioritize plainspoken detail and narrative arc. |
 | menace, night drive, tension | dark synthpop, techno, trap, industrial, post-punk | Use Excluded Styles to prevent unwanted drift. |
 | study, focus, low-distraction background | lofi chillhop, ambient, downtempo, jazzhop, soft house | Use no vocals and loopable arrangement tags. |
-| game or film scene | orchestral, hybrid trailer, chiptune, ambient, synthwave, post-rock | Structure around cue function, not lyric hooks. |
-| multilingual pop or regional vocal song | Latin pop, reggaeton, bachata, bossa nova, chanson, J-pop, K-pop, Afrobeats, Bollywood-inspired, Arabic pop | Match lyric phrasing to the language, not only the genre label. |
+| game or film scene | orchestral, hybrid trailer, chiptune, ambient, synthwave, post-rock | Structure around cue function, not lyric hooks. See `references/instrumental.md`. |
+| screen-tied song (anime OP/ED, TV theme, end-credit song, trailer) | J-rock/J-pop anime OP, mellow anime ED, sitcom theme, atmospheric main title, hybrid trailer cue, needle-drop ballad | Pick the format first; it dictates length, structure, and whether it's a vocal song or a cue. See `references/screen-music.md`. |
+| multilingual pop or regional vocal song | Latin pop, reggaeton, bachata, bossa nova, chanson, J-pop, city pop, K-pop, Korean ballad, K-hip hop, Korean indie, Afrobeats, Bollywood-inspired, Arabic pop, trot | Match lyric phrasing to the language, not only the genre label. "Korean music" spans many lanes beyond K-pop. See `references/multilingual.md`. |
 
 ## Vocal Identity Options
 

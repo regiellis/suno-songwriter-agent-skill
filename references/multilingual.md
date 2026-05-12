@@ -93,8 +93,8 @@ These are heuristics, not grammar guarantees. If publication quality matters, re
 | Portuguese | Brazilian pop can use conversational phrasing and open vowel hooks; watch nasal sounds and regional vocabulary. |
 | French | Prioritize smooth vowel flow and elegant phrasing; exact English-style end rhyme may sound forced. |
 | Italian | Strong vowels and melodic phrasing work well; keep lines singable and avoid overlong translations. |
-| Japanese | Short compact phrases, repetition, and occasional English hook phrases can work; choose native script or romaji intentionally. |
-| Korean | K-pop structures may use code-switching, pre-chorus lift, post-chorus tags, and compact repeated hook phrases. |
+| Japanese | Short compact phrases, repetition, and occasional English hook phrases can work; choose native script or romaji intentionally. Anime OP/ED, city pop, and J-rock have their own phrasing norms (see `references/screen-music.md`). |
+| Korean | Not only K-pop — also Korean ballad (long emotive lines, big belted chorus), K-hip hop / K-R&B (conversational sung-rap, English ad-libs), Korean indie/folk (gentle, restrained), OST, and trot. K-pop itself uses code-switching, pre-chorus lift, post-chorus tags, dance-break sections, and compact repeated hooks. Ask or infer which lane; phrasing and structure differ a lot between them. Hangul by default; English hook phrases are common but should be intentional. |
 | Mandarin | Tone and meaning matter; keep phrases simple, avoid dense metaphors, and consider native-speaker review. |
 | Arabic | Specify dialect or Modern Standard Arabic; melisma-friendly vowels and refrain/call-response can fit many styles. |
 | Hindi/Urdu | Hooks may lean on repeated title phrases and vowel-rich endings; specify script/romanization and avoid mixing registers accidentally. |

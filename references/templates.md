@@ -113,6 +113,20 @@ Covers:
 - ambient and trailer cues
 - loop points and cue arcs
 
+## Screen Music
+
+Read `references/screen-music.md` when the music is tied to picture and an edit length: anime openings/endings, TV theme songs, end-credit songs, trailer cuts, idents, and game themes.
+
+Covers:
+- anime OP (TV-size form, fast anthemic J-rock/J-pop)
+- anime ED (mellow, reflective)
+- TV theme songs, main titles, idents, stings, bumpers
+- end-credit / needle-drop songs
+- trailer cuts (three-beat structure, teaser vs full)
+- video-game themes
+- edit-length guidance (full / TV-size / sting / ident) and `[End]` vs `[Loop Point]`
+- which formats are vocal songs vs instrumental cues
+
 ## Multilingual Songs
 
 Read `references/multilingual.md` when the user asks for non-English lyrics, translation, bilingual writing, dialect, script, romanization, or pronunciation notes.
@@ -121,7 +135,8 @@ Covers:
 - translation vs singable adaptation
 - dialect/region handling
 - script and romanization
-- language-specific phrasing
+- language-specific phrasing (including Korean lanes beyond K-pop)
+- AI mispronunciation and phonetic respelling
 - native-speaker review caveats
 
 ## Style Selection
@@ -139,9 +154,20 @@ Covers:
 Read `references/genre-palettes.md` when you need a concrete BPM band, signature instruments, production textures, vocal identities, or typical structure for a lane — used as a picker to fill gaps and avoid lock-in, not as a set of defaults.
 
 Covers:
-- palette table across pop, rock, hip hop, electronic, folk/country, soul/gospel, world/regional, score, and niche lanes
+- palette table across pop, rock, hip hop, electronic, folk/country, soul/gospel, world/regional (incl. Korean ballad, K-hip hop, Korean indie, trot, city pop), screen (anime OP/ED, TV theme), score, and niche lanes
 - how to pick from the table without locking in
 - BPM bands, instrument menus, production vocabulary, vocal identities, default structures
+
+## Remix And Style Match
+
+Read `references/remix-and-style-match.md` when the user wants a remix/flip of an existing lyric, a song written in the style/cadence of a named artist or song, or an analysis of supplied lyrics' style.
+
+Covers:
+- the style-yes / expression-no copyright rule
+- lyric remix / flip mode (Revision Mode turned up)
+- style-match mode: building a style fingerprint, using search safely, generating original work
+- lyric-style analysis output
+- `Style Reference:` and `Remix Notes:` output additions, plus extra checks
 
 ## Evals And Smoke Tests
 

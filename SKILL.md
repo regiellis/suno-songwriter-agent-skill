@@ -1,6 +1,6 @@
 ---
 name: suno-songwriter
-description: Use this skill when the user wants to write, revise, translate, adapt, or prompt an AI-generated song or instrumental track, especially for Suno v5.5 Custom Mode. Apply it for lyrics, hooks, multilingual songs, language/dialect choices, song structure, style prompts, instrumental arrangement notes, lofi beats, OST/soundtrack cues, genre/mood/BPM/vocal/instrument direction, Voices, Custom Models, My Taste, anti-generic rewrites, and portable prompts for other AI music tools. Trigger even if the user asks casually for a song, chorus, verse, rap, ballad, foreign-language lyric, translation, instrumental, background music, or "make this work in Suno." Do not use for unrelated music theory, audio engineering, DAW mixing, licensing, or factual questions about artists.
+description: Use this skill when the user wants to write, revise, remix, translate, adapt, or prompt an AI-generated song or instrumental track, especially for Suno v5.5 Custom Mode. Apply it for lyrics, hooks, multilingual songs (including Korean ballad, K-hip hop, Korean indie, J-pop, city pop, and other lanes beyond K-pop), language/dialect choices, song structure, style prompts, instrumental arrangement notes, lofi beats, OST/soundtrack cues, anime openings and endings, TV theme songs, trailer music, idents, game themes, genre/mood/BPM/vocal/instrument direction, Voices, Custom Models, My Taste, anti-generic rewrites, lyric remixes and flips, writing original lyrics in the style/cadence of a given artist or song, lyric-style analysis, and portable prompts for other AI music tools. Trigger even if the user asks casually for a song, chorus, verse, rap, ballad, foreign-language lyric, translation, instrumental, background music, anime intro/outro, theme song, "make it sound like <artist>," or "make this work in Suno." Do not use for unrelated music theory, audio engineering, DAW mixing, or licensing questions; writing original lyrics in an artist's style is in scope, reproducing their actual lyrics is not.
 ---
 
 # Suno Songs, Lyrics, And Instrumental Prompts
@@ -17,10 +17,12 @@ Use references selectively:
 - Read `references/song-structure.md` when choosing or fixing verse/chorus order, pre-chorus use, bridge placement, section-tag descriptors, AABA/AAA forms, 12-bar blues, EDM/drop forms, rap forms, or instrumental cue forms.
 - Read `references/rule-of-3.md` when improving memorability, repeated phrases, melodic/rhythmic motifs, chorus payoff, or arrangement focus.
 - Read `references/eighty-twenty.md` when prioritizing the hook, identifying the highest-impact 20%, reducing over-polish, or balancing familiar genre signals with fresh ideas.
-- Read `references/instrumental.md` for lofi, OST, game loops, ambient, trailer cues, vocal chops, or other non-lyric tracks.
-- Read `references/multilingual.md` for non-English lyrics, translation, bilingual writing, dialect, script, romanization, or pronunciation.
+- Read `references/instrumental.md` for lofi, OST, game loops, ambient, trailer cues, idents, vocal chops, or other non-lyric tracks.
+- Read `references/screen-music.md` for anime openings/endings, TV theme songs, end-credit songs, trailer cuts, idents, game themes, and edit-length (TV-size/sting) guidance.
+- Read `references/multilingual.md` for non-English lyrics, translation, bilingual writing, dialect, script, romanization, or pronunciation — including Korean lanes beyond K-pop.
 - Read `references/style-selection.md` when genre, vocalist, instrumentation, or production palette is missing, generic, or over-reused.
 - Read `references/genre-palettes.md` for a concrete BPM/instrument/production/vocal/structure menu per lane, used as a picker — not as defaults.
+- Read `references/remix-and-style-match.md` when remixing or flipping an existing lyric, writing in the style/cadence of a named artist or song, or analyzing supplied lyrics for their style.
 - Read `references/evals.md` when testing skill triggering, smoke-test coverage, regression behavior, or output quality.
 
 ## Core Workflow
@@ -254,6 +256,20 @@ When revising user-provided lyrics:
 7. Improve the title and style prompt if they are weak, but label those changes clearly.
 
 When transforming reference lyrics, briefly identify the extracted theme before the rewrite, for example: `Theme extracted: protective love, fear becoming anger, prayer for humility.`
+
+## Remix And Style-Match Mode
+
+When the user wants a **remix or flip** of an existing lyric, a song written **in the style of** a named artist or song, or an **analysis** of supplied lyrics' style, read `references/remix-and-style-match.md`. Key rules:
+
+- Style, cadence, rhyme strategy, structure, and subject matter are fair to imitate; specific lyrics, hooks, and distinctive phrases are not. Output original expression that matches the *fingerprint* (cadence, rhyme density, line shape, diction register, themes) — never reproduce or closely paraphrase source lines, and don't quote them back.
+- Do not put the artist's name in `Style:` (see Excluded Styles / no-artist-names guidance); describe the sound via era, scene, and production instead. Add a `Style Reference:` line stating what was modeled and that all lyrics are original.
+- Pick a fresh subject so the result is clearly its own song, not a re-skin of one track.
+- If the harness has web/search, use it to sharpen the style fingerprint (era, themes, techniques) — but never pull verbatim lyrics into the working notes or output. Without search, build from general knowledge and say so.
+- For remixes of lyrics the user owns or public-domain/licensed material, close rework is fine — confirm ownership if unclear. If the user wants the actual lyrics of a copyrighted song or a near-verbatim continuation, decline and offer a style-match instead.
+
+## Screen-Tied Songs And Cues
+
+For anime openings/endings, TV theme songs, end-credit songs, trailer cuts, idents, and game themes, read `references/screen-music.md`. These are tied to picture and to an edit length. Route the output shape by format: anime OP/ED, end-credit songs, and sitcom themes with words are vocal songs (`Lyrics:`); trailer cuts, atmospheric main titles, idents, and game cues are instrumental (`Arrangement:`). State the edit length (full / TV-size ~90s / sting ~30–60s / ident ~3–15s) in `Suno v5.5 Notes:`, make the hook or motif land early, end non-looping cuts with `[End]`, and mark loopable themes with `[Loop Point]`.
 
 ## Portability Beyond Suno
 

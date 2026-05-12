@@ -319,6 +319,50 @@ The form follows scene function, not lyric hook logic.
 
 Make the loop return explicit.
 
+## Screen-Tied Forms
+
+These are tied to picture and to an edit length — see `references/screen-music.md` for the full guidance.
+
+### Anime OP (TV size, ~90s)
+
+```text
+[Intro Riff]
+[Verse]
+[Pre-Chorus]
+[Chorus]
+[Outro Tag]
+[End]
+```
+
+Vocal song, fast and anthemic; the instrumental riff bookends it; the hook lands inside 30s. Full version adds a second verse/chorus and often a bridge or solo.
+
+### Anime ED / Needle-Drop Song
+
+Standard pop/ballad form, lower energy than the OP, often just one verse/chorus in a TV cut. End-credit songs deliver payoff and leave the world rather than introduce it.
+
+### TV Theme / Sting (~30–60s)
+
+```text
+[Intro Hook]
+[Chorus or Single Statement]
+[Button]
+[End]
+```
+
+Hook-first, almost no build. May be a tiny complete song or an instrumental sting.
+
+### Trailer Cut
+
+```text
+[Atmospheric Setup]
+[Turn / Impact]
+[Action Build]
+[Climax]
+[Button]
+```
+
+Instrumental cue (`Arrangement:`), not a song. Teaser cuts compress this; full trailers run two builds. See `references/instrumental.md` § Trailer / Epic Cue.
+
 ## Choosing A Structure
 
 Ask:
