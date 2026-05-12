@@ -13,6 +13,7 @@ Use references selectively:
 - Read `references/suno-v55-controls.md` for Style, Excluded Styles, Weirdness, Style Influence, Voices, Custom Models, My Taste, or Suno troubleshooting.
 - Read `references/songwriting-craft.md` for lyric writing, revision, hooks, rhyme, meter, vivid detail, and reference-lyric transformation.
 - Read `references/rule-of-3.md` when improving memorability, repeated phrases, melodic/rhythmic motifs, chorus payoff, or arrangement focus.
+- Read `references/eighty-twenty.md` when prioritizing the hook, identifying the highest-impact 20%, reducing over-polish, or balancing familiar genre signals with fresh ideas.
 - Read `references/instrumental.md` for lofi, OST, game loops, ambient, trailer cues, or other non-lyric tracks.
 - Read `references/multilingual.md` for non-English lyrics, translation, bilingual writing, dialect, script, romanization, or pronunciation.
 - Read `references/style-selection.md` when genre, vocalist, instrumentation, or production palette is missing, generic, or over-reused.
@@ -147,7 +148,7 @@ Keep it short and specific. Do not exclude the same thing the Style field asks f
 
 ## Songwriting Craft
 
-For deeper lyric craft guidance, read `references/songwriting-craft.md`. For statement/repetition/twist patterns, read `references/rule-of-3.md`.
+For deeper lyric craft guidance, read `references/songwriting-craft.md`. For statement/repetition/twist patterns, read `references/rule-of-3.md`. For hook-first prioritization and fast revision decisions, read `references/eighty-twenty.md`.
 
 Start with a clear central promise: what the singer wants, fears, realizes, or refuses. Every section should move that promise.
 

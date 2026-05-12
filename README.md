@@ -21,6 +21,7 @@ Portable agent skill for creating Suno v5.5-ready vocal songs, instrumental trac
 - `references/suno-v55-controls.md` - Style, Excluded Styles, sliders, personalization, and troubleshooting
 - `references/songwriting-craft.md` - hooks, sections, rhyme, meter, vivid detail, and lyric transformation
 - `references/rule-of-3.md` - statement, repetition, twist, motif payoff, and arrangement focus
+- `references/eighty-twenty.md` - hook-first prioritization, high-impact revision, and 80% familiar / 20% fresh balance
 - `references/instrumental.md` - lofi, OST, game loops, ambience, and non-lyric arrangements
 - `references/multilingual.md` - translation, adaptation, dialect, script, and pronunciation guidance
 - `references/style-selection.md` - genre/palette selection and anti-lock-in examples

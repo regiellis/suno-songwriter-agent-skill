@@ -50,6 +50,17 @@ Covers:
 - arrangement focus
 - when to break the rule
 
+## 80/20 Songwriting
+
+Read `references/eighty-twenty.md` when the song needs stronger impact, clearer hook priority, faster revision decisions, or better balance between familiar genre signals and fresh ideas.
+
+Covers:
+- hook-first revision
+- high-impact song elements
+- 80% familiar / 20% fresh
+- fast finish rule
+- instrumental and multilingual 80/20 use
+
 ## Instrumental And Score
 
 Read `references/instrumental.md` when the task is non-lyric or mostly non-lyric.
