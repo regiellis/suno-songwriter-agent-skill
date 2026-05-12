@@ -39,6 +39,18 @@ Covers:
 - vivid detail
 - genre-specific lyric handling
 
+## Song Structure
+
+Read `references/song-structure.md` when choosing or fixing verse/chorus order, pre-chorus use, bridge placement, AABA/AAA forms, 12-bar blues, EDM/drop forms, rap forms, or instrumental cue forms.
+
+Covers:
+- section jobs
+- ABAB and ABABCB
+- AABA and AAA
+- pre-chorus and bridge decisions
+- instrumental and game loop forms
+- structure troubleshooting
+
 ## Rule Of 3
 
 Read `references/rule-of-3.md` when the song needs a stronger hook, more memorable phrasing, better chorus payoff, cleaner arrangement focus, or a more satisfying repeated motif.
