@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.1 — 2026-05-12
+
+### Fixed
+
+- `SKILL.md` `description:` frontmatter rewritten to **1019 characters** (was ~1900) and stripped of the `<artist>` angle-bracket token, so harnesses that validate the field (Claude Desktop) accept the skill. Trigger coverage preserved in plain prose. Documented the ≤ 1024-char / no-XML-tags constraint in `CLAUDE.md`.
+
 ## v1.0.0 — 2026-05-12
 
 First tagged release. Full surface: write / revise / remix lyrics; instrumentals; screen music (anime OP/ED, TV themes, trailers, idents, game themes); multilingual (incl. Korean lanes beyond K-pop); Suno controls, meta-tags, sliders, content filters, and Studio/iteration workflow; style-match ("in the style of X"); reusable artist personas; cohesive albums/EPs; and Suno Sounds (custom audio samples). Progressive-disclosure architecture: concise `SKILL.md` + 19 independently-loadable `references/*.md` files.

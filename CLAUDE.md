@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is an **agent skill** (no application code, no build system). It packages instructions and reference material that teach an agent harness how to produce Suno v5.5-ready song packages: vocal lyrics, instrumental arrangements, `Style`/`Excluded Styles` prompts, slider suggestions, and multilingual adaptations. The skill is harness-agnostic — anything that can read `SKILL.md` and selectively load `references/` can use it.
 
-The repo directory (`suno-lyrics`) does not match the skill name (`suno-songwriter`); the skill name in the frontmatter is canonical.
+The git repo is named `suno-songwriter-agent-skill`; the working directory and skill name are both `suno-songwriter`. The skill name in `SKILL.md`'s frontmatter is canonical.
 
 ## Architecture
 
@@ -49,6 +49,7 @@ cp agents/openai.yaml /Users/rellis/.agents/skills/suno-songwriter/agents/openai
 
 These are rules the skill itself enforces; keep them consistent across `SKILL.md` and `references/` so the guidance doesn't contradict itself:
 
+- The `description:` frontmatter field in `SKILL.md` must be **≤ 1024 characters** and contain **no angle-bracket / XML-style tags** (e.g. `<artist>`). Some harnesses (Claude Desktop) reject the skill otherwise. Use plain prose for trigger examples ("making something sound like a given artist"), not `<placeholder>` syntax.
 - `Style:` is a positive prompt capped at ~200 characters; negative direction goes in `Excluded Styles:`, not as `no...` phrases crammed into `Style:`.
 - Lyrics bodies use bracketed section tags (`[Verse 1]`, `[Chorus]`, `[Bridge]`, …); instrumental tracks return `Arrangement:` with cue-style tags (`[Theme A]`, `[Build]`, `[Loop Point]`, …) instead of `Lyrics:`.
 - Sections are 4 lines or a multiple of 4 unless the genre/request says otherwise.
