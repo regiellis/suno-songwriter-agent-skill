@@ -1,6 +1,6 @@
 ---
 name: suno-songwriter
-description: Use this skill when the user wants to write, revise, remix, translate, adapt, or prompt an AI-generated song or instrumental track, especially for Suno v5.5 Custom Mode. Apply it for lyrics, hooks, multilingual songs (including Korean ballad, K-hip hop, Korean indie, J-pop, city pop, and other lanes beyond K-pop), language/dialect choices, song structure, style prompts, instrumental arrangement notes, lofi beats, OST/soundtrack cues, anime openings and endings, TV theme songs, trailer music, idents, game themes, genre/mood/BPM/vocal/instrument direction, Voices, Custom Models, My Taste, anti-generic rewrites, lyric remixes and flips, writing original lyrics in the style/cadence of a given artist or song, lyric-style analysis, and portable prompts for other AI music tools. Trigger even if the user asks casually for a song, chorus, verse, rap, ballad, foreign-language lyric, translation, instrumental, background music, anime intro/outro, theme song, "make it sound like <artist>," or "make this work in Suno." Do not use for unrelated music theory, audio engineering, DAW mixing, or licensing questions; writing original lyrics in an artist's style is in scope, reproducing their actual lyrics is not.
+description: Use this skill when the user wants to write, revise, remix, translate, adapt, or prompt an AI-generated song or instrumental track, especially for Suno v5.5 Custom Mode. Apply it for lyrics, hooks, multilingual songs (including Korean ballad, K-hip hop, Korean indie, J-pop, city pop, and other lanes beyond K-pop), language/dialect choices, song structure, style prompts, instrumental arrangement notes, lofi beats, OST/soundtrack cues, anime openings and endings, TV theme songs, trailer music, idents, game themes, genre/mood/BPM/vocal/instrument direction, Voices, Custom Models, My Taste, anti-generic rewrites, lyric remixes and flips, writing original lyrics in the style/cadence of a given artist or song, lyric-style analysis, creating reusable artist personas (consistent singers, rappers, or bands — from a custom description or by decoding the style/cadence/vocals of a reference act, with no real names in prompts), planning cohesive albums and EPs across multiple tracks, individual audio samples and sound effects (Suno Sounds — whooshes, impacts, risers, foley, ambience, animal sounds, drum one-shots and loops), and portable prompts for other AI music tools. Trigger even if the user asks casually for a song, chorus, verse, rap, ballad, foreign-language lyric, translation, instrumental, background music, anime intro/outro, theme song, persona, album, sound effect, sample, "make it sound like <artist>," or "make this work in Suno." Do not use for unrelated music theory, audio engineering, DAW mixing, or licensing questions; writing original lyrics in an artist's style is in scope, reproducing their actual lyrics is not.
 ---
 
 # Suno Songs, Lyrics, And Instrumental Prompts
@@ -18,16 +18,19 @@ Use references selectively:
 - Read `references/rule-of-3.md` when improving memorability, repeated phrases, melodic/rhythmic motifs, chorus payoff, or arrangement focus.
 - Read `references/eighty-twenty.md` when prioritizing the hook, identifying the highest-impact 20%, reducing over-polish, or balancing familiar genre signals with fresh ideas.
 - Read `references/instrumental.md` for lofi, OST, game loops, ambient, trailer cues, idents, vocal chops, or other non-lyric tracks.
+- Read `references/suno-sounds.md` when the user wants an individual audio sample rather than a song or track — a sound effect, foley hit, ambience bed, transition/whoosh, animal sound, or a musical one-shot / drum loop (Suno Sounds).
 - Read `references/screen-music.md` for anime openings/endings, TV theme songs, end-credit songs, trailer cuts, idents, game themes, and edit-length (TV-size/sting) guidance.
 - Read `references/multilingual.md` for non-English lyrics, translation, bilingual writing, dialect, script, romanization, or pronunciation — including Korean lanes beyond K-pop.
 - Read `references/style-selection.md` when genre, vocalist, instrumentation, or production palette is missing, generic, or over-reused.
 - Read `references/genre-palettes.md` for a concrete BPM/instrument/production/vocal/structure menu per lane, used as a picker — not as defaults.
 - Read `references/remix-and-style-match.md` when remixing or flipping an existing lyric, writing in the style/cadence of a named artist or song, or analyzing supplied lyrics for their style.
+- Read `references/personas.md` when creating, updating, or using a reusable artist persona (a consistent singer, rapper, or band saved as a spec file).
+- Read `references/albums.md` when planning, updating, or writing tracks for a cohesive album or EP saved as a spec file.
 - Read `references/evals.md` when testing skill triggering, smoke-test coverage, regression behavior, or output quality.
 
 ## Core Workflow
 
-1. Clarify the song goal from the user request: theme, genre, language/dialect, vocalist or instrumental mode, audience, emotional arc, and whether they need lyrics, arrangement notes, a style prompt, or all of them.
+1. Clarify the song goal from the user request: theme, genre, language/dialect, vocalist or instrumental mode, audience, emotional arc, and whether they need lyrics, arrangement notes, a style prompt, or all of them. If the user names a saved persona or album, read its spec file (`personas/<slug>.md` / `albums/<slug>.md`) first and treat it as a constraint (see `references/personas.md`, `references/albums.md`).
 2. Build the song as a song, not just a prompt: title, core idea, hook, section map, melodic phrasing assumptions, then final lyrics.
 3. If the user provides existing lyrics, treat them as reference material for theme and direction unless they explicitly ask for a close edit, preservation, or line-by-line rewrite.
 4. Choose the sound from the user's request. If genre, vocalist, or production style is missing, either ask a concise follow-up or infer a fitting direction from the theme and label it as an assumption. Do not default to one recurring palette.
@@ -107,6 +110,10 @@ Instrumental examples:
 - lofi: `lofi chillhop, relaxed 78 BPM, dusty drums, mellow Rhodes, soft upright bass, vinyl texture, loopable study beat, no vocals`
 - OST: `orchestral fantasy OST cue, 92 BPM, strings, harp, low brass, taiko swells, mysterious village-to-battle arc, cinematic dynamics, no vocals`
 - ambient: `dark ambient drone, 55 BPM pulse, evolving pads, bowed textures, distant bells, slow tension build, no drums, no vocals`
+
+## Sound Samples (Suno Sounds)
+
+When the user wants an individual audio *sample* — a sound effect, transition/whoosh, riser, impact, foley hit, ambience bed, animal sound, or a musical one-shot / drum loop — that is Suno's "Sounds" feature, not a song or instrumental track. Read `references/suno-sounds.md`. Return a `Sound:` prompt plus `Type:` (One Shot / Loop), `BPM:`, `Key:`, and `Variations:` instead of the Title/Style/Lyrics contract; write the prompt with specific, recognizable vocabulary (`whoosh`, `glitch`, `rumble`, `808 kick`, `ambiance`...), state a duration when it matters, and set BPM/Key only for musical material. If the user actually wants a short *piece of music* (a sting, an ident, a melodic loop), treat it as an instrumental track instead (`references/instrumental.md`).
 
 ## Multilingual Mode
 
@@ -270,6 +277,16 @@ When the user wants a **remix or flip** of an existing lyric, a song written **i
 ## Screen-Tied Songs And Cues
 
 For anime openings/endings, TV theme songs, end-credit songs, trailer cuts, idents, and game themes, read `references/screen-music.md`. These are tied to picture and to an edit length. Route the output shape by format: anime OP/ED, end-credit songs, and sitcom themes with words are vocal songs (`Lyrics:`); trailer cuts, atmospheric main titles, idents, and game cues are instrumental (`Arrangement:`). State the edit length (full / TV-size ~90s / sting ~30–60s / ident ~3–15s) in `Suno v5.5 Notes:`, make the hook or motif land early, end non-looping cuts with `[End]`, and mark loopable themes with `[Loop Point]`.
+
+## Personas And Albums
+
+For a reusable artist identity (a consistent singer, rapper, or band across many songs), read `references/personas.md`. For a cohesive multi-track album or EP, read `references/albums.md`. Both work by writing a small Markdown spec file into the **user's working directory** that later requests load and follow:
+
+- Personas live at `personas/<slug>.md`; albums at `albums/<slug>.md`. Create the directory if needed. Never overwrite an existing spec file without confirming. These files belong in the user's project, not in the skill repo.
+- A persona can come from the user's own description or from a style-reference (a real artist or group). For style-references, decode the style, cadence, and vocal character into a fingerprint per `references/remix-and-style-match.md` and keep the real name out of the spec's operational sections and out of every prompt — the persona is a fictional act with a user-chosen name.
+- An album may link a persona; if so, the persona's vocals, cadence, and lyrical fingerprint carry across every track, and the album adds a concept, a shared sonic palette, cohesion rules (what's constant vs what may vary — 80/20 over a tracklist), recurring elements, and a sequenced tracklist.
+- When the user asks for a song "as <persona>" or "track N of <album>", read the spec file(s), build the song to match (the Style kernel + the specific song's mood/tempo/theme; consistent vocals, cadence, lyrical fingerprint; the album's cohesion rules), apply the spec's Suno defaults, then update the spec's Song Log / tracklist. Add a `Persona:` and/or `Album:` line to the output and the matching consistency items to `Checks:`.
+- If a request conflicts with a saved persona or album (a ballad persona asked for a death-metal track), flag it and ask whether to bend the spec for one song or update the spec.
 
 ## Portability Beyond Suno
 

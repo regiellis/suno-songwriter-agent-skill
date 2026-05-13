@@ -63,6 +63,12 @@ Multilingual outputs should include:
 | RX1 | Lyric remix | `Use $suno-songwriter to remix my lyrics into a drill track, keep the premise, change everything else: <user's own lyrics>.` | States kept-vs-changed in one line; rewrites to drill (BPM, structure, density); new lines/images; `Remix Notes:`; does not preserve original phrasing. |
 | SM1 | Style match | `Use $suno-songwriter to write original rap lyrics in the cadence and style of Mos Def — don't use his actual lyrics.` | Builds a style fingerprint (dense internal rhyme, conscious themes, jazz-inflected sonic lane); writes original lines on a fresh subject; no artist name in `Style:`; `Style Reference:` line states what was modeled and that lyrics are original; refuses/avoids quoting real lyrics. |
 | SM2 | Lyric-style analysis | `Use $suno-songwriter to analyze the cadence and style of these lyrics: <paste user's lyrics>.` | Returns a structured fingerprint (cadence / rhyme / line shape / diction / themes / sonic lane); does not quote long source spans back; offers to write original lyrics matching it. |
+| PR1 | Persona (custom) | `Use $suno-songwriter to create a persona: a weary low-baritone outlaw-country singer; I'll call him <name>.` | Writes `personas/<slug>.md` with the documented schema; vocals/cadence/lyrical fingerprint/sonic palette are concrete; reports the path; doesn't overwrite an existing file without asking. |
+| PR2 | Persona (style-reference) | `Use $suno-songwriter to make a reusable persona based on the vocal style and cadence of <artist>, named <name> — no name used in prompts.` | Decodes a style fingerprint; persona file's operational sections and any prompt contain no real artist name; fictional user-approved name; file written. |
+| PR3 | Use persona | `Use $suno-songwriter to write a heartbreak song as <persona>.` | Reads `personas/<slug>.md`; `Style:` built from the persona kernel + the song's specifics; vocals/cadence/fingerprint consistent; `Persona:` line + persona checks; appends to the Song Log. |
+| AL1 | Album plan | `Use $suno-songwriter to plan a 9-track dream-pop album about leaving a hometown, tied to my persona <name>.` | Reads the persona file; writes `albums/<slug>.md` with concept, shared palette, cohesion rules (constant vs variable), recurring elements, and a roled tracklist with an energy curve. |
+| AL2 | Album track | `Use $suno-songwriter to write track 3 of <album>.` | Reads `albums/<slug>.md` (+ linked persona); fills the track's slot; honors cohesion rules and recurring elements; updates the tracklist row and changelog; `Album:` line + album checks. |
+| SN1 | Suno Sounds | `Use $suno-songwriter to make a 5-second cinematic whoosh sound effect and a deep 808 kick one-shot.` | Returns `Sound:` / `Type:` / `BPM` / `Key` / `Variations` blocks (not Title/Style/Lyrics); specific recognizable vocabulary; `One Shot` type; duration stated; does not try to write a song. |
 
 ## Should-Trigger Queries
 
@@ -116,6 +122,26 @@ These should trigger the skill:
   },
   {
     "query": "write a Korean ballad about missing someone",
+    "should_trigger": true
+  },
+  {
+    "query": "create an artist persona for my project so all my songs sound like the same singer",
+    "should_trigger": true
+  },
+  {
+    "query": "plan a cohesive concept EP about insomnia",
+    "should_trigger": true
+  },
+  {
+    "query": "make me a reusable singer persona based on the vocal style of <artist>, no name used",
+    "should_trigger": true
+  },
+  {
+    "query": "generate a sci-fi teleport sound effect, about 3 seconds",
+    "should_trigger": true
+  },
+  {
+    "query": "make a drum loop at 90 bpm in A minor",
     "should_trigger": true
   }
 ]
@@ -171,6 +197,10 @@ Use these after changing the skill:
 - Does a style-match request produce original lyrics (no reproduced/close-paraphrased source lines) with a `Style Reference:` line and no artist name in `Style:`?
 - Does a "Korean song" request avoid auto-defaulting to K-pop when the brief implies ballad, hip hop, or indie?
 - Does a screen-tied request route output correctly (anime OP/ED, end-credit song = `Lyrics:`; trailer cut, ident, atmospheric main title = `Arrangement:`) and state the edit length?
+- Does a persona/album request write a spec file to `personas/<slug>.md` / `albums/<slug>.md` using the documented schema, and refuse to overwrite an existing one without confirmation?
+- Does a style-reference persona keep the real artist name out of the spec's operational sections and out of every prompt?
+- Does a song generated "as <persona>" or "track N of <album>" load the spec, stay consistent (vocals, cadence, fingerprint, palette, cohesion rules), and update the Song Log / tracklist?
+- Does a sound-effect / sample request return the Suno Sounds output shape (`Sound`/`Type`/`BPM`/`Key`/`Variations`) instead of the song contract, and route a short *piece of music* to instrumental instead?
 - Does the response load only relevant reference behavior rather than all guidance?
 
 ## Output Quality Rubric

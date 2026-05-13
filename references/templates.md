@@ -127,6 +127,17 @@ Covers:
 - edit-length guidance (full / TV-size / sting / ident) and `[End]` vs `[Loop Point]`
 - which formats are vocal songs vs instrumental cues
 
+## Suno Sounds
+
+Read `references/suno-sounds.md` when the user wants an individual audio sample rather than a song or track — a sound effect, transition/whoosh, riser, impact, foley hit, ambience bed, animal sound, or a musical one-shot / drum loop.
+
+Covers:
+- what Suno Sounds does (One Shot vs Loop, BPM, Key)
+- sound categories and example prompts (SFX & transitions, ambient, foley, animal, musical samples / drum kits)
+- writing a good sound prompt (specific vocabulary, duration, material/space/motion/size)
+- the `Sound:` / `Type:` / `BPM` / `Key` / `Variations` output shape
+- when it's a sample vs a short piece of music (route to instrumental instead)
+
 ## Multilingual Songs
 
 Read `references/multilingual.md` when the user asks for non-English lyrics, translation, bilingual writing, dialect, script, romanization, or pronunciation notes.
@@ -168,6 +179,25 @@ Covers:
 - style-match mode: building a style fingerprint, using search safely, generating original work
 - lyric-style analysis output
 - `Style Reference:` and `Remix Notes:` output additions, plus extra checks
+
+## Personas
+
+Read `references/personas.md` when creating, updating, or using a reusable artist persona — a consistent singer, rapper, or band saved as a spec file the user keeps in their project.
+
+Covers:
+- custom vs style-reference personas (no real names in prompts)
+- where the file lives (`personas/<slug>.md`) and the no-overwrite rule
+- the persona file schema (identity, vocals, cadence, lyrical fingerprint, sonic palette / Style kernel, excluded styles, Suno defaults, basis, song log)
+- creating a persona; using a persona to write a song; output-contract additions
+
+## Albums
+
+Read `references/albums.md` when planning, updating, or writing tracks for a cohesive album or EP saved as a spec file.
+
+Covers:
+- where the file lives (`albums/<slug>.md`) and the no-overwrite rule
+- the album file schema (concept, sonic palette / Style kernel, cohesion rules, recurring elements, sequenced tracklist with roles, sequencing notes, excluded styles, Suno defaults, changelog)
+- linking a persona; creating an album; writing a track for an album; output-contract additions
 
 ## Evals And Smoke Tests
 
