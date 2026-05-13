@@ -1,6 +1,8 @@
 # Changelog
 
-## 2026-05-12
+## v1.0.0 — 2026-05-12
+
+First tagged release. Full surface: write / revise / remix lyrics; instrumentals; screen music (anime OP/ED, TV themes, trailers, idents, game themes); multilingual (incl. Korean lanes beyond K-pop); Suno controls, meta-tags, sliders, content filters, and Studio/iteration workflow; style-match ("in the style of X"); reusable artist personas; cohesive albums/EPs; and Suno Sounds (custom audio samples). Progressive-disclosure architecture: concise `SKILL.md` + 19 independently-loadable `references/*.md` files.
 
 ### Added
 
@@ -30,7 +32,7 @@
 - `references/evals.md` — new smoke-test rows (meta-tags, artist-reference rewrite, section descriptors, iteration/Replace-Section, genre-palette, anime OP, TV theme, Korean ballad, lyric remix, style-match, lyric-style analysis, persona custom/style-reference/use, album plan/track, Suno Sounds), new should-trigger queries, and new regression checks.
 - `references/templates.md`, `README.md`, `CLAUDE.md` — routing/index entries for all eight new reference files; `SKILL.md` also gained an inline-meta-tags pointer, a content-filter caution, and a version/date anchor.
 
-## Earlier
+## Pre-1.0
 
 - Renamed skill to `suno-songwriter`.
 - Added skill smoke-test reference (`references/evals.md`).
