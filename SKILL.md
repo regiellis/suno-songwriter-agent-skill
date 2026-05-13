@@ -1,6 +1,6 @@
 ---
 name: suno-songwriter
-description: Use this skill when the user wants to write, revise, remix, translate, adapt, or prompt an AI-generated song or instrumental track, especially for Suno v5.5 Custom Mode. Covers lyrics, hooks, song structure, Style/Excluded Styles prompts and sliders, multilingual songs (including Korean lanes beyond K-pop, J-pop, city pop), instrumental arrangements, lofi beats, OST cues, anime openings/endings, TV themes, trailer music, idents, game themes, vocal and instrument direction, Voices, Custom Models, My Taste, anti-generic rewrites, lyric remixes and flips, writing original lyrics in an artist's style or cadence, lyric-style analysis, reusable artist personas, cohesive albums and EPs, individual audio samples and sound effects (Suno Sounds), and portable prompts for other AI music tools. Trigger even on casual asks for a song, chorus, verse, rap, ballad, translation, instrumental, anime intro/outro, theme song, persona, album, or sound effect. Not for music theory, audio engineering, DAW mixing, or licensing.
+description: Use this skill when the user wants to write, revise, remix, translate, adapt, or prompt an AI-generated song or instrumental track, especially for Suno v5.5 Custom Mode. Covers lyrics, hooks, song structure, Style/Excluded Styles prompts and sliders, multilingual songs (including Korean lanes beyond K-pop, J-pop, city pop), instrumental arrangements, lofi beats, OST cues, anime openings/endings, TV themes, trailer music, idents, game themes, Voices, Custom Models, My Taste, anti-generic rewrites, lyric remixes and flips, writing original lyrics in an artist's style or cadence, reusable artist personas, cohesive albums and EPs, individual audio samples and sound effects (Suno Sounds), cover art and animated covers (text-to-image/video), and portable prompts for other AI music tools. Trigger even on casual asks for a song, chorus, verse, rap, ballad, translation, instrumental, anime intro/outro, theme song, persona, album, sound effect, or cover art. Not for music theory, DAW mixing, or licensing.
 ---
 
 # Suno Songs, Lyrics, And Instrumental Prompts
@@ -19,6 +19,7 @@ Use references selectively:
 - Read `references/eighty-twenty.md` when prioritizing the hook, identifying the highest-impact 20%, reducing over-polish, or balancing familiar genre signals with fresh ideas.
 - Read `references/instrumental.md` for lofi, OST, game loops, ambient, trailer cues, idents, vocal chops, or other non-lyric tracks.
 - Read `references/suno-sounds.md` when the user wants an individual audio sample rather than a song or track — a sound effect, foley hit, ambience bed, transition/whoosh, animal sound, or a musical one-shot / drum loop (Suno Sounds).
+- Read `references/cover-art.md` when the user wants a cover image or an animated (looping video) cover for a track — Suno's Generate Cover Art / Animate tools: text-to-image, text-to-video, image-to-video.
 - Read `references/screen-music.md` for anime openings/endings, TV theme songs, end-credit songs, trailer cuts, idents, game themes, and edit-length (TV-size/sting) guidance.
 - Read `references/multilingual.md` for non-English lyrics, translation, bilingual writing, dialect, script, romanization, or pronunciation — including Korean lanes beyond K-pop.
 - Read `references/style-selection.md` when genre, vocalist, instrumentation, or production palette is missing, generic, or over-reused.
@@ -114,6 +115,10 @@ Instrumental examples:
 ## Sound Samples (Suno Sounds)
 
 When the user wants an individual audio *sample* — a sound effect, transition/whoosh, riser, impact, foley hit, ambience bed, animal sound, or a musical one-shot / drum loop — that is Suno's "Sounds" feature, not a song or instrumental track. Read `references/suno-sounds.md`. Return a `Sound:` prompt plus `Type:` (One Shot / Loop), `BPM:`, `Key:`, and `Variations:` instead of the Title/Style/Lyrics contract; write the prompt with specific, recognizable vocabulary (`whoosh`, `glitch`, `rumble`, `808 kick`, `ambiance`...), state a duration when it matters, and set BPM/Key only for musical material. If the user actually wants a short *piece of music* (a sting, an ident, a melodic loop), treat it as an instrumental track instead (`references/instrumental.md`).
+
+## Cover Art And Animated Covers
+
+When the user wants visuals for a track — a still cover image or an animated (looping video) cover via Suno's **Generate Cover Art** / **Animate** tools (text-to-image, text-to-video, image-to-video) — read `references/cover-art.md`. This is artwork, not music: keep the song on its normal contract and return a separate `Cover Concept:` / `Image Prompt:` / `Motion Prompt:` / `Settings:` block (or append a `Cover Art:` block after a song package). Match the visual to the song's lane, era, mood, and key image; pick a deliberate medium and palette instead of an AI-art cliché; put no text, logos, or real artist/character names in the image prompt (same filter logic as `Style:`); compose for a 1:1 square crop; and write motion prompts that describe motion only and loop cleanly. A full multi-scene music video is beyond Suno's looping-cover tool — take the finished track into a dedicated video editor for that; **Suno Scenes** (camera → song) is the reverse direction and routes to the normal song contract.
 
 ## Multilingual Mode
 

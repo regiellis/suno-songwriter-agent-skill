@@ -69,6 +69,8 @@ Multilingual outputs should include:
 | AL1 | Album plan | `Use $suno-songwriter to plan a 9-track dream-pop album about leaving a hometown, tied to my persona <name>.` | Reads the persona file; writes `albums/<slug>.md` with concept, shared palette, cohesion rules (constant vs variable), recurring elements, and a roled tracklist with an energy curve. |
 | AL2 | Album track | `Use $suno-songwriter to write track 3 of <album>.` | Reads `albums/<slug>.md` (+ linked persona); fills the track's slot; honors cohesion rules and recurring elements; updates the tracklist row and changelog; `Album:` line + album checks. |
 | SN1 | Suno Sounds | `Use $suno-songwriter to make a 5-second cinematic whoosh sound effect and a deep 808 kick one-shot.` | Returns `Sound:` / `Type:` / `BPM` / `Key` / `Variations` blocks (not Title/Style/Lyrics); specific recognizable vocabulary; `One Shot` type; duration stated; does not try to write a song. |
+| CV1 | Cover art | `Use $suno-songwriter to make a cover image and an animated cover for my dusty boom-bap track about an empty laundromat at 3am.` | Returns `Cover Concept:` / `Image Prompt:` / `Motion Prompt:` / `Settings:` (not the song contract); image prompt names a medium/style, palette, lighting, composition; no text/logos/real names; composed 1:1; motion prompt is motion-only and loops; visual lane matches the song; recommends a path (text-to-image then Animate). |
+| CV2 | Cover for a song package | `Use $suno-songwriter to write a synthpop song about a night drive and also give me a cover.` | Full song package, then an appended `Cover Art:` block with `Image Prompt:` / `Motion Prompt:` / `Settings:`; visual matches the song's era/mood; song contract not replaced. |
 
 ## Should-Trigger Queries
 
@@ -143,6 +145,14 @@ These should trigger the skill:
   {
     "query": "make a drum loop at 90 bpm in A minor",
     "should_trigger": true
+  },
+  {
+    "query": "generate cover art for my song",
+    "should_trigger": true
+  },
+  {
+    "query": "make an animated looping cover video for this track",
+    "should_trigger": true
   }
 ]
 ```
@@ -201,6 +211,7 @@ Use these after changing the skill:
 - Does a style-reference persona keep the real artist name out of the spec's operational sections and out of every prompt?
 - Does a song generated "as <persona>" or "track N of <album>" load the spec, stay consistent (vocals, cadence, fingerprint, palette, cohesion rules), and update the Song Log / tracklist?
 - Does a sound-effect / sample request return the Suno Sounds output shape (`Sound`/`Type`/`BPM`/`Key`/`Variations`) instead of the song contract, and route a short *piece of music* to instrumental instead?
+- Does a cover-art request return `Cover Concept`/`Image Prompt`/`Motion Prompt`/`Settings` (or an appended `Cover Art:` block), keep text/logos/real names out of the image prompt, compose for 1:1, write motion-only loop prompts, and avoid AI-art clichés — and does a "full music video" ask get pointed to an external editor rather than promised from Suno?
 - Does the response load only relevant reference behavior rather than all guidance?
 
 ## Output Quality Rubric

@@ -14,6 +14,9 @@ This is an agent skill, not a Codex-only package. Any harness can use it if it c
 - Multilingual lyrics, translation, adaptation, dialect, script, and pronunciation notes
 - Reference-lyrics transformation without copying the source too closely
 - Songwriting frameworks including structure, Rule of 3, and 80/20 hook prioritization
+- Individual audio samples and sound effects (Suno Sounds)
+- Cover art and animated (looping-video) covers — Suno's Generate Cover Art / Animate tools (text-to-image, text-to-video, image-to-video)
+- Reusable artist personas and cohesive album/EP planning
 - Portable prompts for other AI music tools
 
 ## How Agent Harnesses Should Use It
@@ -59,6 +62,7 @@ Keep the portable behavior in `SKILL.md` and `references/`; keep product-specifi
 - `references/eighty-twenty.md` - hook-first prioritization, high-impact revision, and 80% familiar / 20% fresh balance
 - `references/instrumental.md` - lofi, OST, game loops, ambience, idents, vocal chops, and non-lyric arrangements
 - `references/suno-sounds.md` - individual audio samples / sound effects / foley / ambience / drum one-shots and loops (Suno Sounds), with the `Sound`/`Type`/`BPM`/`Key` output shape
+- `references/cover-art.md` - cover images and animated looping-video covers (Suno Generate Cover Art / Animate): text-to-image, text-to-video, image-to-video; image-prompt and motion-prompt craft; `Cover Concept`/`Image Prompt`/`Motion Prompt`/`Settings` output shape
 - `references/screen-music.md` - anime openings/endings, TV theme songs, end-credit songs, trailer cuts, idents, game themes, and edit-length guidance
 - `references/multilingual.md` - translation, adaptation, dialect, script, pronunciation, and Korean lanes beyond K-pop
 - `references/style-selection.md` - genre/palette selection and anti-lock-in examples
@@ -84,6 +88,7 @@ Common routing:
 - Hook-first revision: `references/eighty-twenty.md`
 - Instrumental tracks: `references/instrumental.md`
 - Individual audio samples / sound effects (Suno Sounds): `references/suno-sounds.md`
+- Cover art / animated covers (text-to-image, text-to-video, image-to-video): `references/cover-art.md`
 - Anime OP/ED, TV themes, trailers, idents, game themes: `references/screen-music.md`
 - Non-English or bilingual lyrics (incl. Korean beyond K-pop): `references/multilingual.md`
 - Genre and palette choice: `references/style-selection.md`

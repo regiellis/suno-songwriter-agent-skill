@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.1.0 — 2026-05-12
+
+### Added
+
+- `references/cover-art.md` — Suno's **Generate Cover Art** / **Animate** tools: the three paths (text-to-image, text-to-video, image-to-video), controls and limits (Quality Mode, 5s/10s length, 1:1 square-only, ~800-char prompt fields, motion prompt, ~2 variants, ~5-min generation), matching the visual to the song's lane/era/mood/key image (and to a persona/album visual identity), image-prompt craft (subject/composition → medium/style → palette → lighting → mood; no text, logos, or real artist/character names; same filter logic as `Style:`), motion-prompt craft (motion only, loop-friendly, no morphing faces/hands or hard cuts), the `Cover Concept:` / `Image Prompt:` / `Motion Prompt:` / `Settings:` output shape plus the `Cover Art:` block appended to a song package, anti-AI-art-cliché guidance, and where it stops (full multi-scene music videos → external editor; Suno Scenes camera→song → normal song contract).
+- `SKILL.md` — new "Cover Art And Animated Covers" section; routing entry; expanded frontmatter description (cover art / animated covers, plus a `cover art` casual trigger), trimmed elsewhere to stay ≤ 1024 chars.
+- Wiring: `references/templates.md`, `README.md` (What It Covers, Files, Reference Loading Guide), `CLAUDE.md` (architecture reference list); `references/evals.md` smoke-test rows (CV1, CV2), should-trigger queries, and a regression check; synced to installed copy.
+
 ## v1.0.1 — 2026-05-12
 
 ### Fixed

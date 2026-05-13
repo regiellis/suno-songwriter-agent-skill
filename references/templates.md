@@ -138,6 +138,19 @@ Covers:
 - the `Sound:` / `Type:` / `BPM` / `Key` / `Variations` output shape
 - when it's a sample vs a short piece of music (route to instrumental instead)
 
+## Cover Art And Animated Covers
+
+Read `references/cover-art.md` when the user wants visuals for a track: a still cover image or an animated looping-video cover via Suno's Generate Cover Art / Animate tools.
+
+Covers:
+- the three paths: text-to-image, text-to-video, image-to-video (Animate)
+- controls/limits (Quality Mode, 5s/10s length, 1:1 square only, motion prompt, ~2 variants)
+- matching the visual to the song's lane, era, mood, and key image (and to a persona/album visual identity)
+- writing the image prompt (subject/composition → medium/style → palette → lighting → mood; no text, logos, or real artist/character names)
+- writing the motion prompt (motion only, loop-friendly, no morphing faces/hands or hard cuts)
+- the `Cover Concept:` / `Image Prompt:` / `Motion Prompt:` / `Settings:` output shape, and the `Cover Art:` block appended to a song package
+- where it stops: full multi-scene music videos go to an external editor; Suno Scenes (camera → song) routes to the normal song contract
+
 ## Multilingual Songs
 
 Read `references/multilingual.md` when the user asks for non-English lyrics, translation, bilingual writing, dialect, script, romanization, or pronunciation notes.
