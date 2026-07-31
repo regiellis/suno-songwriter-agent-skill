@@ -1,7 +1,7 @@
 # Suno Songwriter
 
-> [!TIP]
-> **Installing?** Download [`suno-songwriter.zip` from the latest release](https://github.com/regiellis/suno-songwriter-agent-skill/releases/latest), then upload it in Claude Desktop (Settings, Capabilities, Skills) or unzip it into `~/.codex/skills/` for Codex. Full steps per app are in [Installation](#installation); browseable docs are at [regiellis.github.io/suno-songwriter-agent-skill](https://regiellis.github.io/suno-songwriter-agent-skill/).
+> [!NOTE]
+> I don't use Suno for professional music production. I use Suno to create music for my own personal listening, and this skill was built for that kind of use.
 
 Portable agent skill for creating Suno v5.5-ready vocal songs, instrumental tracks, vocal style prompts, excluded styles, vocal/custom slider suggestions, multilingual lyric adaptations, and broader AI music prompts.
 
@@ -143,7 +143,7 @@ Suggest Style, Excluded Styles, Weirdness, and Style Influence.
 The song should be polished dance pop but not EDM or hyperpop.
 ```
 
-## Installation
+## Installing in Claude Desktop and Codex Desktop
 
 Grab `suno-songwriter.zip` from the [latest release](https://github.com/regiellis/suno-songwriter-agent-skill/releases/latest). The zip contains the skill folder at its root, which is the layout both desktop apps expect.
 
