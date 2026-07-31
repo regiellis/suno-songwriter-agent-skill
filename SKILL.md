@@ -1,5 +1,6 @@
 ---
 name: suno-songwriter
+license: MIT
 description: "Use this skill when the user wants to write, revise, remix, translate, adapt, or prompt a song, lyric, hook, chorus, verse, rap, ballad, instrumental, Suno track, or AI-music prompt. Prioritize strong original lyrics: hook-first, singable, concrete, structured, and ready for Suno v5.5 Custom Mode. Also covers vocal Style and Excluded Styles, vocal/custom sliders, multilingual lyrics, lofi and OST cues, anime or TV themes, lyric remixes, artist-style/cadence fingerprints without copying lyrics, reusable personas, albums, Suno Sounds samples, cover art, and animated covers. Not for music theory, DAW mixing, or licensing."
 ---
 
