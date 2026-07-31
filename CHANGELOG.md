@@ -4,6 +4,8 @@
 
 ### Fixed
 
+- Refreshed the Suno v5.5 currency stamp (v5.5 still current as of 2026-07; no v6) in `SKILL.md`, and recorded the model version stamp in `CLAUDE.md`.
+
 - Tightened `SKILL.md` around hook-first lyric quality so vocal requests prioritize a strong song over a complete form: clear title/hook, simpler chorus, stable POV/tense, concrete detail, and singable line lengths.
 - Shortened the trigger description and OpenAI default prompt to reduce metadata bloat and avoid steering every request into optional notes, sliders, and checks.
 - Synced `references/output-templates.md`, `references/screen-music.md`, `references/evals.md`, `README.md`, and `CLAUDE.md` with the optional-field contract and lyric quality gate.

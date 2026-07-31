@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Suno Model Version
+
+Target model: **Suno v5.5** (released 2026-03-26; Voices, Custom Models, My Taste) — still current, no v6 released; checked 2026-07-31. When this stamp goes stale, re-verify and overwrite it in place, and keep it in sync with the "current as of" stamp near the top of `SKILL.md`.
+
 ## What This Repo Is
 
 This is an **agent skill** (no application code, no build system). It packages instructions and reference material that teach an agent harness how to produce Suno v5.5-ready song packages: hook-first vocal lyrics, instrumental prompts/arrangements, vocal `Style`/`Excluded Styles` prompts, vocal/custom slider suggestions, and multilingual adaptations. The skill is harness-agnostic — anything that can read `SKILL.md` and selectively load `references/` can use it.

@@ -5,7 +5,7 @@ description: "Use this skill when the user wants to write, revise, remix, transl
 
 # Suno Songs, Lyrics, And Instrumental Prompts
 
-Use this skill to create release-quality AI song inputs. Target Suno v5.5 first (current as of 2026-05; if the platform's model has moved on, the field names and craft still apply — re-check version-specific limits), then keep the result portable enough for other AI music systems by separating style, lyrics, structure, and performance notes.
+Use this skill to create release-quality AI song inputs. Target Suno v5.5 first (current as of 2026-07; if the platform's model has moved on, the field names and craft still apply — re-check version-specific limits), then keep the result portable enough for other AI music systems by separating style, lyrics, structure, and performance notes.
 
 Highest priority for vocal requests: write a good song, not a feature-complete form. A useful Suno package with weak lyrics is a failed output. Default to Suno-native lyric phrasing: short, direct, emotional lines that sing easily.
 
