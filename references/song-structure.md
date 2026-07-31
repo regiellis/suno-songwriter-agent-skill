@@ -116,8 +116,8 @@ Useful descriptors:
 Rules:
 - Keep the descriptor to a few words. Long descriptions inside a tag get unreliable.
 - Use a descriptor only where the energy or texture genuinely changes; tagging every section "explosive" flattens the dynamics.
-- Keep persistent genre, instrument, and production direction in `Style:`. Use tag descriptors for moment-to-moment changes, not the base sound.
-- For instrumental tracks, the same idea applies to cue tags: `[Sparse Theme A]`, `[Layered Build]`, `[Climax, full orchestra]`, `[Fade Loop Point]`.
+- Keep persistent genre, instrument, and production direction in `Style:` for vocal/custom modes. For Instrumental Mode, keep it in `Instrumental Prompt:`.
+- For instrumental tracks, cue tags handle moment-to-moment changes: `[Sparse Theme A]`, `[Layered Build]`, `[Climax, full orchestra]`, `[Fade Loop Point]`.
 
 ## Common Forms
 

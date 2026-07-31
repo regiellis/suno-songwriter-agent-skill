@@ -8,19 +8,19 @@ Read `references/output-templates.md` when the task needs a complete output cont
 
 Covers:
 - vocal song output
-- instrumental output
+- instrumental output (`Instrumental Prompt` + `Arrangement`, no Style/sliders)
 - multilingual output
 - quick invocation patterns
 
 ## Suno v5.5 Controls
 
-Read `references/suno-v55-controls.md` when the task needs Suno-specific settings or troubleshooting.
+Read `references/suno-v55-controls.md` when the task needs Suno-specific vocal/custom settings or troubleshooting.
 
 Covers:
 - `Style`
 - `Excluded Styles`
-- Weirdness
-- Style Influence
+- Weirdness (not Instrumental Mode)
+- Style Influence (not Instrumental Mode)
 - Voices
 - Custom Models
 - My Taste
@@ -106,6 +106,8 @@ Covers:
 Read `references/instrumental.md` when the task is non-lyric or mostly non-lyric.
 
 Covers:
+- `Instrumental Prompt` + `Arrangement` output shape
+- no `Style`, `Excluded Styles`, or sliders for Instrumental Mode
 - lofi beats
 - study/focus music
 - OST/soundtrack cues
@@ -171,7 +173,7 @@ Covers:
 - style selection matrix
 - anti-lock-in rule
 - genre examples
-- style prompt examples
+- vocal/custom style prompt examples and instrumental prompt examples
 
 ## Genre Palettes
 

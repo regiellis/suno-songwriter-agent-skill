@@ -78,7 +78,7 @@ Fresh 20%:
 - genre blend
 - distinctive vocal texture
 
-Too familiar can feel generic. Too fresh can feel incoherent. Tune this with Style Influence and Weirdness when prompting Suno.
+Too familiar can feel generic. Too fresh can feel incoherent. In vocal/custom modes, tune this with Style Influence and Weirdness; in Instrumental Mode, tune it by making the `Instrumental Prompt:` more specific or simpler.
 
 ## Suno Prompting Application
 

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Repo Is
 
-This is an **agent skill** (no application code, no build system). It packages instructions and reference material that teach an agent harness how to produce Suno v5.5-ready song packages: vocal lyrics, instrumental arrangements, `Style`/`Excluded Styles` prompts, slider suggestions, and multilingual adaptations. The skill is harness-agnostic — anything that can read `SKILL.md` and selectively load `references/` can use it.
+This is an **agent skill** (no application code, no build system). It packages instructions and reference material that teach an agent harness how to produce Suno v5.5-ready song packages: hook-first vocal lyrics, instrumental prompts/arrangements, vocal `Style`/`Excluded Styles` prompts, vocal/custom slider suggestions, and multilingual adaptations. The skill is harness-agnostic — anything that can read `SKILL.md` and selectively load `references/` can use it.
 
 The git repo is named `suno-songwriter-agent-skill`; the working directory and skill name are both `suno-songwriter`. The skill name in `SKILL.md`'s frontmatter is canonical.
 
@@ -17,7 +17,7 @@ Progressive disclosure is the core design constraint:
 - **`references/*.md`** — focused, independently-loadable topic files (output skeletons, Suno controls, Suno meta-tags, Suno sounds/samples, cover art/animated covers, studio/iteration, songwriting craft, song structure, rule-of-3, 80/20, instrumental, screen music, multilingual, style selection, genre palettes, remix/style-match, personas, albums, evals). A harness loads only the ones relevant to a request. Prefer adding a new narrow file over growing an existing one. Note: `personas.md` and `albums.md` instruct the agent to write spec `.md` files into the *user's* working directory (`personas/<slug>.md`, `albums/<slug>.md`) — not into this repo.
 - **`agents/openai.yaml`** — harness-specific metadata only. Portable behavior stays in `SKILL.md`/`references/`; product-specific config stays under `agents/`. Other harnesses get their own file (`agents/claude.yaml`, etc.) — do not put harness-specific behavior in `SKILL.md`.
 
-The skill's output contract (Title / Style / Excluded Styles / Lyrics or Arrangement / Language Notes / Suno v5.5 Notes / Slider Suggestions / Checks) is defined in `SKILL.md` and mirrored in `references/output-templates.md` — keep those two in sync when the contract changes.
+The skill's output contract is defined in `SKILL.md` and mirrored in `references/output-templates.md` — vocal songs use Title / Style / Excluded Styles / Lyrics, while instrumentals use Title / Instrumental Prompt / Arrangement. Optional Language Notes / Suno v5.5 Notes / Slider Suggestions / Checks apply only when useful and supported by the mode.
 
 ## Validation
 
@@ -50,9 +50,10 @@ cp agents/openai.yaml /Users/rellis/.agents/skills/suno-songwriter/agents/openai
 These are rules the skill itself enforces; keep them consistent across `SKILL.md` and `references/` so the guidance doesn't contradict itself:
 
 - The `description:` frontmatter field in `SKILL.md` must be **≤ 1024 characters** and contain **no angle-bracket / XML-style tags** (e.g. `<artist>`). Some harnesses (Claude Desktop) reject the skill otherwise. Use plain prose for trigger examples ("making something sound like a given artist"), not `<placeholder>` syntax.
-- `Style:` is a positive prompt capped at ~200 characters; negative direction goes in `Excluded Styles:`, not as `no...` phrases crammed into `Style:`.
-- Lyrics bodies use bracketed section tags (`[Verse 1]`, `[Chorus]`, `[Bridge]`, …); instrumental tracks return `Arrangement:` with cue-style tags (`[Theme A]`, `[Build]`, `[Loop Point]`, …) instead of `Lyrics:`.
+- `Style:` is a positive prompt capped at ~200 characters for vocal/custom modes; negative direction goes in `Excluded Styles:`, not as `no...` phrases crammed into `Style:`.
+- Instrumental Mode does not expose Style, Excluded Styles, or sliders. Instrumental tracks return `Instrumental Prompt:` plus `Arrangement:` with cue-style tags (`[Theme A]`, `[Build]`, `[Loop Point]`, …) instead of `Lyrics:`.
 - Sections are 4 lines or a multiple of 4 unless the genre/request says otherwise.
-- Sliders are expressed as ranges (Weirdness, Style Influence), never false-precise single values.
+- Vocal lyrics must pass the quality gate before output: title/hook in or near the chorus, mechanically simpler chorus than verses, stable POV/tense, at least one concrete human detail, and no obvious mouthful lines.
+- Sliders are expressed as ranges (Weirdness, Style Influence), never false-precise single values, and are not returned for Instrumental Mode.
 - Style Diversity / anti-lock-in: examples must not converge on one recurring palette (the skill explicitly bans defaulting to things like `cinematic alt-R&B`, `gospel pads`, `warm male vocal`, `piano and strings`). New examples should span different genres.
 - Anti-generic word list (`neon`, `fire`, `flames`, `shadows`, `echoes`, `broken`, `fading`, `forever`, …) is avoided in generated lyrics unless the user asks for them.

@@ -2,6 +2,8 @@
 
 Use these templates as starting points. Keep final outputs focused on the user's request rather than dumping every field when it is not needed.
 
+For vocal songs, do not let the template outrank the lyric. Draft around the title, hook phrase, section movement, and singability first; then fill only the fields that help the user paste or iterate the song. Default to short, Suno-native lines, not polished prose.
+
 ## Core Suno v5.5 Style Template
 
 ```text
@@ -23,25 +25,25 @@ Style: <genre, mood, BPM, vocal style, instruments, production, theme; <=200 cha
 
 Excluded Styles: <unwanted genres, instruments, vocal traits, moods, or production traits; use None if not needed>
 
-Language Notes: <target language, dialect/region, script, translation/adaptation mode, pronunciation guidance if useful>
+Language Notes: <include only for non-English, bilingual, translated, dialect, script, or pronunciation-sensitive requests>
 
 Lyrics:
-[Intro]
+[Intro, <short delivery/texture descriptor>]
 ...
 
-[Verse 1]
+[Verse 1, <delivery descriptor if useful>]
 ...
 
-[Pre-Chorus]
+[Pre-Chorus, <build descriptor if useful>]
 ...
 
-[Chorus]
+[Chorus, <energy descriptor if useful>]
 ...
 
 [Verse 2]
 ...
 
-[Bridge]
+[Bridge, <contrast descriptor if useful>]
 ...
 
 [Final Chorus]
@@ -54,18 +56,51 @@ Suno v5.5 Notes:
 - <only include if useful>
 
 Slider Suggestions:
-- Weirdness: <range and reason>
-- Style Influence: <range and reason>
+- <include only when useful or requested; Weirdness and Style Influence ranges>
 
 Checks:
-- Structure:
-- Chorus consistency:
-- Long lines:
-- Cliche risk:
-- Vivid details:
-- Field separation:
-- Excluded styles consistency:
-- Language/dialect fit:
+- <include only when useful or requested; keep compact>
+```
+
+## Groove-Narrative Vocal Skeleton
+
+Use this when the song is carried by R&B/neo-soul/jazz-hop pocket, spoken-sung storytelling, city-life vignettes, or environmental sound design.
+
+```text
+Title: <short title>
+
+Style: <genre, groove, BPM, vocal setup, instruments, production, scene/theme; <=200 chars>
+
+Excluded Styles: <unwanted genres, vocal traits, instruments, production traits; use None if not needed>
+
+Lyrics:
+[Intro - <bars/texture/environment/groove cue>]
+<optional non-lyrical cue>
+(<vocalist cue if useful>)
+
+[Verse 1]
+(<vocalist>)
+<8-16 lines; couplet-driven, rhythmic, concrete scene movement>
+
+[Chorus - <delivery/energy cue>]
+(<vocalist>)
+<4 simple, repeatable lines>
+(<backing vocal cue if useful>)
+
+[Verse 2]
+...
+
+[Bridge - <arrangement drop/build cue>]
+(<spoken or sung cue>)
+...
+
+[Final Chorus - <fuller instrumentation cue>]
+...
+
+[Outro - <fade/spoken/environment cue>]
+...
+
+[End or Fade Out]
 ```
 
 ## Instrumental Output Skeleton
@@ -73,9 +108,7 @@ Checks:
 ```text
 Title: <short title>
 
-Style: <instrumental genre, mood, BPM, instruments, production, cue function, no vocals; <=200 chars>
-
-Excluded Styles: <vocals, unwanted genres, unwanted instruments, unwanted moods, or production traits; use None if not needed>
+Instrumental Prompt: <paste-ready natural-language prompt; genre/mood/BPM/instruments/production/cue function/vocal texture; no Style field or sliders>
 
 Arrangement:
 [Intro]
@@ -101,17 +134,8 @@ Arrangement:
 Suno v5.5 Notes:
 - <only include if useful>
 
-Slider Suggestions:
-- Weirdness: <range and reason>
-- Style Influence: <range and reason>
-
 Checks:
-- Arrangement form:
-- Motif clarity:
-- Section contrast:
-- Loopability or cue arc:
-- Instrumentation consistency:
-- Excluded vocal consistency:
+- <include only when useful or requested; instrumental prompt, arrangement form, motif clarity, section contrast, loopability or cue arc, instrumentation consistency, vocal-texture consistency>
 ```
 
 ## Multilingual Output Skeleton
@@ -151,17 +175,10 @@ Suno v5.5 Notes:
 - <only include if useful>
 
 Slider Suggestions:
-- Weirdness: <range and reason>
-- Style Influence: <range and reason>
+- <include only when useful or requested; Weirdness and Style Influence ranges>
 
 Checks:
-- Structure:
-- Singable phrase length:
-- Hook clarity:
-- Language/dialect fit:
-- Natural stress and vowel flow:
-- Field separation:
-- Excluded styles consistency:
+- <include only when useful or requested; structure, singable phrase length, hook clarity, language/dialect fit, natural stress and vowel flow, field separation>
 ```
 
 ## Quick Vocal Prompt Pattern
@@ -174,7 +191,7 @@ Language: <language, dialect/region, script preference>.
 Include these details: <detail 1>, <detail 2>.
 Avoid in lyrics: <words or themes>.
 Exclude from sound: <genres, instruments, vocal traits, moods, or production choices>.
-Return title, Suno v5.5 style line, excluded styles, Custom Mode lyrics, notes, slider suggestions, and checks.
+Return title, Suno v5.5 style line, excluded styles, Custom Mode lyrics, and any useful notes, slider suggestions, or checks.
 ```
 
 ## Quick Instrumental Prompt Pattern
@@ -185,5 +202,5 @@ Mood: <mood>.
 Use: <instruments, tempo, production texture>.
 Scene or use case: <study loop, boss battle, title screen, sad film cue, menu music>.
 Exclude from sound: <vocals, genres, instruments, moods, or production choices>.
-Return title, style line, excluded styles, arrangement, notes, slider suggestions, and checks.
+Return title, instrumental prompt, arrangement, and any useful notes or checks.
 ```

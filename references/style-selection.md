@@ -36,9 +36,9 @@ Example: instead of `sounds like a boom-bap legend`, write `late-90s East Coast 
 | confidence, ambition, rivalry | trap, drill, pop rap, rock anthem, phonk | Match aggression level to the user's tone. |
 | romantic joy, summer, movement | dance pop, afrobeats, reggaeton, disco, house | Use brighter tempos and percussion-forward production. |
 | spiritual struggle, prayer, redemption | gospel, soul, folk, cinematic pop, worship, blues rock | Gospel is one option, not the default. |
-| surreal, chaotic, experimental | hyperpop, art pop, glitch, psychedelic rock, ambient | Raise Weirdness and keep a few guardrails. |
+| surreal, chaotic, experimental | hyperpop, art pop, glitch, psychedelic rock, ambient | For vocal/custom modes, raise Weirdness and keep a few guardrails; for Instrumental Mode, make the prompt texture more specific. |
 | story song, memory, small-town detail | country, Americana, folk, singer-songwriter, indie rock | Prioritize plainspoken detail and narrative arc. |
-| menace, night drive, tension | dark synthpop, techno, trap, industrial, post-punk | Use Excluded Styles to prevent unwanted drift. |
+| menace, night drive, tension | dark synthpop, techno, trap, industrial, post-punk | In vocal/custom modes, use Excluded Styles to prevent unwanted drift; in Instrumental Mode, put must-avoid traits in the prompt. |
 | study, focus, low-distraction background | lofi chillhop, ambient, downtempo, jazzhop, soft house | Use no vocals and loopable arrangement tags. |
 | game or film scene | orchestral, hybrid trailer, chiptune, ambient, synthwave, post-rock | Structure around cue function, not lyric hooks. See `references/instrumental.md`. |
 | screen-tied song (anime OP/ED, TV theme, end-credit song, trailer) | J-rock/J-pop anime OP, mellow anime ED, sitcom theme, atmospheric main title, hybrid trailer cue, needle-drop ballad | Pick the format first; it dictates length, structure, and whether it's a vocal song or a cue. See `references/screen-music.md`. |
@@ -123,5 +123,5 @@ modern French chanson, wistful and elegant, 82 BPM, intimate French vocal, accor
 ### Instrumental Score
 
 ```text
-hybrid orchestral trailer cue, no vocals, 118 BPM, low strings, brass swells, taiko hits, synth pulses, heroic final climax
+instrumental hybrid orchestral trailer cue, 118 BPM, low strings, brass swells, taiko hits, synth pulses, heroic final climax, no lead vocals
 ```

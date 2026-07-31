@@ -7,14 +7,16 @@ For music tied to picture and to an edit length — anime openings/endings, TV t
 ## Instrumental Mode Rules
 
 - Use `Arrangement:` instead of `Lyrics:`.
-- Put `no vocals` in `Style:` or `Excluded Styles:` unless vocal chops, choir, chants, or syllables are wanted.
+- Do not return `Style:`, `Excluded Styles:`, or `Slider Suggestions:` for Suno Instrumental Mode; those inputs are not available there.
+- Return `Instrumental Prompt:` as the paste-ready natural-language prompt for the instrumental generator.
+- Put `instrumental`, `no lead vocals`, or precise vocal texture instructions inside `Instrumental Prompt:`.
 - Write section tags as musical cue directions, not sung lyrics.
 - Describe motif, texture, rhythm, dynamics, transitions, and loopability.
-- Use checks for form, cue clarity, loopability, instrumentation, and excluded vocal consistency.
+- Use checks only when useful for form, cue clarity, loopability, instrumentation, and vocal-texture consistency.
 
 ## Lofi / Chillhop
 
-Style prompt ingredients:
+Instrumental prompt ingredients:
 - BPM: 68-88
 - groove: dusty drums, swung hats, soft kick, vinyl texture
 - harmony: Rhodes, felt piano, jazz guitar, muted keys
@@ -113,7 +115,7 @@ Section form:
 [Fade Out]
 ```
 
-Use low Weirdness for stable meditation; higher Weirdness for dark ambient or experimental sound design.
+For stable meditation, keep the prompt simple and conventional. For dark ambient or experimental sound design, make the texture and motion more specific in the prompt instead of relying on sliders.
 
 ## Trailer / Epic Cue
 
@@ -150,12 +152,12 @@ For the screen-specific three-beat trailer structure (setup → turn/braam → a
 "Instrumental" does not always mean "zero human voice." Many tracks want wordless vocals as texture: chopped/pitched samples, choir "aahs", "oohs", "la la" hooks, chants, hums, breaths.
 
 If the user wants these:
-- Do **not** put a blanket `no vocals` in `Style:`/`Excluded Styles:` — that fights the request. Instead exclude only what you don't want, e.g. `Excluded Styles: lead vocals, rap vocals, spoken word`.
-- Describe the wordless vocal in `Style:`: `ethereal vocal chops`, `wordless choir aahs`, `chanted "hey" hook`, `breathy hums`.
+- Do **not** put a blanket `no vocals` in the instrumental prompt — that fights the request.
+- Describe the wordless vocal in `Instrumental Prompt:`: `ethereal vocal chops`, `wordless choir aahs`, `chanted "hey" hook`, `breathy hums`.
 - In `Arrangement:`, mark where they enter: `[Theme B] add chopped vocal stabs over the groove`, `[Climax] full wordless choir`.
 - If you need actual syllables sung, put them in `Lyrics:` with section tags and keep them non-lexical (`Ooh, ah, na na na`), and say so in `Suno v5.5 Notes:`.
 
-If the user genuinely wants nothing vocal at all, keep `no vocals` in both fields and exclude `choir`, `vocal chops`, and `chants` explicitly.
+If the user genuinely wants nothing vocal at all, say `instrumental, no lead vocals, no choir, no vocal chops, no chants` in `Instrumental Prompt:`.
 
 ## Stems And Handoff
 
@@ -163,24 +165,25 @@ When the instrumental is headed for a DAW, a video edit, or layering with live p
 
 ## Instrumental Output Checks
 
+- Instrumental prompt:
 - Arrangement form:
 - Motif clarity:
 - Section contrast:
 - Loopability or cue arc:
 - Instrumentation consistency:
 - Dynamic arc:
-- Excluded vocal consistency:
+- Vocal-texture consistency:
 
-## Example Style Lines
+## Example Instrumental Prompts
 
 ```text
-lofi chillhop, relaxed 78 BPM, no vocals, dusty drums, mellow Rhodes, soft upright bass, vinyl texture, loopable study beat
+instrumental lofi chillhop study beat, relaxed 78 BPM, dusty drums, mellow Rhodes, soft upright bass, vinyl texture, loopable, no lead vocals
 ```
 
 ```text
-orchestral fantasy OST cue, 92 BPM, no vocals, strings, harp, low brass, taiko swells, mysterious village-to-battle arc
+instrumental orchestral fantasy OST cue, 92 BPM, strings, harp, low brass, taiko swells, mysterious village-to-battle arc, no lead vocals
 ```
 
 ```text
-dark ambient drone, slow 55 BPM pulse, no vocals, evolving pads, bowed textures, distant bells, slow tension build, no drums
+instrumental dark ambient drone, slow 55 BPM pulse, evolving pads, bowed textures, distant bells, slow tension build, no drums, no lead vocals
 ```

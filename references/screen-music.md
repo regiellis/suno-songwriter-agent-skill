@@ -69,13 +69,13 @@ Put the chosen length and structure in `Suno v5.5 Notes:`. For anything that sho
 
 ## Output Shape
 
-- Anime OP/ED, end-credit song, sitcom theme with words → vocal song output (`Title`, `Style`, `Excluded Styles`, `Lyrics`, `Language Notes` when Japanese/other, `Suno v5.5 Notes` with the cut, `Slider Suggestions`, `Checks`).
-- Trailer cut, drama main title, ident, game theme → instrumental output (`Arrangement:` instead of `Lyrics:`, instrumental checks).
+- Anime OP/ED, end-credit song, sitcom theme with words → vocal song output (`Title`, `Style`, `Excluded Styles`, `Lyrics`, `Language Notes` when Japanese/other, and `Suno v5.5 Notes` with the cut; add sliders/checks only when useful or requested).
+- Trailer cut, drama main title, ident, game theme → instrumental output (`Instrumental Prompt:` plus `Arrangement:` instead of `Style:` / `Lyrics:`; no sliders; add instrumental checks only when useful or requested).
 
 ## Checks (screen-specific, in addition to the usual ones)
 
 - Hook or motif lands inside the first 30 seconds (or sooner for short formats).
 - The stated edit length matches the structure actually written.
 - Vocal language and register fit the format (e.g. Japanese OP/ED, with English hook only if intended).
-- Instrumental cues vs sung lyrics are routed correctly (trailer/ident = `Arrangement:`, OP/ED = `Lyrics:`).
+- Instrumental cues vs sung lyrics are routed correctly (trailer/ident = `Instrumental Prompt:` + `Arrangement:`, OP/ED = `Lyrics:`).
 - Loopable themes mark `[Loop Point]`; non-looping cuts end with `[End]`.

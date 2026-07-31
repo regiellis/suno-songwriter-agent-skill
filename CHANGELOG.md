@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased
+
+### Fixed
+
+- Tightened `SKILL.md` around hook-first lyric quality so vocal requests prioritize a strong song over a complete form: clear title/hook, simpler chorus, stable POV/tense, concrete detail, and singable line lengths.
+- Shortened the trigger description and OpenAI default prompt to reduce metadata bloat and avoid steering every request into optional notes, sliders, and checks.
+- Synced `references/output-templates.md`, `references/screen-music.md`, `references/evals.md`, `README.md`, and `CLAUDE.md` with the optional-field contract and lyric quality gate.
+- Corrected Instrumental Mode guidance: Suno instrumentals use `Instrumental Prompt:` plus `Arrangement:`, not `Style:`, `Excluded Styles:`, or slider suggestions.
+- Added a Suno-native lyric default: compact 4-line sections, short singable lines, plain rhyme, strong hook repetition, and optional performance descriptors in section tags.
+- Added groove-narrative vocal mode for neo-soul/R&B/jazz-hop/spoken-sung songs with longer rhythmic verses, environmental arrangement cues, vocalist labels, spoken bridges, and simple chanted choruses.
+
 ## v1.1.0 — 2026-05-12
 
 ### Added

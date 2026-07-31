@@ -23,15 +23,24 @@ Vocal outputs should usually include:
 - `Lyrics`
 - `Suno v5.5 Notes` when useful
 - `Slider Suggestions` when Suno settings are requested or a full package is implied
-- `Checks`
+- `Checks` when useful or requested
+
+Vocal lyrics should pass the lyric quality gate:
+- title or hook phrase appears in or near the chorus
+- chorus is mechanically simpler and more repeatable than the verses
+- lines are compact and naturally singable, usually 5-9 words
+- end rhyme or vowel rhyme supports the flow unless the genre asks otherwise
+- performance descriptors are used in section tags when they improve delivery
+- point of view and tense are stable unless a shift is deliberate
+- at least one concrete human detail appears outside the chorus
+- no obvious overlong mouthful lines
 
 Instrumental outputs should use:
 - `Title`
-- `Style`
-- `Excluded Styles`
+- `Instrumental Prompt`
 - `Arrangement`
-- `Slider Suggestions`
-- instrumental checks, not lyric checks
+- no `Style`, `Excluded Styles`, or `Slider Suggestions`
+- instrumental checks when useful or requested, not lyric checks
 
 Multilingual outputs should include:
 - `Language Notes`
@@ -44,8 +53,10 @@ Multilingual outputs should include:
 | --- | --- | --- | --- |
 | V1 | Vocal song | `Use $suno-songwriter to write a modern country song about a father driving through the night to pick up his kid. Male vocal, hopeful but tired.` | Produces lyrics, country-appropriate style, no hard-coded alt-R&B defaults, concrete details, checks. |
 | V2 | Hook rewrite | `Use $suno-songwriter to make this chorus more memorable: I miss you every day / I wish you would stay / I feel so far away.` | Focuses on hook, likely uses Rule of 3 or 80/20, does not overbuild full song unless asked. |
-| I1 | Instrumental OST | `Use $suno-songwriter to create cinematic trailer music for a space rescue.` | Uses `Arrangement`, no `Lyrics`, includes no-vocal style/exclusions, cue arc, motif, sliders. |
-| I2 | Lofi loop | `Use $suno-songwriter for a no-vocal lofi study beat with rain, Rhodes, and soft drums.` | Loopable arrangement, no vocals, chillhop style, no lyric checks. |
+| V3 | Suno-native flow | `Use $suno-songwriter to write an R&B song about leaving for Japan after a breakup and finding love for the country and a person.` | Uses compact 4-line verses, 2-line pre-choruses, a plain repeatable chorus, natural rhyme, and optional performance descriptors; avoids wordy prose. |
+| V4 | Groove narrative | `Use $suno-songwriter to write a neo-soul song about riding the same bus route every day and noticing everyone's lives.` | Allows longer rhythmic verses, scene-by-scene couplets, vocalist labels, environmental/arrangement tags, spoken bridge/outro, and a simple chanted chorus. |
+| I1 | Instrumental OST | `Use $suno-songwriter to create cinematic trailer music for a space rescue.` | Uses `Instrumental Prompt` and `Arrangement`, no `Lyrics`, no `Style`, no `Excluded Styles`, no sliders; cue arc and motif are clear. |
+| I2 | Lofi loop | `Use $suno-songwriter for a no-vocal lofi study beat with rain, Rhodes, and soft drums.` | Loopable arrangement, instrumental prompt says no lead vocals, no Style/Excluded Styles/sliders, no lyric checks. |
 | M1 | Multilingual original | `Use $suno-songwriter to write a Japanese hyperpop chorus about surviving a terrible night. Native script.` | Japanese lyrics, language notes, compact phrasing, style suited to request. |
 | M2 | Singable adaptation | `Use $suno-songwriter to adapt this English hook into Mexican Spanish, keep the feeling not the exact words: I keep running toward the morning.` | Singable adaptation, not literal translation, dialect notes, no accidental English drift. |
 | C1 | Controls only | `Use $suno-songwriter to improve my Suno prompt: sad song, piano. I don't want country or EDM.` | Returns improved Style, Excluded Styles, slider suggestions; may not generate lyrics. |
@@ -91,7 +102,7 @@ These should trigger the skill:
     "should_trigger": true
   },
   {
-    "query": "I need Excluded Styles and Weirdness settings for a cinematic trailer cue",
+    "query": "I need Excluded Styles and Weirdness settings for a cinematic pop song",
     "should_trigger": true
   },
   {
@@ -195,7 +206,7 @@ These should not trigger the skill unless the broader task also asks for AI song
 Use these after changing the skill:
 
 - Does a pasted lyric reference get transformed rather than copied?
-- Does an instrumental prompt return `Arrangement` instead of `Lyrics`?
+- Does an instrumental prompt return `Instrumental Prompt` and `Arrangement`, with no `Style`, `Excluded Styles`, or sliders?
 - Does a multilingual request include `Language Notes`?
 - Does `Excluded Styles` avoid contradicting `Style`?
 - Does style selection avoid repeatedly defaulting to the same genre/palette?
@@ -206,7 +217,7 @@ Use these after changing the skill:
 - Does a "fix one section" request recommend Replace Section over a full re-roll?
 - Does a style-match request produce original lyrics (no reproduced/close-paraphrased source lines) with a `Style Reference:` line and no artist name in `Style:`?
 - Does a "Korean song" request avoid auto-defaulting to K-pop when the brief implies ballad, hip hop, or indie?
-- Does a screen-tied request route output correctly (anime OP/ED, end-credit song = `Lyrics:`; trailer cut, ident, atmospheric main title = `Arrangement:`) and state the edit length?
+- Does a screen-tied request route output correctly (anime OP/ED, end-credit song = `Lyrics:`; trailer cut, ident, atmospheric main title = `Instrumental Prompt:` + `Arrangement:`) and state the edit length?
 - Does a persona/album request write a spec file to `personas/<slug>.md` / `albums/<slug>.md` using the documented schema, and refuse to overwrite an existing one without confirmation?
 - Does a style-reference persona keep the real artist name out of the spec's operational sections and out of every prompt?
 - Does a song generated "as <persona>" or "track N of <album>" load the spec, stay consistent (vocals, cadence, fingerprint, palette, cohesion rules), and update the Song Log / tracklist?
@@ -219,11 +230,11 @@ Use these after changing the skill:
 Score each from 0-2:
 
 - Trigger fit: skill invoked only when appropriate.
-- Field separation: Style, Excluded Styles, Lyrics/Arrangement are clean.
+- Field separation: vocal Style/Excluded Styles/Lyrics are clean; instrumental prompt/arrangement are clean.
 - Musical specificity: genre, tempo, instruments, and production are clear.
 - Song craft: hook, structure, and section jobs are coherent.
 - Reference handling: copied lyrics are transformed, not reused closely.
-- Suno usability: output is ready to paste into Custom Mode.
-- Constraint handling: language, no-vocal, exclusions, and sliders match the request.
+- Suno usability: output is ready to paste into the target Suno mode.
+- Constraint handling: language, no-vocal, exclusions, and sliders match the request and mode.
 
 Suggested pass threshold: 10/14 for rough smoke tests, 12/14 for release confidence.

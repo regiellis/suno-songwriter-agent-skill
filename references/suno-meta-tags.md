@@ -65,6 +65,17 @@ Hand off between voices:
 
 Use these when the song needs verse trading, a duet chorus, or a featured guest section. Keep the count low — two or three voices is reliable; more tends to blur. If the user has a trained Voice selected, do not fight it with vocal-gender tags.
 
+Parenthetical vocalist labels are also useful for duet/storytelling layouts:
+
+```text
+(Male)
+(Female - wordless hum, background texture)
+(Female - wordless "oooh" echo underneath)
+(Male - spoken, intimate)
+```
+
+Use them on their own line before the affected passage. Keep the label short enough that it works as a cue, not a lyric.
+
 ## Ad-Libs and Backing Phrases
 
 Short parenthetical phrases become backing/ad-lib vocals rather than lead lines:
@@ -93,7 +104,18 @@ Suno will attempt ambience or one-shot effects from tags like:
 [Footsteps]
 ```
 
-Reliability varies. Treat these as nice-to-have, not load-bearing. If an effect is essential, also describe it in `Style:` (e.g. `vinyl texture`, `crowd ambience`).
+Reliability varies. Treat these as nice-to-have, not load-bearing. If an effect is essential, also describe it in `Style:` for vocal/custom modes or `Instrumental Prompt:` for Instrumental Mode (e.g. `vinyl texture`, `crowd ambience`).
+
+For groove-narrative vocal songs, short arrangement cues can be useful inside the lyric block:
+
+```text
+[Intro - 8 bars, bus doors hiss, street ambience, Rhodes and bass groove]
+[drums enter bar 7]
+[Bridge - drums drop to kick and hi-hat, bass lead]
+[Fade to end - bus engine drone, night crickets, Rhodes chord]
+```
+
+Use these when the sound design is part of the concept. Avoid overloading every section with long production notes.
 
 ## Ending Control
 
@@ -111,8 +133,8 @@ Suno will often invent extra verses or fade awkwardly if the lyric block ends wi
 ## Rules and Failure Modes
 
 - **Tags get sung if placed mid-line.** Keep cues on their own line.
-- **Too many tags = ignored or muddy.** Budget: a handful of section descriptors, one or two instrumental moments, one or two vocal-delivery cues per song.
-- **Don't put production direction in tags.** Persistent genre/instrument/mix direction belongs in `Style:`. Tags are for moment-to-moment changes.
+- **Too many tags = ignored or muddy.** Budget tags by purpose. A groove-narrative song can carry more arrangement cues than a pop song, but each cue should affect the recording.
+- **Don't put production direction in tags.** Persistent genre/instrument/mix direction belongs in `Style:` for vocal/custom modes or `Instrumental Prompt:` for Instrumental Mode. Tags are for moment-to-moment changes.
 - **`[End]` controls length.** If the user complains Suno keeps adding verses, add `[End]`.
 - **Brackets in lyrics ≠ Suno-only.** Most other AI music tools that accept bracket tags handle section headers; many do not handle inline cues. Note that when writing portable prompts.
 

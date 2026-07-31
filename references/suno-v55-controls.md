@@ -1,22 +1,25 @@
 # Suno v5.5 Controls
 
-Use this reference for Suno-specific prompt fields, sliders, personalization, and troubleshooting.
+Use this reference for Suno-specific vocal/custom prompt fields, sliders, personalization, and troubleshooting. For Instrumental Mode, do not return Style, Excluded Styles, or sliders; use `Instrumental Prompt:` plus `Arrangement:` instead.
 
 ## Field Separation
 
 Keep fields clean:
 
-- `Style:` positive musical direction only.
-- `Excluded Styles:` negative sound direction only.
+- `Style:` positive musical direction only for vocal/custom modes.
+- `Excluded Styles:` negative sound direction only for vocal/custom modes.
 - `Lyrics:` singable words and section tags only.
+- `Instrumental Prompt:` paste-ready natural-language prompt for Instrumental Mode.
 - `Arrangement:` musical cue map for instrumental tracks.
 - `Suno v5.5 Notes:` short operational guidance only when useful.
 
 ## Title Field
 
-Suno has a separate Title field. It is mostly a label, but the model does read it — a vivid, on-theme title nudges mood and lyrical content, and a generic one (`Untitled`, `Song 1`) wastes a small signal. Use the same `Title:` you put in the output. Do not stuff genre or production words into the title; that belongs in `Style:`.
+Suno has a separate Title field. It is mostly a label, but the model does read it — a vivid, on-theme title nudges mood and lyrical content, and a generic one (`Untitled`, `Song 1`) wastes a small signal. Use the same `Title:` you put in the output. For vocal/custom modes, do not stuff genre or production words into the title; that belongs in `Style:`. For Instrumental Mode, put genre/production detail in `Instrumental Prompt:`.
 
 ## Style Field
+
+Use this only for vocal/custom modes, not Instrumental Mode.
 
 Use a compact positive prompt:
 
@@ -24,13 +27,13 @@ Use a compact positive prompt:
 [genre/subgenre], [mood], [BPM], [vocal style or no vocals], [instruments], [production], [theme/cue function]
 ```
 
-Good:
+Vocal/custom good:
 
 ```text
 garage rock, restless and defiant, 132 BPM, raw group vocals, distorted guitars and live drums, punchy basement production
 ```
 
-Good:
+If the user is not using Instrumental Mode, this can describe a no-vocal custom track:
 
 ```text
 lofi chillhop, relaxed 78 BPM, no vocals, dusty drums, mellow Rhodes, upright bass, vinyl texture, loopable study beat
@@ -56,7 +59,7 @@ This also keeps the prompt portable to other AI music tools and easier to tweak 
 
 ## Excluded Styles
 
-Use Suno's `Excluded Styles` input as a negative prompt field. Put unwanted sound traits there instead of crowding the positive Style field with many `no...` phrases.
+Use Suno's `Excluded Styles` input as a negative prompt field for vocal/custom modes. Instrumental Mode does not expose this field; put must-avoid vocal texture in `Instrumental Prompt:` instead.
 
 Good exclude targets:
 - unwanted genres: `country`, `EDM`, `metal`, `trap`
@@ -70,6 +73,8 @@ Keep it short. Three to seven precise items usually works better than a long lis
 Never exclude a trait requested in `Style:`.
 
 ## Weirdness
+
+Do not return slider suggestions for Instrumental Mode.
 
 Weirdness runs from Safe to Chaos. Around 50% is Suno's normal expected result. Lower values are more conventional and stable; higher values add surprise, unusual transitions, and more risk.
 
@@ -94,9 +99,11 @@ Raise Weirdness for:
 - psychedelic
 - avant-garde
 - unusual fusions
-- surreal instrumental cues
+- surreal custom-mode cues
 
 ## Style Influence
+
+Do not return Style Influence suggestions for Instrumental Mode.
 
 Style Influence runs from Loose to Strong and controls how closely Suno follows the Style field.
 
@@ -165,7 +172,7 @@ Suggest the Magic Wand in the Styles field for personalized suggestions, then re
 
 Suno can silently reject, blank, or blandly average a generation when the inputs trip a content or copyright filter. Common triggers:
 
-- names of real living people, bands, or song titles — in `Style:` **and** in `Lyrics:` (see `Style Field` § No Artist Names)
+- names of real living people, bands, or song titles — in `Style:`, `Instrumental Prompt:`, **and** `Lyrics:` (see `Style Field` § No Artist Names)
 - brand and trademark names
 - explicit profanity or slurs (some profanity is allowed; heavy use is risky)
 - graphic violence, sexual content, or self-harm depiction in the lyrics

@@ -1,6 +1,6 @@
 # Suno Sounds (Custom Audio Samples)
 
-Use this reference when the user wants an individual **audio sample** rather than a song or a full instrumental track — a sound effect, foley hit, ambience bed, transition/whoosh, animal sound, or a musical one-shot / drum loop. Suno's "Sounds" feature generates these from a text prompt plus a few settings; the output here is a sound prompt, not the Title/Style/Lyrics contract.
+Use this reference when the user wants an individual **audio sample** rather than a song or a full instrumental track — a sound effect, foley hit, ambience bed, transition/whoosh, animal sound, or a musical one-shot / drum loop. Suno's "Sounds" feature generates these from a text prompt plus a few settings; the output here is a sound prompt, not the song or instrumental contract.
 
 Reference: Suno help — "Suno Sounds: Generate Custom Audio Samples" (`help.suno.com/en/articles/10625537`). It's an experimental feature; behavior may change.
 
@@ -8,7 +8,7 @@ Reference: Suno help — "Suno Sounds: Generate Custom Audio Samples" (`help.sun
 
 Triggers: "make me a <sound effect>", "I need a whoosh / glitch / riser / impact", "generate an 808 kick one-shot", "a snare sample", "a drum loop at 90 BPM in A minor", "rain ambience", "city-street background noise", "footsteps foley", "a sci-fi teleport sound", "a sound sample / SFX for my video / game / podcast / stream".
 
-If the user wants a *piece of music* — even a short one with melody or harmony (a sting, an ident, a melodic loop) — that is an instrumental track: use `references/instrumental.md` and the normal output contract, not this.
+If the user wants a *piece of music* — even a short one with melody or harmony (a sting, an ident, a melodic loop) — that is an instrumental track: use `references/instrumental.md` and return `Instrumental Prompt:` plus `Arrangement:`, not this sound-sample contract.
 
 ## What Suno Sounds Does
 

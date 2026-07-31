@@ -1,16 +1,18 @@
 ---
 name: suno-songwriter
-description: Use this skill when the user wants to write, revise, remix, translate, adapt, or prompt an AI-generated song or instrumental track, especially for Suno v5.5 Custom Mode. Covers lyrics, hooks, song structure, Style/Excluded Styles prompts and sliders, multilingual songs (including Korean lanes beyond K-pop, J-pop, city pop), instrumental arrangements, lofi beats, OST cues, anime openings/endings, TV themes, trailer music, idents, game themes, Voices, Custom Models, My Taste, anti-generic rewrites, lyric remixes and flips, writing original lyrics in an artist's style or cadence, reusable artist personas, cohesive albums and EPs, individual audio samples and sound effects (Suno Sounds), cover art and animated covers (text-to-image/video), and portable prompts for other AI music tools. Trigger even on casual asks for a song, chorus, verse, rap, ballad, translation, instrumental, anime intro/outro, theme song, persona, album, sound effect, or cover art. Not for music theory, DAW mixing, or licensing.
+description: "Use this skill when the user wants to write, revise, remix, translate, adapt, or prompt a song, lyric, hook, chorus, verse, rap, ballad, instrumental, Suno track, or AI-music prompt. Prioritize strong original lyrics: hook-first, singable, concrete, structured, and ready for Suno v5.5 Custom Mode. Also covers vocal Style and Excluded Styles, vocal/custom sliders, multilingual lyrics, lofi and OST cues, anime or TV themes, lyric remixes, artist-style/cadence fingerprints without copying lyrics, reusable personas, albums, Suno Sounds samples, cover art, and animated covers. Not for music theory, DAW mixing, or licensing."
 ---
 
 # Suno Songs, Lyrics, And Instrumental Prompts
 
 Use this skill to create release-quality AI song inputs. Target Suno v5.5 first (current as of 2026-05; if the platform's model has moved on, the field names and craft still apply — re-check version-specific limits), then keep the result portable enough for other AI music systems by separating style, lyrics, structure, and performance notes.
 
+Highest priority for vocal requests: write a good song, not a feature-complete form. A useful Suno package with weak lyrics is a failed output. Default to Suno-native lyric phrasing: short, direct, emotional lines that sing easily.
+
 Use references selectively:
 - Read `references/templates.md` first only when you need the reference index.
 - Read `references/output-templates.md` for complete output skeletons and quick invocation patterns.
-- Read `references/suno-v55-controls.md` for Style, Excluded Styles, Weirdness, Style Influence, the Title field, Voices, Custom Models, My Taste, content filters, or Suno troubleshooting.
+- Read `references/suno-v55-controls.md` for vocal/custom Style, Excluded Styles, Weirdness, Style Influence, the Title field, Voices, Custom Models, My Taste, content filters, or Suno troubleshooting.
 - Read `references/suno-meta-tags.md` for cues inside the lyrics body: instrumental moments, vocal delivery, multiple vocalists, ad-libs, sound effects, and `[End]` length control.
 - Read `references/studio-and-iteration.md` for choosing between takes, Extend, Cover/Remix, Replace Section, Crop, stems, remaster, and the edit-vs-re-roll decision.
 - Read `references/songwriting-craft.md` for lyric writing, revision, hooks, rhyme, meter, point of view, vivid detail, and reference-lyric transformation.
@@ -32,17 +34,59 @@ Use references selectively:
 ## Core Workflow
 
 1. Clarify the song goal from the user request: theme, genre, language/dialect, vocalist or instrumental mode, audience, emotional arc, and whether they need lyrics, arrangement notes, a style prompt, or all of them. If the user names a saved persona or album, read its spec file (`personas/<slug>.md` / `albums/<slug>.md`) first and treat it as a constraint (see `references/personas.md`, `references/albums.md`).
-2. Build the song as a song, not just a prompt: title, core idea, hook, section map, melodic phrasing assumptions, then final lyrics.
+2. Build the song as a song, not just a prompt: title, central promise, hook phrase, section map, melodic phrasing assumptions, then final lyrics.
 3. If the user provides existing lyrics, treat them as reference material for theme and direction unless they explicitly ask for a close edit, preservation, or line-by-line rewrite.
 4. Choose the sound from the user's request. If genre, vocalist, or production style is missing, either ask a concise follow-up or infer a fitting direction from the theme and label it as an assumption. Do not default to one recurring palette.
 5. Keep Suno fields clean:
-   - `Style:` concise positive direction: genre, mood, tempo, vocal style, instruments, and production. Keep it under 200 characters unless the user asks for a longer prompt.
-   - `Excluded Styles:` concise negative direction: genres, instruments, vocal types, moods, or production traits to avoid.
-   - `Lyrics:` section-tagged text only when vocals are wanted. Put story and singable words here, not production instructions.
-   - `Arrangement:` section-tagged cue map when the track is instrumental or non-lyric.
-6. When relevant, include short `Suno v5.5 Notes:` for Voices, Custom Models, My Taste, Studio, stems, remaster, or iteration strategy.
-7. For Suno Custom Mode, include `Slider Suggestions:` when the user asks for prompt settings, troubleshooting, or a complete Suno-ready package.
-8. Add a compact `Checks:` section covering structure, meter, hook clarity, cliche risk, and prompt-field separation.
+   - Vocal Custom Mode: use `Style:` for concise positive direction; `Excluded Styles:` for negative sound direction; `Lyrics:` for section-tagged singable words.
+   - Instrumental Mode: do not return `Style:`, `Excluded Styles:`, or slider suggestions because Suno's instrumental flow does not expose those inputs. Return `Instrumental Prompt:` plus `Arrangement:`.
+   - `Arrangement:` is a section-tagged cue map when the track is instrumental or non-lyric.
+6. Before output, do one silent lyric revision pass: strengthen the title/hook, simplify the line language, shorten any overlong line, verify point of view and tense, and make the chorus mechanically simpler than the verses.
+7. When relevant, include short `Suno v5.5 Notes:` for Voices, Custom Models, My Taste, Studio, stems, remaster, or iteration strategy.
+8. For vocal/custom Suno modes, include `Slider Suggestions:` when the user asks for prompt settings, troubleshooting, or a complete Suno-ready package. Do not include sliders for Instrumental Mode.
+9. Add `Checks:` only when useful or requested. Keep checks compact and focused on structure, meter, hook clarity, cliche risk, and prompt-field separation.
+
+## Lyric Quality Gate
+
+For every vocal lyric, enforce these before returning the final text:
+
+- The title or hook phrase appears in or near the chorus.
+- The chorus is shorter, plainer, and more repeatable than the verses.
+- Lines are compact and singable by default: usually 5-9 words, one clear image or claim per line.
+- Verse and pre-chorus lines use natural end rhyme or vowel rhyme unless the genre calls for loose prose.
+- Favor clean, memorable phrasing over clever metaphor or narrative explanation.
+- Each section has a distinct job: setup, pressure, payoff, contrast, or resolution.
+- Point of view and tense stay consistent unless the shift is deliberate and section-boundary clear.
+- At least one concrete human detail anchors the song, but the chorus is not overloaded with detail.
+- Stock abstractions are rewritten unless they are the user's deliberate aesthetic.
+- Section lines are close enough in length to sing; rewrite obvious mouthfuls.
+- The final chorus, bridge, or outro changes the meaning slightly rather than only repeating the same emotion.
+
+## Suno-Native Lyric Shape
+
+Unless the user asks for dense poetry, rap complexity, a literary style, or a groove-narrative form, write vocal lyrics in this shape:
+
+- Use 4-line verses and 2-line pre-choruses by default.
+- Use a 4-6 line chorus with one unmistakable hook phrase.
+- Keep syntax plain: subject, verb, image. Avoid clauses stacked with `and`, `but`, or explanatory phrases.
+- Let one strong image carry a section (`cherry blossoms`, `storm`, `train lights`, `packed bags`) instead of adding many small details.
+- Use familiar, singable rhyme families: mind/behind, rain/pain/name, spring/everything, glow/know.
+- Put performance descriptors in section tags when they help Suno deliver the song: `[Intimate female vocals]`, `[Layered harmonies, momentum building]`, `[Anthemic, soaring]`, `[Stripped back, vulnerable]`.
+- Do not overcorrect every archetypal word. Words like `fire`, `storm`, `light`, `rise`, `shine`, and `heart` are acceptable when they serve a clear hook and genre.
+
+## Groove-Narrative Vocal Mode
+
+Use this mode for neo-soul, R&B storytelling, spoken-sung tracks, conscious rap, jazz-hop, city-life vignettes, bus/train/street songs, or any brief that feels like a groove with scenes passing by.
+
+In this mode:
+- Longer verses are allowed: 8, 12, or 16 lines can work when the groove stays steady.
+- Keep couplets tight and rhythmic; each pair should feel like one bar-to-bar thought.
+- Use internal rhythm, slant rhyme, and repeated phrase shapes more than simple pop brevity.
+- Add arrangement and environment cues in brackets when they define the record: `[Intro - 8 bars, bus doors hiss, street ambience, Rhodes and bass groove]`, `[drums enter bar 7]`, `[Bridge - drums drop to kick and hi-hat, bass lead]`.
+- Use vocalist labels when helpful: `(Male)`, `(Female - wordless hum)`, `(Both)`, `(Female - wordless "oooh" echo underneath)`.
+- Spoken lines can sit in a bridge or outro when the track needs intimacy: `(Male - spoken, intimate)`.
+- The chorus should still be simpler than the verses: 4 lines, repeatable, rhythmic, and easy to chant.
+- Do not sanitize dialect or conversational grammar if it supports the pocket (`done changed`, `playin'`, `movin'`), but keep it intentional and consistent.
 
 ## Suno v5.5 Prompting
 
@@ -53,18 +97,18 @@ Use bracketed section tags. For vocal songs:
 - `[Bridge]` for a contrast or twist before the final chorus
 - `[Outro]` or `[Coda]` to close
 
-You can add a short performance or energy descriptor inside a section tag to cue a dynamic change, for example `[Whispered Verse]`, `[Half-time Verse 2]`, `[Explosive Chorus, big guitars]`, `[Stripped Bridge, vocal and piano only]`, `[Double-time Outro]`. Keep these to a few words, use them only where the energy actually shifts, and keep instrument/production direction in `Style:` rather than stacking it into every tag.
+You can add a short performance or energy descriptor inside a section tag to cue a dynamic change, for example `[Whispered Verse]`, `[Half-time Verse 2]`, `[Explosive Chorus, big guitars]`, `[Stripped Bridge, vocal and piano only]`, `[Double-time Outro]`. Keep these to a few words, use them only where the energy actually shifts, and keep persistent instrument/production direction in `Style:` for vocal/custom modes or `Instrumental Prompt:` for Instrumental Mode.
 
 The lyrics body also accepts inline cues on their own line: instrumental moments (`[Guitar Solo]`, `[Instrumental Break]`, `[Beat Drop]`), vocal delivery (`[Spoken]`, `[Whispered]`, `[Harmonies]`), vocalist hand-offs (`[Male Voice]`, `[Female Voice]`, `[Duet]`), ad-libs in parens (`(yeah)`), sound effects (`[Applause]`), and ending control (`[End]`, `[Fade Out]`). Use them sparingly — too many get ignored or sung aloud. `[End]` after the final section is the reliable way to stop Suno inventing extra verses. See `references/suno-meta-tags.md`.
 
-Suno can silently reject or blandly average a generation that trips a content/copyright filter — real-person names (in `Style:` *and* lyrics), brand names, heavy profanity, or graphic content. If a result comes back blank or oddly generic, suspect the filter before the sliders; soften or imply the offending material and note the change in `Suno v5.5 Notes:`.
+Suno can silently reject or blandly average a generation that trips a content/copyright filter — real-person names (in `Style:`, `Instrumental Prompt:`, and lyrics), brand names, heavy profanity, or graphic content. If a result comes back blank or oddly generic, suspect the filter before the sliders; soften or imply the offending material and note the change in `Suno v5.5 Notes:`.
 
 For instrumentals:
 - `[Intro]`, `[Theme A]`, `[Theme B]`, `[Breakdown]`, `[Build]`, `[Climax]`, `[Loop Point]`, `[Outro]`
 - For lofi/background music, prefer loopable sections and subtle variation.
 - For OST cues, describe scene function, motif, dynamics, instrumentation, and emotional turn.
 
-Suno v5.5 responds well to clear, natural-language style prompts. Include the most important descriptors early:
+For vocal/custom modes, Suno v5.5 responds well to clear, natural-language style prompts. Include the most important descriptors early:
 
 ```text
 [Genre/subgenre], [mood], [tempo/BPM], [vocal style], [instruments and production], [theme/story], [optional exclusions]
@@ -101,20 +145,22 @@ Vary vocal identity, tempo, instrumentation, structure, and production language 
 Use Instrumental Mode when the user asks for no vocals, lofi beats, study music, meditation, game music, film/TV score, trailer music, background music, underscore, ambience, OST, theme music, battle music, menu music, or a soundtrack cue.
 
 In Instrumental Mode:
-- Put `no vocals` or a precise vocal exclusion in `Style:` and/or `Excluded Styles:`.
+- Return `Instrumental Prompt:` instead of `Style:` / `Excluded Styles:`.
+- Do not include `Slider Suggestions:`.
+- Put `instrumental`, `no lead vocals`, or precise vocal texture instructions inside `Instrumental Prompt:` as plain language.
 - Return `Arrangement:` instead of `Lyrics:` unless the user asks for vocal chops, chants, or non-lexical syllables.
 - Write section tags as musical cue directions, not sung lyrics.
 - Describe motif, texture, rhythm, dynamics, transitions, and loopability.
 - Avoid lyric checks such as rhyme and chorus wording; check form, cue clarity, loopability, instrumentation, and excluded vocal consistency.
 
-Instrumental examples:
-- lofi: `lofi chillhop, relaxed 78 BPM, dusty drums, mellow Rhodes, soft upright bass, vinyl texture, loopable study beat, no vocals`
-- OST: `orchestral fantasy OST cue, 92 BPM, strings, harp, low brass, taiko swells, mysterious village-to-battle arc, cinematic dynamics, no vocals`
-- ambient: `dark ambient drone, 55 BPM pulse, evolving pads, bowed textures, distant bells, slow tension build, no drums, no vocals`
+Instrumental prompt examples:
+- lofi: `instrumental lofi chillhop study beat, relaxed 78 BPM, dusty drums, mellow Rhodes, soft upright bass, vinyl texture, loopable, no lead vocals`
+- OST: `instrumental orchestral fantasy OST cue, 92 BPM, strings, harp, low brass, taiko swells, mysterious village-to-battle arc, cinematic dynamics`
+- ambient: `instrumental dark ambient drone, slow 55 BPM pulse, evolving pads, bowed textures, distant bells, slow tension build, no drums, no lead vocals`
 
 ## Sound Samples (Suno Sounds)
 
-When the user wants an individual audio *sample* — a sound effect, transition/whoosh, riser, impact, foley hit, ambience bed, animal sound, or a musical one-shot / drum loop — that is Suno's "Sounds" feature, not a song or instrumental track. Read `references/suno-sounds.md`. Return a `Sound:` prompt plus `Type:` (One Shot / Loop), `BPM:`, `Key:`, and `Variations:` instead of the Title/Style/Lyrics contract; write the prompt with specific, recognizable vocabulary (`whoosh`, `glitch`, `rumble`, `808 kick`, `ambiance`...), state a duration when it matters, and set BPM/Key only for musical material. If the user actually wants a short *piece of music* (a sting, an ident, a melodic loop), treat it as an instrumental track instead (`references/instrumental.md`).
+When the user wants an individual audio *sample* — a sound effect, transition/whoosh, riser, impact, foley hit, ambience bed, animal sound, or a musical one-shot / drum loop — that is Suno's "Sounds" feature, not a song or instrumental track. Read `references/suno-sounds.md`. Return a `Sound:` prompt plus `Type:` (One Shot / Loop), `BPM:`, `Key:`, and `Variations:` instead of the song or instrumental contract; write the prompt with specific, recognizable vocabulary (`whoosh`, `glitch`, `rumble`, `808 kick`, `ambiance`...), state a duration when it matters, and set BPM/Key only for musical material. If the user actually wants a short *piece of music* (a sting, an ident, a melodic loop), treat it as an instrumental track instead (`references/instrumental.md`).
 
 ## Cover Art And Animated Covers
 
@@ -143,7 +189,7 @@ If unsure about grammar, idiom, dialect, or cultural nuance, say so briefly and 
 
 ## Creative Sliders
 
-Suno's Custom Mode Creative Sliders shape how much the model explores and how strictly it follows the style input. Use ranges, not false precision.
+Suno's Custom Mode Creative Sliders shape how much the model explores and how strictly it follows the style input. Use ranges, not false precision. Do not return slider suggestions for Instrumental Mode.
 
 - **Weirdness:** Safe to Chaos. Around 50% is Suno's normal expected result. Lower values are more conventional and stable; higher values add surprise, unusual transitions, and more risk.
 - **Style Influence:** Loose to Strong. Higher values make Suno follow the Style field more closely; lower values let the model interpret more freely.
@@ -161,7 +207,7 @@ Avoid pairing very high Weirdness with low Style Influence unless the user expli
 
 ## Excluded Styles
 
-Use Suno's `Excluded Styles` input as a negative prompt field. Put unwanted sound traits there instead of crowding the positive Style field with many `no...` phrases.
+Use Suno's `Excluded Styles` input as a negative prompt field for vocal/custom modes. Instrumental Mode does not expose this field; put must-avoid traits in `Instrumental Prompt:` instead.
 
 Good exclusions:
 - unwanted genres: `country`, `EDM`, `metal`, `trap`
@@ -213,20 +259,21 @@ If pronunciation is likely to fail, provide phonetic spelling or romanization in
 
 ## Enforce Anti-Generic Rules
 
-- Avoid overused stock words unless the user asks for them explicitly: `neon`, `fire`, `flames`, `shadows`, `echoes`, `broken`, `fading`, `forever`.
+- Avoid overused stock words when they are filler: `neon`, `fire`, `flames`, `shadows`, `echoes`, `broken`, `fading`, `forever`.
 - Insert 1 to 3 vivid human details (objects, places, habits, memories).
 - Prefer concrete imagery over abstract filler.
-- Replace vague emotion labels with behavior, setting, sensory detail, or a sharper claim.
+- Replace vague emotion labels with behavior, setting, sensory detail, or a sharper claim, but keep strong genre archetypes when they make the hook more singable.
 - Avoid AI-default symmetry where every line says the same thing in different words.
 - Do not name living artists, bands, or songs in `Style:` (`sounds like <artist>`). Suno's copyright filters can reject or blandly average it. Translate the reference into era, scene, and production traits instead, for example `early-2010s Toronto melodic rap, hazy nocturnal R&B production` rather than naming the artist. A vague request like `happy rock song` is a credit-waster for the same reason: it gives Suno nothing specific to lock onto.
 
-## Separate Style Field From Lyrics
+## Separate Vocal Style Field From Lyrics
 
-- Keep style guidance in a compact style line capped at 200 characters.
-- Put negative instructions in `Excluded Styles:` when the target tool has that field.
+- Keep vocal/custom style guidance in a compact style line capped at 200 characters.
+- Put negative instructions in `Excluded Styles:` when the target mode has that field.
 - Keep narrative, section flow, and wording choices in the lyrics body.
 - If style text is missing, propose one concise style line.
 - Use positive production requests in `Style:`, such as `clean production`, `wide stereo`, `clear vocal upfront`.
+- For Instrumental Mode, use `Instrumental Prompt:` instead of `Style:` and `Excluded Styles:`.
 
 ## Output Contract
 
@@ -234,11 +281,11 @@ When generating lyrics, return:
 1. `Title:` one concise, evocative song title.
 2. `Style:` one line, <= 200 characters.
 3. `Excluded Styles:` one short line when useful; use `None` if no exclusions are needed.
-4. `Lyrics:` section-tagged text ready to paste into Suno Custom Mode, or `Arrangement:` for instrumental/non-lyric tracks.
-5. `Language Notes:` target language, dialect, script, translation/adaptation choices, and pronunciation notes when useful.
+4. `Lyrics:` section-tagged text ready to paste into Suno Custom Mode.
+5. `Language Notes:` only for non-English, bilingual, translated, dialect, script, or pronunciation-sensitive requests.
 6. `Suno v5.5 Notes:` only if useful for the request.
-7. `Slider Suggestions:` include Weirdness and Style Influence ranges when useful.
-8. `Checks:` a brief pass/fail checklist for:
+7. `Slider Suggestions:` only when useful or requested; include Weirdness and Style Influence ranges.
+8. `Checks:` only when useful or requested; use a brief pass/fail checklist for:
    - 4-line (or multiple-of-4) section pattern
    - chorus repeat consistency
    - overly long lines
@@ -249,12 +296,14 @@ When generating lyrics, return:
    - language/dialect fit when applicable
 
 For instrumental outputs, replace lyric-specific checks with:
+- `Instrumental Prompt:` plain-language prompt text for Suno Instrumental Mode, not `Style:` or `Excluded Styles:`
+- `Arrangement:` section-tagged cue map
 - arrangement form
 - motif clarity
 - section contrast
 - loopability or cue arc
 - instrumentation consistency
-- excluded vocal consistency
+- vocal-texture consistency
 
 ## Revision Mode
 
@@ -281,7 +330,7 @@ When the user wants a **remix or flip** of an existing lyric, a song written **i
 
 ## Screen-Tied Songs And Cues
 
-For anime openings/endings, TV theme songs, end-credit songs, trailer cuts, idents, and game themes, read `references/screen-music.md`. These are tied to picture and to an edit length. Route the output shape by format: anime OP/ED, end-credit songs, and sitcom themes with words are vocal songs (`Lyrics:`); trailer cuts, atmospheric main titles, idents, and game cues are instrumental (`Arrangement:`). State the edit length (full / TV-size ~90s / sting ~30–60s / ident ~3–15s) in `Suno v5.5 Notes:`, make the hook or motif land early, end non-looping cuts with `[End]`, and mark loopable themes with `[Loop Point]`.
+For anime openings/endings, TV theme songs, end-credit songs, trailer cuts, idents, and game themes, read `references/screen-music.md`. These are tied to picture and to an edit length. Route the output shape by format: anime OP/ED, end-credit songs, and sitcom themes with words are vocal songs (`Lyrics:`); trailer cuts, atmospheric main titles, idents, and game cues are instrumental (`Instrumental Prompt:` plus `Arrangement:`). State the edit length (full / TV-size ~90s / sting ~30–60s / ident ~3–15s) in `Suno v5.5 Notes:`, make the hook or motif land early, end non-looping cuts with `[End]`, and mark loopable themes with `[Loop Point]`.
 
 ## Personas And Albums
 

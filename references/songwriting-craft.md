@@ -2,6 +2,78 @@
 
 Use this reference when writing or revising lyrics, hooks, sections, rhyme, meter, or narrative.
 
+## Default Suno-Native Lyric Mode
+
+For most Suno vocal songs, prefer topline clarity over literary density. The model tends to sing short, direct lines more naturally than polished prose. Do not apply this as a hard cap to groove-narrative forms; use the mode below when the song is carried by scene, pocket, and spoken-sung flow.
+
+Default shape:
+- 4-line verses.
+- 2-line pre-choruses.
+- 4-6 line choruses.
+- One hook phrase that repeats exactly.
+- One clear image or claim per line.
+- Natural end rhyme or vowel rhyme unless the genre asks for loose phrasing.
+
+Good Suno-native lines are plain but loaded:
+
+```text
+I packed my bags, left the past behind
+A window seat just to clear my mind
+```
+
+```text
+I rise, I fight, I glow
+There's a fire they don't know
+```
+
+Avoid over-writing:
+- too many clauses in one line
+- explaining the emotional arc instead of singing it
+- adding five details where one strong image would carry the section
+- abstract synonyms stacked line after line
+- chorus lines that are as dense as verse lines
+
+Use bracket descriptors to help delivery when useful:
+
+```text
+[Verse 1, intimate]
+[Pre-Chorus, layered harmonies]
+[Chorus, anthemic and soaring]
+[Bridge, stripped back]
+```
+
+## Groove-Narrative Mode
+
+Use this for neo-soul, R&B storytelling, conscious rap, jazz-hop, bus/train/street vignettes, or spoken-sung songs where the groove carries a sequence of observations.
+
+What makes it work:
+- The verse can be long: 8, 12, or 16 lines.
+- Lines can be denser than pop, but should still sit in a steady pocket.
+- Couplets should lock together through rhyme, rhythm, or repeated syntax.
+- Concrete scene details can accumulate: doors, vents, streetlights, corner stores, faces, wheels, rain, engines.
+- The chorus stays simple and chantable, usually 4 lines.
+- A bridge can drop into spoken delivery over reduced drums.
+- Outro can be spoken over the groove.
+
+Useful cue vocabulary:
+
+```text
+[Intro - 8 bars, street ambience, Rhodes and bass groove]
+[drums enter bar 7]
+(Male)
+(Female - wordless hum, background texture)
+[Chorus - rhythmic, chanted delivery]
+[Bridge - drums drop to kick and hi-hat]
+(Male - spoken, intimate)
+[Outro - fade, spoken over groove]
+```
+
+Quality check:
+- Does every couplet move the camera or thought?
+- Does the groove phrase repeat enough to feel musical?
+- Is the chorus simpler than the verse?
+- Do arrangement cues clarify the record rather than clutter it?
+
 ## Start With The Song Promise
 
 Before drafting, identify one central promise:
@@ -50,6 +122,7 @@ Weak hook signs:
 ## Meter And Singability
 
 - Keep line lengths and syllable load close within each section.
+- For most vocal songs, keep lines around 5-9 words; shorter is usually better for hooks.
 - Rewrite outlier lines that are noticeably longer than neighbors.
 - Use commas for short pauses and periods for clear stops.
 - Use repeated vowels for sustain when needed, for example `Goo-o-o-odbye`.
@@ -89,6 +162,8 @@ neon, fire, flames, shadows, echoes, broken, fading, forever
 ```
 
 These are not banned, but they should earn their place.
+
+Do not flatten genre language out of fear of cliché. `fire`, `storm`, `light`, `rise`, `shine`, `heart`, and similar words can work when the hook is clear and the surrounding lines are compact. Replace them only when they are filler.
 
 Substitutions:
 - `fire in my heart` -> a physical action, object, or consequence

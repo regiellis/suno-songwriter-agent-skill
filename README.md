@@ -1,6 +1,6 @@
 # Suno Songwriter
 
-Portable agent skill for creating Suno v5.5-ready vocal songs, instrumental tracks, style prompts, excluded styles, slider suggestions, multilingual lyric adaptations, and broader AI music prompts.
+Portable agent skill for creating Suno v5.5-ready vocal songs, instrumental tracks, vocal style prompts, excluded styles, vocal/custom slider suggestions, multilingual lyric adaptations, and broader AI music prompts.
 
 This is an agent skill, not a Codex-only package. Any harness can use it if it can read `SKILL.md`, decide when the skill applies, and optionally load files from `references/`.
 
@@ -8,9 +8,10 @@ This is an agent skill, not a Codex-only package. Any harness can use it if it c
 
 - Suno v5.5 Custom Mode song packages
 - Lyrics, hooks, section structure, and singable rewrites
-- Instrumental prompts for lofi, OST, game loops, ambience, and background music
-- `Style` and `Excluded Styles` separation
-- Weirdness and Style Influence slider suggestions
+- Hook-first lyric quality gates: clear title/hook, chorus lift, stable point of view, concrete detail, and singable line lengths
+- Instrumental prompts and arrangements for lofi, OST, game loops, ambience, and background music
+- `Style` and `Excluded Styles` separation for vocal/custom modes
+- Weirdness and Style Influence slider suggestions for vocal/custom modes
 - Multilingual lyrics, translation, adaptation, dialect, script, and pronunciation notes
 - Reference-lyrics transformation without copying the source too closely
 - Songwriting frameworks including structure, Rule of 3, and 80/20 hook prioritization
@@ -27,7 +28,7 @@ At minimum, a harness should:
 2. Use `name` and `description` to decide when the skill should trigger.
 3. Load the body of `SKILL.md` when triggered.
 4. Follow the routing instructions in `SKILL.md` to load only relevant files from `references/`.
-5. Return outputs in the skill's requested shape: `Title`, `Style`, `Excluded Styles`, `Lyrics` or `Arrangement`, notes, slider suggestions, and checks.
+5. Return outputs in the skill's requested shape: vocal songs use `Title`, `Style`, `Excluded Styles`, and `Lyrics`; instrumentals use `Title`, `Instrumental Prompt`, and `Arrangement`; add notes, slider suggestions, language notes, and checks only when useful and supported by the mode.
 
 The `references/` directory is intentionally split for progressive disclosure. Do not load every reference for every request unless your harness has no selective loading mechanism.
 
@@ -53,7 +54,7 @@ Keep the portable behavior in `SKILL.md` and `references/`; keep product-specifi
 - `SKILL.md` - main skill instructions and trigger description
 - `references/templates.md` - reference index and routing map
 - `references/output-templates.md` - reusable output skeletons and prompt patterns
-- `references/suno-v55-controls.md` - Style, Excluded Styles, sliders, Title field, personalization, content filters, and troubleshooting
+- `references/suno-v55-controls.md` - vocal/custom Style, Excluded Styles, sliders, Title field, personalization, content filters, and troubleshooting
 - `references/suno-meta-tags.md` - inline lyric cues: instrumental moments, vocal delivery, multiple vocalists, ad-libs, sound effects, and `[End]` length control
 - `references/studio-and-iteration.md` - choosing takes, Extend, Cover/Remix, Replace Section, Crop, stems, remaster, and the edit-vs-re-roll decision
 - `references/songwriting-craft.md` - hooks, sections, rhyme, meter, point of view, vivid detail, and lyric transformation
@@ -79,7 +80,7 @@ Use `references/templates.md` as the index.
 Common routing:
 
 - Full output skeletons: `references/output-templates.md`
-- Suno controls and sliders: `references/suno-v55-controls.md`
+- Suno vocal/custom controls and sliders: `references/suno-v55-controls.md`
 - Inline lyric cues / meta-tags: `references/suno-meta-tags.md`
 - Post-generation workflow (Extend, Remix, Replace Section, stems): `references/studio-and-iteration.md`
 - Lyric craft and rewrites: `references/songwriting-craft.md`
@@ -114,7 +115,7 @@ Instrumental:
 ```text
 Use $suno-songwriter to create a no-vocal OST cue for a snow-covered village before a boss fight.
 Use orchestral strings, celesta, low brass, and taiko.
-Return title, style, excluded styles, arrangement, slider suggestions, and checks.
+Return title, instrumental prompt, arrangement, and useful notes or checks.
 ```
 
 Multilingual adaptation:

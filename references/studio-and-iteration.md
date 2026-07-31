@@ -6,7 +6,7 @@ Use this reference for what happens after the first generation: choosing between
 
 Suno returns two variations per generation. Treat the first run as "pick the stronger seed," not "the answer." Advise the user to keep the better take and build from it (Extend / Replace Section / Remix) rather than regenerating the whole prompt repeatedly — re-rolling from scratch throws away a take that was already 80% right.
 
-When a prompt is close but not landing, change **one** lever at a time between runs: the prompt, Weirdness, or Style Influence (see `references/suno-v55-controls.md` § Troubleshooting).
+When a prompt is close but not landing, change **one** lever at a time between runs: the prompt, or for vocal/custom modes, Weirdness or Style Influence (see `references/suno-v55-controls.md` § Troubleshooting).
 
 ## Extend
 
@@ -33,7 +33,7 @@ Use for:
 
 Tips:
 - The new Style line does the work here; keep it specific.
-- Expect melody to drift somewhat on heavy genre changes; lower Weirdness if it drifts too far.
+- Expect melody to drift somewhat on heavy genre changes; in vocal/custom modes, lower Weirdness if it drifts too far.
 
 ## Replace Section / Edit / Inpainting
 
