@@ -184,6 +184,16 @@ Covers:
 - how to pick from the table without locking in
 - BPM bands, instrument menus, production vocabulary, vocal identities, default structures
 
+## Genre Fusion And Multi-Genre Songs
+
+Read `references/genre-fusion.md` when a request involves more than one genre in a single deliverable.
+
+Covers:
+- fusion blends: anchor + accent roles, BPM ownership, established fusion-lane names, excluding the generic middle
+- mid-song genre switches: Style-plus-section-tag cueing, constants across the switch, split-generate fallback
+- genre versions: one lyric, multiple labeled Style/Excluded Styles/slider packages, per-tempo singability re-checks
+- extra `Checks:` items for each mode
+
 ## Remix And Style Match
 
 Read `references/remix-and-style-match.md` when the user wants a remix/flip of an existing lyric, a song written in the style/cadence of a named artist or song, or an analysis of supplied lyrics' style.

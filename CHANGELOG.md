@@ -2,8 +2,14 @@
 
 ## Unreleased
 
+### Added
+
+- `docs/`: GitHub Pages documentation site — a single self-contained static page covering the output contract, workflow, modes, Suno v5.5 controls, and the reference index. README gained a Documentation link and generic install paths; README cleaned with kiko (em-dash removed).
+- `references/genre-fusion.md`: multi-genre handling — fusion blends built as anchor + accent, mid-song genre switches cued in both `Style:` and section tags, and same-song genre versions with per-version Style/sliders and singability re-checks. Routed from `SKILL.md`, `references/templates.md`, and `references/genre-palettes.md`; smoke tests V5/V6 added to `references/evals.md`.
+
 ### Fixed
 
+- Documented v5.5's Duration control (user-verified in the UI: Auto, or a Custom slider 0:10–6:00 in 5-second steps): recommend Custom for target cuts, match the written structure to the set time, add 5–15s headroom so the ending resolves, Crop to exact length. Noted in `SKILL.md` § Creative Sliders and the output contract's `Slider Suggestions:`, `references/suno-v55-controls.md` § Duration, and `references/screen-music.md` § Edit-Length Guidance. Also added the missing cross-genre fusion row to the Slider Recipes table that `references/genre-fusion.md` points to.
 - Refreshed the Suno v5.5 currency stamp (v5.5 still current as of 2026-07; no v6) in `SKILL.md`, and recorded the model version stamp in `CLAUDE.md`.
 
 - Tightened `SKILL.md` around hook-first lyric quality so vocal requests prioritize a strong song over a complete form: clear title/hook, simpler chorus, stable POV/tense, concrete detail, and singable line lengths.

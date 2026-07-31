@@ -67,6 +67,8 @@ Title-screen themes, area themes, boss themes, victory stingers — see `referen
 
 Put the chosen length and structure in `Suno v5.5 Notes:`. For anything that should not loop or extend, end the lyric/arrangement block with `[End]` (see `references/suno-meta-tags.md`); for loopable themes, mark `[Loop Point]` and avoid a hard ending.
 
+Hit these lengths with v5.5's Duration control (Custom slider, 0:10–6:00 in 5s steps — see `references/suno-v55-controls.md` § Duration) *and* a structure written to size: set Duration ~5–15s longer than the target cut (e.g. ~1:40 for a TV-size ~90s OP) so the ending resolves, cap with `[End]`, then Crop to the exact time. The slider alone won't compress an oversized lyric. Idents shorter than 10s are below the slider's minimum — generate at 0:10–0:15 and Crop, or use Suno Sounds for the very shortest hits.
+
 ## Output Shape
 
 - Anime OP/ED, end-credit song, sitcom theme with words → vocal song output (`Title`, `Style`, `Excluded Styles`, `Lyrics`, `Language Notes` when Japanese/other, and `Suno v5.5 Notes` with the cut; add sliders/checks only when useful or requested).

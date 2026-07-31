@@ -26,6 +26,7 @@ Use references selectively:
 - Read `references/multilingual.md` for non-English lyrics, translation, bilingual writing, dialect, script, romanization, or pronunciation — including Korean lanes beyond K-pop.
 - Read `references/style-selection.md` when genre, vocalist, instrumentation, or production palette is missing, generic, or over-reused.
 - Read `references/genre-palettes.md` for a concrete BPM/instrument/production/vocal/structure menu per lane, used as a picker — not as defaults.
+- Read `references/genre-fusion.md` when a request involves more than one genre: a fusion blend in one Style line, a mid-song genre switch, or the same song in several genre versions.
 - Read `references/remix-and-style-match.md` when remixing or flipping an existing lyric, writing in the style/cadence of a named artist or song, or analyzing supplied lyrics for their style.
 - Read `references/personas.md` when creating, updating, or using a reusable artist persona (a consistent singer, rapper, or band saved as a spec file).
 - Read `references/albums.md` when planning, updating, or writing tracks for a cohesive album or EP saved as a spec file.
@@ -140,6 +141,8 @@ When genre is unspecified, pick one fitting lane and state it as an assumption, 
 
 Vary vocal identity, tempo, instrumentation, structure, and production language to match the lane. Do not reuse `cinematic alt-R&B`, `gospel pads`, `warm male vocal`, `piano and strings`, or similar defaults unless requested or clearly justified by the brief.
 
+When the request spans more than one genre — a hybrid blend, a mid-song genre switch, or the same song in several genre treatments — read `references/genre-fusion.md`: build blends as anchor + accent (never 50/50), state a switch in both `Style:` and a section tag, and give each genre version its own Style/Excluded Styles/sliders over the same lyric.
+
 ## Instrumental Mode
 
 Use Instrumental Mode when the user asks for no vocals, lofi beats, study music, meditation, game music, film/TV score, trailer music, background music, underscore, ambience, OST, theme music, battle music, menu music, or a soundtrack cue.
@@ -190,6 +193,8 @@ If unsure about grammar, idiom, dialect, or cultural nuance, say so briefly and 
 ## Creative Sliders
 
 Suno's Custom Mode Creative Sliders shape how much the model explores and how strictly it follows the style input. Use ranges, not false precision. Do not return slider suggestions for Instrumental Mode.
+
+v5.5 also has a **Duration** control: Auto by default, or a Custom slider from 0:10 to 6:00 in 5-second steps. Recommend Custom when the brief has a target length (TV-size cut, sting, loop) and leave Auto otherwise. The slider does not compress the lyric — write the structure to fit the time, set Duration slightly longer than the intended cut so the ending resolves, and Crop to the exact time (see `references/suno-v55-controls.md` § Duration).
 
 - **Weirdness:** Safe to Chaos. Around 50% is Suno's normal expected result. Lower values are more conventional and stable; higher values add surprise, unusual transitions, and more risk.
 - **Style Influence:** Loose to Strong. Higher values make Suno follow the Style field more closely; lower values let the model interpret more freely.
@@ -284,7 +289,7 @@ When generating lyrics, return:
 4. `Lyrics:` section-tagged text ready to paste into Suno Custom Mode.
 5. `Language Notes:` only for non-English, bilingual, translated, dialect, script, or pronunciation-sensitive requests.
 6. `Suno v5.5 Notes:` only if useful for the request.
-7. `Slider Suggestions:` only when useful or requested; include Weirdness and Style Influence ranges.
+7. `Slider Suggestions:` only when useful or requested; include Weirdness and Style Influence ranges, plus a Duration setting (Auto, or a Custom time) when the request has a target length.
 8. `Checks:` only when useful or requested; use a brief pass/fail checklist for:
    - 4-line (or multiple-of-4) section pattern
    - chorus repeat consistency

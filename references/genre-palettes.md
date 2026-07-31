@@ -72,7 +72,7 @@ Pair this with `references/style-selection.md` (lane selection, anti-lock-in) an
 - The middle of a BPM band is not the default — pick the tempo the *song* wants.
 - "Signature instruments" is a menu of 4–8; choose 2–4 for the Style line.
 - Do not let any one row become your house style. The skill explicitly bans defaulting to `cinematic alt-R&B`, `gospel pads`, `warm male vocal`, `piano and strings` — and that applies to every other row here too.
-- Sub-genres and fusions are fine and often better than a bare lane label. Combine deliberately, not by piling on tags (see `references/rule-of-3.md` § Arrangement Rule Of 3).
+- Sub-genres and fusions are fine and often better than a bare lane label. Combine deliberately, not by piling on tags (see `references/rule-of-3.md` § Arrangement Rule Of 3). For blending two lanes, a mid-song genre switch, or multiple genre versions of one song, see `references/genre-fusion.md`.
 - For non-English lanes, match lyric phrasing to the language, not just the genre label (see `references/multilingual.md`).
 - "Korean music" is not only K-pop — Korean ballad, K-hip hop, K-R&B, Korean indie/folk, OST, and trot are distinct lanes; ask or infer which (see `references/multilingual.md`).
 - For anime OP/ED, TV themes, idents, trailer cuts, and game themes, see `references/screen-music.md` for the form and edit-length specifics; the rows above are just the sonic starting point.

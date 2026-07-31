@@ -132,9 +132,21 @@ Lower Style Influence when:
 | Rap, trap, drill, phonk | 25-50% | 65-85% | Raise Weirdness for stranger flows or darker textures. |
 | EDM, house, dance pop | 30-55% | 65-85% | Higher Weirdness can help drops and transitions feel less generic. |
 | Hyperpop, glitch, psychedelic, art pop | 55-80% | 60-85% | Keep Style Influence strong if the fusion needs guardrails. |
+| Cross-genre fusion (anchor + accent blends) | 45-60% | 75-85% | One notch above the anchor lane's normal Weirdness; keep Style Influence high so the written blend holds. See `references/genre-fusion.md`. |
 | Ambient, noise, avant-garde, surreal experiments | 70-100% | 20-65% | Expect inconsistent takes; regenerate more. |
 | Custom Model consistency | 15-40% | 65-85% | Let model identity show without derailing the track. |
 | Trained Voice consistency | 15-35% | 70-90% | Lower Weirdness protects vocal identity and delivery. |
+
+## Duration
+
+v5.5's Create form has a **Duration control** (web): **Auto** (default — the model picks a natural length) or **Custom**, a slider from **0:10 to 6:00 in 5-second steps**.
+
+- Leave **Auto** for standard full songs with no target cut.
+- Use **Custom** when the brief has a length: TV-size OP/ED (~1:30), sting (30–60s), ident, ad read, or a loop of known bar length. Recommend the setting in `Slider Suggestions:`.
+- **The slider does not compress the lyric.** Match the written structure to the set time — an oversized `Lyrics:`/`Arrangement:` body gets rushed or cut off mid-phrase. Write the cut to size *and* set the slider.
+- Set Custom **5–15s longer than the intended cut** so the ending resolves instead of clipping, then **Crop** to the exact time.
+- The most reliable band for full songs is roughly **2:00–3:30**; very long Custom settings stretch material thin.
+- `[End]` / `[Fade Out]` still control *how* the track closes; **Crop** trims and **Extend** lengthens after the fact.
 
 ## Personalization
 
