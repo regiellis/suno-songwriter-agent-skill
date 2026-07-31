@@ -39,6 +39,20 @@ diff -rq references /Users/rellis/.agents/skills/suno-songwriter/references
 
 `references/evals.md` holds the manual smoke-test matrix (should-trigger queries, should-not-trigger queries, regression checks, output rubric). Run those by hand when changing trigger wording or the output contract.
 
+## Release Packaging
+
+Users install via release zips (Claude Desktop upload, Codex `~/.codex/skills/`). To cut a release: promote CHANGELOG Unreleased to a version heading, commit, tag `vX.Y.Z`, then build and attach the zip:
+
+```bash
+# from a scratch dir: stage the folder, zip with the folder at the zip root
+mkdir -p pkg/suno-songwriter
+cp -R <repo>/SKILL.md <repo>/references <repo>/agents <repo>/README.md <repo>/CHANGELOG.md <repo>/LICENSE pkg/suno-songwriter/
+(cd pkg && zip -r suno-songwriter.zip suno-songwriter)
+gh release create vX.Y.Z pkg/suno-songwriter.zip --title "vX.Y.Z" --notes "<summary>"
+```
+
+The zip excludes `CLAUDE.md`, `docs/`, and `.git` — repo-development files, not skill runtime. Claude Desktop requires the folder (not bare files) at the zip root and reads name/description/license from `SKILL.md`.
+
 ## Installed Copy
 
 This repo is the source. An active installed copy may live at `/Users/rellis/.agents/skills/suno-songwriter` (Claude Code loads it via the symlink `/Users/rellis/.claude/skills/suno-songwriter`, so syncing the `.agents` copy covers both). After editing source, sync it:

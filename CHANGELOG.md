@@ -1,9 +1,10 @@
 # Changelog
 
-## Unreleased
+## v1.2.0 — 2026-07-31
 
 ### Added
 
+- Release packaging: `suno-songwriter.zip` attached to GitHub releases, containing the skill folder at the zip root (the layout Claude Desktop's skill upload and Codex's `~/.codex/skills/` both expect). README and docs gained per-app install instructions for Claude Desktop, Codex (app and CLI), and Claude Code.
 - `docs/`: GitHub Pages documentation site — a single self-contained static page covering the output contract, workflow, modes, Suno v5.5 controls, and the reference index. README gained a Documentation link and generic install paths; README cleaned with kiko (em-dash removed).
 - `references/genre-fusion.md`: multi-genre handling — fusion blends built as anchor + accent, mid-song genre switches cued in both `Style:` and section tags, and same-song genre versions with per-version Style/sliders and singability re-checks. Routed from `SKILL.md`, `references/templates.md`, and `references/genre-palettes.md`; smoke tests V5/V6 added to `references/evals.md`.
 

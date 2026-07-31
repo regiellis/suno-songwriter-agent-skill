@@ -142,14 +142,35 @@ The song should be polished dance pop but not EDM or hyperpop.
 
 ## Installation
 
-This repository is the source copy. Install it by copying the skill into your harness's skills directory, for example:
+Grab `suno-songwriter.zip` from the [latest release](https://github.com/regiellis/suno-songwriter-agent-skill/releases/latest). The zip contains the skill folder at its root, which is the layout both desktop apps expect.
+
+### Claude Desktop
+
+1. Download `suno-songwriter.zip` from the latest release.
+2. In Claude Desktop, open Settings, then Capabilities, then Skills (Pro, Max, Team, and Enterprise plans, with code execution enabled).
+3. Choose Upload skill and select the zip.
+4. Toggle the skill on. Claude reads the name and description from `SKILL.md` and triggers it on songwriting requests.
+
+### Codex (desktop app and CLI)
+
+Both read skills from the same directory. Unzip into it:
+
+```bash
+unzip suno-songwriter.zip -d ~/.codex/skills/
+```
+
+Codex matches your prompt against the skill description and loads it on demand. Invoke it explicitly with `$suno-songwriter` in a prompt.
+
+### Claude Code and other harnesses
+
+Clone or unzip into the harness's skills directory:
 
 ```bash
 # Claude Code
-cp -R . ~/.claude/skills/suno-songwriter
+unzip suno-songwriter.zip -d ~/.claude/skills/
 
 # Generic agents directory
-cp -R . ~/.agents/skills/suno-songwriter
+unzip suno-songwriter.zip -d ~/.agents/skills/
 ```
 
 After editing the source, re-sync the installed copy:

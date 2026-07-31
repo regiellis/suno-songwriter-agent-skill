@@ -309,9 +309,15 @@ td {
   <p class="lede">Install the skill folder where your harness looks for skills, then ask for a song.</p>
 
   <h2>Install</h2>
-  <p>Copy the skill folder (with <code>SKILL.md</code> and <code>references/</code>) into your harness's skills directory. For Claude Code:</p>
-  <pre><code>cp -R suno-songwriter ~/.claude/skills/suno-songwriter</code></pre>
-  <p>Other harnesses (anything AGENTS.md-compatible that supports skills) work the same way: the skill is plain Markdown with no runtime dependencies.</p>
+  <p>Download <code>suno-songwriter.zip</code> from the <a href="https://github.com/regiellis/suno-songwriter-agent-skill/releases/latest">latest release</a>, then pick your app:</p>
+  <h3>Claude Desktop</h3>
+  <p>Settings, then Capabilities, then Skills (Pro, Max, Team, and Enterprise plans with code execution on). Choose Upload skill, select the zip, and toggle it on. Claude triggers it on songwriting requests from the description in <code>SKILL.md</code>.</p>
+  <h3>Codex (desktop app and CLI)</h3>
+  <pre><code>unzip suno-songwriter.zip -d ~/.codex/skills/</code></pre>
+  <p>Both the app and the CLI read the same directory. Invoke explicitly with <code>$suno-songwriter</code> or let Codex match the request.</p>
+  <h3>Claude Code and other harnesses</h3>
+  <pre><code>unzip suno-songwriter.zip -d ~/.claude/skills/</code></pre>
+  <p>The skill is plain Markdown with no runtime dependencies; any harness that can read <code>SKILL.md</code> and load <code>references/</code> selectively can use it.</p>
 
   <h2>First requests</h2>
   <pre><code>Use $suno-songwriter to write a modern country song about a father
