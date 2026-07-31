@@ -4,6 +4,10 @@ Portable agent skill for creating Suno v5.5-ready vocal songs, instrumental trac
 
 This is an agent skill, not a Codex-only package. Any harness can use it if it can read `SKILL.md`, decide when the skill applies, and optionally load files from `references/`.
 
+## Documentation
+
+Browseable docs live at [regiellis.github.io/suno-songwriter-agent-skill](https://regiellis.github.io/suno-songwriter-agent-skill/): the output contract, workflow, every mode, Suno v5.5 controls, and the full reference index. The site is a single static page in `docs/`, served by GitHub Pages, no build step.
+
 ## What It Covers
 
 - Suno v5.5 Custom Mode song packages
@@ -16,7 +20,7 @@ This is an agent skill, not a Codex-only package. Any harness can use it if it c
 - Reference-lyrics transformation without copying the source too closely
 - Songwriting frameworks including structure, Rule of 3, and 80/20 hook prioritization
 - Individual audio samples and sound effects (Suno Sounds)
-- Cover art and animated (looping-video) covers — Suno's Generate Cover Art / Animate tools (text-to-image, text-to-video, image-to-video)
+- Cover art and animated (looping-video) covers via Suno's Generate Cover Art / Animate tools (text-to-image, text-to-video, image-to-video)
 - Reusable artist personas and cohesive album/EP planning
 - Portable prompts for other AI music tools
 
@@ -68,6 +72,7 @@ Keep the portable behavior in `SKILL.md` and `references/`; keep product-specifi
 - `references/multilingual.md` - translation, adaptation, dialect, script, pronunciation, and Korean lanes beyond K-pop
 - `references/style-selection.md` - genre/palette selection and anti-lock-in examples
 - `references/genre-palettes.md` - per-lane BPM/instrument/production/vocal/structure menu, used as a picker not as defaults
+- `references/genre-fusion.md` - multi-genre songs: fusion blends (anchor + accent), mid-song genre switches, and same-song genre versions
 - `references/remix-and-style-match.md` - lyric remix/flip, writing in an artist's style/cadence without copying lyrics, and lyric-style analysis
 - `references/personas.md` - creating and reusing a consistent artist persona; persona spec file written to the user's project
 - `references/albums.md` - planning and maintaining a cohesive album/EP; album spec file written to the user's project
@@ -94,6 +99,7 @@ Common routing:
 - Non-English or bilingual lyrics (incl. Korean beyond K-pop): `references/multilingual.md`
 - Genre and palette choice: `references/style-selection.md`
 - Concrete per-lane palette menu: `references/genre-palettes.md`
+- Blending genres, mid-song switches, multi-genre versions: `references/genre-fusion.md`
 - Lyric remix / write in an artist's style / lyric-style analysis: `references/remix-and-style-match.md`
 - Reusable artist persona (consistent singer/band): `references/personas.md`
 - Cohesive album/EP planning across tracks: `references/albums.md`
@@ -136,19 +142,23 @@ The song should be polished dance pop but not EDM or hyperpop.
 
 ## Installation
 
-This repository is the source copy. One active installed copy may live at:
-
-```text
-/Users/rellis/.agents/skills/suno-songwriter
-```
-
-Sync source to installed copy with:
+This repository is the source copy. Install it by copying the skill into your harness's skills directory, for example:
 
 ```bash
-cp SKILL.md /Users/rellis/.agents/skills/suno-songwriter/SKILL.md
-rm -rf /Users/rellis/.agents/skills/suno-songwriter/references
-cp -R references /Users/rellis/.agents/skills/suno-songwriter/references
-cp agents/openai.yaml /Users/rellis/.agents/skills/suno-songwriter/agents/openai.yaml
+# Claude Code
+cp -R . ~/.claude/skills/suno-songwriter
+
+# Generic agents directory
+cp -R . ~/.agents/skills/suno-songwriter
+```
+
+After editing the source, re-sync the installed copy:
+
+```bash
+cp SKILL.md ~/.agents/skills/suno-songwriter/SKILL.md
+rm -rf ~/.agents/skills/suno-songwriter/references
+cp -R references ~/.agents/skills/suno-songwriter/references
+cp agents/openai.yaml ~/.agents/skills/suno-songwriter/agents/openai.yaml
 ```
 
 Adapt the destination path for other harnesses.
@@ -164,8 +174,8 @@ ruby -e 'require "yaml"; YAML.load_file("SKILL.md"); YAML.load_file("agents/open
 Check source and installed copies:
 
 ```bash
-diff -rq SKILL.md /Users/rellis/.agents/skills/suno-songwriter/SKILL.md
-diff -rq references /Users/rellis/.agents/skills/suno-songwriter/references
+diff -rq SKILL.md ~/.agents/skills/suno-songwriter/SKILL.md
+diff -rq references ~/.agents/skills/suno-songwriter/references
 ```
 
 Manual smoke tests should cover:

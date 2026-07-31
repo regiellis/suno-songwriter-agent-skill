@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>suno-songwriter · agent skill documentation</title>
+<meta name="description" content="Documentation for the suno-songwriter agent skill: Suno v5.5-ready song packages, instrumentals, multilingual lyrics, personas, and albums.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%8E%B5%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Design record: workspace KARA.md token family (warm ink on soft paper, Fraunces + Source Serif 4).
+   Accent #8A3B12 (light) / #C9682F (dark). Radius 4/8. VARIANCE 3, MOTION 2, DENSITY 6. */
+:root {
+  --paper: #F7F4ED;
+  --paper-raised: #FDFBF6;
+  --ink: #232019;
+  --ink-soft: #5C554A;
+  --accent: #8A3B12;
+  --hairline: rgba(35, 32, 25, 0.14);
+  --code-bg: #EFEAE0;
+  --r-sm: 4px;
+  --r-md: 8px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #191713;
+    --paper-raised: #211E19;
+    --ink: #EDE9DF;
+    --ink-soft: #A69E90;
+    --accent: #C9682F;
+    --hairline: rgba(237, 233, 223, 0.16);
+    --code-bg: #24211B;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  background: var(--paper);
+  color: var(--ink);
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+code, pre {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.82em;
+}
+code { background: var(--code-bg); padding: 0.15em 0.4em; border-radius: var(--r-sm); }
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+  line-height: 1.55;
+}
+pre code { background: none; padding: 0; }
+
+.layout { display: flex; min-height: 100vh; }
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--hairline);
+  padding: 2rem 1.5rem 3rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.brand {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  display: block;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-sub {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  font-family: "JetBrains Mono", monospace;
+  display: block;
+  margin-bottom: 2rem;
+}
+.nav-group { margin-bottom: 1.5rem; }
+.nav-group h3 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+  margin-bottom: 0.5rem;
+}
+.nav-group a {
+  display: block;
+  padding: 0.28rem 0.6rem;
+  margin-left: -0.6rem;
+  border-radius: var(--r-sm);
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+.nav-group a:hover { background: var(--code-bg); text-decoration: none; }
+.nav-group a.active {
+  color: var(--accent);
+  font-weight: 600;
+  background: var(--code-bg);
+}
+
+/* ---------- Main ---------- */
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 3rem clamp(1.5rem, 5vw, 4.5rem) 5rem;
+  max-width: 52rem;
+}
+.page { display: none; }
+.page.visible { display: block; animation: fadein 150ms ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .page.visible { animation: none; }
+  html { scroll-behavior: auto; }
+}
+@keyframes fadein { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+h1 {
+  font-family: Fraunces, Georgia, serif;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+}
+.lede { font-size: 1.1rem; color: var(--ink-soft); margin-bottom: 2.25rem; max-width: 40rem; }
+h2 {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 2.5rem 0 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--hairline);
+}
+h3 { font-family: Fraunces, Georgia, serif; font-size: 1.05rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+p { margin-bottom: 1rem; max-width: 42rem; }
+ul, ol { margin: 0 0 1.25rem 1.25rem; max-width: 42rem; }
+li { margin-bottom: 0.4rem; }
+strong { font-weight: 600; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.92rem;
+}
+th {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  color: var(--ink-soft);
+  text-align: left;
+  padding: 0.5rem 0.75rem 0.5rem 0;
+  border-bottom: 1px solid var(--hairline);
+}
+td {
+  padding: 0.55rem 0.75rem 0.55rem 0;
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+}
+.table-scroll { overflow-x: auto; }
+
+.callout {
+  border-left: 3px solid var(--accent);
+  background: var(--paper-raised);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  padding: 0.9rem 1.25rem;
+  margin: 1.25rem 0;
+  max-width: 42rem;
+}
+.callout p:last-child { margin-bottom: 0; }
+
+.pill {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  color: var(--ink-soft);
+  margin-right: 0.4rem;
+}
+
+/* ---------- Mobile ---------- */
+.menu-btn { display: none; }
+@media (max-width: 820px) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--hairline);
+    padding: 1.25rem 1.5rem;
+  }
+  .nav-wrap { display: none; }
+  .sidebar.open .nav-wrap { display: block; margin-top: 1.25rem; }
+  .menu-btn {
+    display: inline-block;
+    position: absolute;
+    top: 1.35rem;
+    right: 1.5rem;
+    background: none;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-sm);
+    color: var(--ink);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    cursor: pointer;
+  }
+  .sidebar { position: relative; }
+  main { padding-top: 2rem; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="#/overview">suno-songwriter</a>
+  <span class="brand-sub">agent skill · Suno v5.5</span>
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navWrap">Menu</button>
+  <div class="nav-wrap" id="navWrap">
+    <nav class="nav-group" aria-label="Start">
+      <h3>Start</h3>
+      <a href="#/overview">Overview</a>
+      <a href="#/quick-start">Quick start</a>
+      <a href="#/output-contract">Output contract</a>
+    </nav>
+    <nav class="nav-group" aria-label="Craft">
+      <h3>Craft</h3>
+      <a href="#/workflow">Workflow &amp; quality gate</a>
+      <a href="#/lyrics">Lyrics &amp; structure</a>
+      <a href="#/style">Style &amp; genres</a>
+      <a href="#/genre-fusion">Genre fusion</a>
+    </nav>
+    <nav class="nav-group" aria-label="Modes">
+      <h3>Modes</h3>
+      <a href="#/instrumental">Instrumental &amp; Sounds</a>
+      <a href="#/multilingual">Multilingual</a>
+      <a href="#/screen-music">Screen music</a>
+      <a href="#/style-match">Style match &amp; remix</a>
+      <a href="#/personas-albums">Personas &amp; albums</a>
+    </nav>
+    <nav class="nav-group" aria-label="Suno">
+      <h3>Suno v5.5</h3>
+      <a href="#/controls">Controls &amp; sliders</a>
+      <a href="#/iteration">Studio &amp; iteration</a>
+    </nav>
+    <nav class="nav-group" aria-label="Project">
+      <h3>Project</h3>
+      <a href="#/references">Reference index</a>
+      <a href="#/changelog">Changelog</a>
+    </nav>
+  </div>
+</aside>
+
+<main>
+
+<!-- ================= OVERVIEW ================= -->
+<section class="page" data-page="overview">
+  <h1>Write songs Suno can actually sing.</h1>
+  <p class="lede">suno-songwriter is a portable agent skill that turns a request into a release-quality Suno v5.5 package: hook-first lyrics, a clean style prompt, exclusions, slider settings, and section tags that survive generation.</p>
+
+  <p><span class="pill">Suno v5.5</span><span class="pill">harness-agnostic</span><span class="pill">no dependencies</span></p>
+
+  <h2>What it produces</h2>
+  <ul>
+    <li><strong>Vocal songs</strong>: Title, Style, Excluded Styles, and section-tagged lyrics ready to paste into Custom Mode.</li>
+    <li><strong>Instrumentals</strong>: an Instrumental Prompt plus a cue-style Arrangement map, in the fields Suno's instrumental flow actually exposes.</li>
+    <li><strong>Multilingual lyrics</strong>: original writing or singable adaptation in the target language, with script and pronunciation decisions stated.</li>
+    <li><strong>Style prompts</strong>: 200-character style lines built from genre, mood, BPM, vocal identity, instruments, and production texture.</li>
+    <li><strong>Personas and albums</strong>: reusable artist and album spec files that keep a voice consistent across many tracks.</li>
+    <li><strong>Sounds and cover art</strong>: one-shot sample prompts and cover art or animated cover prompts for finished tracks.</li>
+  </ul>
+
+  <h2>Design principles</h2>
+  <p>The skill's first priority is a good song, not a feature-complete form. Every vocal lyric passes a quality gate before it ships: the hook lands in the chorus, the chorus is mechanically simpler than the verses, lines stay singable, and at least one concrete human detail anchors the song. A style-diversity rule bans the skill from converging on one recurring palette, so ten requests produce ten different sounds.</p>
+
+  <p>It runs on progressive disclosure. A compact <code>SKILL.md</code> handles routing and the core workflow; twenty focused reference files load only when a request needs them. Any harness that can read a skill file and load references selectively can use it.</p>
+
+  <div class="callout">
+    <p><strong>Model currency:</strong> targets Suno v5.5, verified current as of July 2026. The craft transfers if the platform moves on; re-check version-specific limits when it does.</p>
+  </div>
+</section>
+
+<!-- ================= QUICK START ================= -->
+<section class="page" data-page="quick-start">
+  <h1>Quick start</h1>
+  <p class="lede">Install the skill folder where your harness looks for skills, then ask for a song.</p>
+
+  <h2>Install</h2>
+  <p>Copy the skill folder (with <code>SKILL.md</code> and <code>references/</code>) into your harness's skills directory. For Claude Code:</p>
+  <pre><code>cp -R suno-songwriter ~/.claude/skills/suno-songwriter</code></pre>
+  <p>Other harnesses (anything AGENTS.md-compatible that supports skills) work the same way: the skill is plain Markdown with no runtime dependencies.</p>
+
+  <h2>First requests</h2>
+  <pre><code>Use $suno-songwriter to write a modern country song about a father
+driving through the night to pick up his kid.
+
+Use $suno-songwriter for a no-vocal lofi study beat with rain,
+Rhodes, and soft drums.
+
+Use $suno-songwriter to write a Japanese hyperpop chorus about
+surviving a terrible night. Native script.
+
+Use $suno-songwriter to improve this Suno v5.5 prompt.</code></pre>
+
+  <h2>What comes back</h2>
+  <p>A complete package in the <a href="#/output-contract">output contract</a>: paste the Style line into the Styles field, the Excluded Styles line into Excluded Styles, the lyrics body into Custom Mode lyrics, and set the sliders as suggested. Optional sections (Language Notes, Suno v5.5 Notes, Checks) appear only when they earn their place.</p>
+</section>
+
+<!-- ================= OUTPUT CONTRACT ================= -->
+<section class="page" data-page="output-contract">
+  <h1>Output contract</h1>
+  <p class="lede">Two shapes, matched to the two Suno flows. Fields never leak between them.</p>
+
+  <h2>Vocal songs (Custom Mode)</h2>
+  <div class="table-scroll"><table>
+    <tr><th>Field</th><th>Rule</th></tr>
+    <tr><td><code>Title:</code></td><td>One concise, evocative title.</td></tr>
+    <tr><td><code>Style:</code></td><td>One positive-direction line, 200 characters max.</td></tr>
+    <tr><td><code>Excluded Styles:</code></td><td>Short negative direction, or <code>None</code>.</td></tr>
+    <tr><td><code>Lyrics:</code></td><td>Section-tagged, paste-ready. 5,000 characters max including tags.</td></tr>
+    <tr><td><code>Language Notes:</code></td><td>Only for non-English, bilingual, dialect, or script-sensitive requests.</td></tr>
+    <tr><td><code>Suno v5.5 Notes:</code></td><td>Only when operational guidance helps: edit lengths, filter softening, iteration strategy.</td></tr>
+    <tr><td><code>Slider Suggestions:</code></td><td>Weirdness and Style Influence as ranges, plus Duration when the request has a target length.</td></tr>
+    <tr><td><code>Checks:</code></td><td>Compact pass/fail list, only when useful or requested.</td></tr>
+  </table></div>
+
+  <h2>Instrumentals (Instrumental Mode)</h2>
+  <p>Suno's instrumental flow does not expose Style, Excluded Styles, or sliders, so instrumental packages never include them:</p>
+  <div class="table-scroll"><table>
+    <tr><th>Field</th><th>Rule</th></tr>
+    <tr><td><code>Title:</code></td><td>One concise title.</td></tr>
+    <tr><td><code>Instrumental Prompt:</code></td><td>Plain-language prompt; vocal exclusions (<code>no lead vocals</code>) live here as words.</td></tr>
+    <tr><td><code>Arrangement:</code></td><td>Section-tagged cue map: <code>[Theme A]</code>, <code>[Build]</code>, <code>[Loop Point]</code>, and friends.</td></tr>
+  </table></div>
+
+  <div class="callout">
+    <p><strong>Hard limits</strong> (platform, not skill): Lyrics field 5,000 characters, Style field 200 characters. If a lyric runs over, trim it or split the song and join with Extend.</p>
+  </div>
+</section>
+
+<!-- ================= WORKFLOW ================= -->
+<section class="page" data-page="workflow">
+  <h1>Workflow &amp; quality gate</h1>
+  <p class="lede">The skill writes a song first and a prompt second. The form exists to serve the record.</p>
+
+  <h2>Core workflow</h2>
+  <ol>
+    <li>Clarify the goal: theme, genre, language, vocal or instrumental, audience, emotional arc. Saved personas and albums load first and act as constraints.</li>
+    <li>Build the song as a song: title, central promise, hook phrase, section map, then lyrics.</li>
+    <li>Treat supplied lyrics as reference material unless a close edit is requested.</li>
+    <li>Choose the sound from the request; never default to a recurring palette.</li>
+    <li>Keep Suno fields clean: positive direction in Style, negative in Excluded Styles, cues in the lyrics body.</li>
+    <li>Run one silent revision pass before output.</li>
+    <li>Add optional sections only when they earn their place.</li>
+  </ol>
+
+  <h2>The lyric quality gate</h2>
+  <p>Every vocal lyric must pass before it ships:</p>
+  <ul>
+    <li>The title or hook phrase appears in or near the chorus.</li>
+    <li>The chorus is shorter, plainer, and more repeatable than the verses.</li>
+    <li>Lines are compact and singable, usually 5 to 9 words, one image or claim each.</li>
+    <li>Point of view and tense stay stable unless a shift is deliberate.</li>
+    <li>At least one concrete human detail anchors the song.</li>
+    <li>The final chorus, bridge, or outro shifts the meaning slightly instead of repeating the same emotion.</li>
+  </ul>
+
+  <h2>Anti-generic rules</h2>
+  <p>Stock filler words (<code>neon</code>, <code>flames</code>, <code>shadows</code>, <code>echoes</code>, <code>fading</code>, <code>forever</code>) are rewritten unless the user wants them. Strong genre archetypes stay when they serve the hook. Living artists are never named in the Style field: the skill translates a reference into era, scene, and production traits instead.</p>
+</section>
+
+<!-- ================= LYRICS ================= -->
+<section class="page" data-page="lyrics">
+  <h1>Lyrics &amp; structure</h1>
+  <p class="lede">Suno-native phrasing by default, with section tags that steer the performance.</p>
+
+  <h2>Default shape</h2>
+  <ul>
+    <li>4-line verses, 2-line pre-choruses, a 4-to-6-line chorus with one unmistakable hook.</li>
+    <li>Plain syntax: subject, verb, image. One strong image can carry a section.</li>
+    <li>Familiar singable rhyme families over forced cleverness.</li>
+    <li>Sections stay at 4 lines or a multiple of 4 unless the genre says otherwise.</li>
+  </ul>
+
+  <h2>Groove-narrative mode</h2>
+  <p>For neo-soul, R&amp;B storytelling, jazz-hop, conscious rap, and city-vignette songs, verses can run long (8, 12, 16 lines) over a steady groove, with tight rhythmic couplets, vocalist labels like <code>(Male)</code> and <code>(Female - wordless hum)</code>, environmental cues in the arrangement tags, and spoken bridges. The chorus still stays simpler than the verses.</p>
+
+  <h2>Section tags and cues</h2>
+  <pre><code>[Verse 1]           [Whispered Verse]        [Guitar Solo]
+[Pre-Chorus]        [Explosive Chorus]       [Beat Drop]
+[Chorus]            [Stripped Bridge]        [Male Voice] / [Duet]
+[Bridge]            (ad-libs in parens)      [End] / [Fade Out]</code></pre>
+  <p>Short performance descriptors inside section tags cue dynamic changes. Persistent production direction belongs in the Style field, not in tags. <code>[End]</code> after the final section is the reliable way to stop Suno inventing extra verses. Too many tags get ignored, or worse, sung aloud.</p>
+</section>
+
+<!-- ================= STYLE ================= -->
+<section class="page" data-page="style">
+  <h1>Style &amp; genres</h1>
+  <p class="lede">One 200-character line does most of the sonic steering. The skill builds it deliberately.</p>
+
+  <h2>The style line formula</h2>
+  <pre><code>[Genre/subgenre], [mood], [tempo/BPM], [vocal style],
+[instruments and production], [optional theme]</code></pre>
+  <pre><code>garage rock, restless and defiant, 132 BPM, raw group vocals,
+distorted guitars and live drums, punchy basement production</code></pre>
+
+  <h2>Anti-lock-in</h2>
+  <p>Before a style line ships, the skill asks whether it was chosen for this request or copied from habit. If copied, at least three dimensions change: genre, BPM, vocal identity, rhythm section, lead instruments, production texture, or structure. A palette table covers 45+ lanes, from boom bap to bossa nova to trot, with BPM bands, signature instruments, and structures used as a menu, never as defaults.</p>
+
+  <h2>Reference artists</h2>
+  <p>"Make it sound like [artist]" never passes the name through: Suno's filters can reject it or flatten the result. The skill decodes the reference into era, scene, rhythm section, signature sound, and production character. <code>late-90s East Coast boom bap, dusty chopped soul sample, knocking drums</code> travels; a name does not.</p>
+
+  <h2>Excluded Styles</h2>
+  <p>Short and specific: unwanted genres, instruments, vocal traits, or production moods. Never excludes what Style asks for, and never used to fix lyric problems.</p>
+</section>
+
+<!-- ================= GENRE FUSION ================= -->
+<section class="page" data-page="genre-fusion">
+  <h1>Genre fusion</h1>
+  <p class="lede">Three different requests hide behind "mix these genres". The skill routes them explicitly.</p>
+
+  <h2>1. Fusion: one hybrid sound</h2>
+  <p>Built as <strong>anchor + accent, never 50/50</strong>. The anchor genre owns the rhythm section, tempo, and structure; the accent contributes two or three signature elements. BPM comes from the anchor's band. Established fusion names (folktronica, country trap, electro swing) beat invented pairings, and Excluded Styles blocks the generic middle the blend could collapse into.</p>
+  <pre><code>cumbia surf rock, salty and playful, 102 BPM, twangy reverb guitar
+over güira and congas, relaxed male group vocals, dry garage mix</code></pre>
+
+  <h2>2. Mid-song genre switch</h2>
+  <p>The arc is stated in the Style line in natural language <em>and</em> pinned with a section tag: <code>[Chorus — double-time house flip]</code>, <code>[Beat Switch]</code>. One or two constants (vocalist, key, a motif) hold across the switch so it reads as one song. One switch per song is the sweet spot. If takes keep averaging the two sounds, split-generate and join with Extend.</p>
+
+  <h2>3. Genre versions of one song</h2>
+  <p>Same title and lyric core, separate labeled packages, each with its own Style, Excluded Styles, and sliders. Singability is re-checked per tempo: a lyric metered for a 74 BPM ballad will not scan at 140 BPM drill, and the changes are stated, never silent.</p>
+</section>
+
+<!-- ================= INSTRUMENTAL ================= -->
+<section class="page" data-page="instrumental">
+  <h1>Instrumental &amp; Sounds</h1>
+  <p class="lede">Cues, loops, beds, and one-shot samples, in the fields Suno's flows actually expose.</p>
+
+  <h2>Instrumental tracks</h2>
+  <p>Lofi, OST cues, game loops, ambient, trailer beds, and background music return an <code>Instrumental Prompt:</code> plus an <code>Arrangement:</code> cue map. No Style, Excluded Styles, or sliders. Loopable tracks avoid hard endings and mark <code>[Loop Point]</code>; cues describe motif, dynamics, and the emotional turn.</p>
+  <pre><code>instrumental lofi chillhop study beat, relaxed 78 BPM, dusty drums,
+mellow Rhodes, soft upright bass, vinyl texture, loopable, no lead vocals</code></pre>
+  <p>"Instrumental" does not always mean voiceless: wordless chops, choir aahs, and chant hooks are described in the prompt when wanted, and fully excluded (<code>no vocal chops, no chants</code>) when not.</p>
+
+  <h2>Suno Sounds (samples)</h2>
+  <p>Individual samples (a whoosh, a riser, an 808 kick, an ambience bed) are Suno's Sounds feature, not a song. They return a different block: <code>Sound:</code> prompt, <code>Type:</code> (One Shot or Loop), <code>BPM:</code> and <code>Key:</code> for musical material only, and <code>Variations:</code>. Duration is stated in the prompt when it matters: <code>5-second sci-fi teleport swoosh</code>.</p>
+</section>
+
+<!-- ================= MULTILINGUAL ================= -->
+<section class="page" data-page="multilingual">
+  <h1>Multilingual</h1>
+  <p class="lede">Original writing, singable adaptation, or deliberate code-switching, with the language decisions stated instead of assumed.</p>
+
+  <h2>What gets clarified</h2>
+  <ul>
+    <li>Target language and dialect: Spanish (Mexico), Arabic (Levantine), Japanese, Korean.</li>
+    <li>Native script, romanization, or both.</li>
+    <li>Original lyrics vs singable adaptation vs literal translation vs bilingual rewrite.</li>
+  </ul>
+
+  <h2>Structure follows the language</h2>
+  <p>English pop density does not transfer. Romance languages need more syllables per idea; Japanese and Korean pop tolerate compact phrases and English hook accents; Spanish hooks favor open vowels over exact rhyme. "Korean music" spans ballad, K-hip hop, K-R&amp;B, indie, OST, and trot, not just K-pop, and the skill asks or infers which lane.</p>
+
+  <h2>Pronunciation</h2>
+  <p>AI vocal models anglicize vowels and mis-stress unfamiliar words. The skill plans for it: in-line phonetic respelling for words that reliably break, a separate <code>Pronunciation Notes:</code> block otherwise, and a native-speaker review recommendation whenever release quality matters.</p>
+</section>
+
+<!-- ================= SCREEN MUSIC ================= -->
+<section class="page" data-page="screen-music">
+  <h1>Screen music</h1>
+  <p class="lede">Anime OP/ED, TV themes, trailer cuts, idents, and game themes: music tied to picture and to an edit length.</p>
+
+  <h2>Routing by format</h2>
+  <div class="table-scroll"><table>
+    <tr><th>Format</th><th>Shape</th><th>Output</th></tr>
+    <tr><td>Anime OP</td><td>Riff intro, verse, pre, big chorus, tag; ~150-185 BPM common</td><td>Vocal song</td></tr>
+    <tr><td>Anime ED</td><td>Mid-tempo, reflective, the OP's quieter counterpart</td><td>Vocal song</td></tr>
+    <tr><td>Sitcom theme</td><td>30-60s, instantly hooky</td><td>Vocal song</td></tr>
+    <tr><td>Trailer cut</td><td>Setup, turn, build, climax, button</td><td>Instrumental</td></tr>
+    <tr><td>Ident / sting</td><td>3-15s, one motif, one gesture</td><td>Instrumental</td></tr>
+    <tr><td>Game theme</td><td>Loop-safe, no final cadence, <code>[Loop Point]</code></td><td>Instrumental</td></tr>
+  </table></div>
+
+  <h2>Hitting the cut</h2>
+  <p>Edit lengths are hit with the Duration control <em>and</em> a structure written to size: set Duration 5 to 15 seconds longer than the target so the ending resolves (about 1:40 for a TV-size ~90s OP), cap with <code>[End]</code>, then Crop to the exact time. The slider alone will not compress an oversized lyric. The hook or motif must land inside the first 30 seconds, sooner for short formats.</p>
+</section>
+
+<!-- ================= STYLE MATCH ================= -->
+<section class="page" data-page="style-match">
+  <h1>Style match &amp; remix</h1>
+  <p class="lede">Style yes, expression no. The skill imitates an approach, never a recording.</p>
+
+  <h2>The hard rule</h2>
+  <p>Cadence, rhyme strategy, structure, subject matter, and genre are free to write like. Specific lyrics, hooks, and distinctive phrases are not: never reproduced, closely paraphrased, or continued. Artist names stay out of the Style field, both for the legal line and because Suno's filter can flatten a take that trips it.</p>
+
+  <h2>Style-match workflow</h2>
+  <ol>
+    <li><strong>Fingerprint</strong> the source: cadence and flow, rhyme density, line shape, diction register, POV and themes, and the sonic lane.</li>
+    <li><strong>Sharpen with search</strong> when available, pulling descriptions of the style, never verbatim lyrics.</li>
+    <li><strong>Generate original work</strong> on a fresh subject so the result is its own song, not a re-skin.</li>
+    <li><strong>Declare it</strong>: a <code>Style Reference:</code> line names what was modeled and states that all lyrics are original.</li>
+  </ol>
+
+  <h2>Remix mode</h2>
+  <p>For lyrics the user owns, close rework is fine: the skill states in one line what is kept (premise, arc, a motif) and what changes (genre, structure, images), then rewrites. Ownership gets confirmed when it is ambiguous, and requests for actual copyrighted lyrics are declined with a style-match offered instead.</p>
+</section>
+
+<!-- ================= PERSONAS ================= -->
+<section class="page" data-page="personas-albums">
+  <h1>Personas &amp; albums</h1>
+  <p class="lede">Consistency across many tracks, stored as small spec files in your project, not in the skill.</p>
+
+  <h2>Personas</h2>
+  <p>A persona is a reusable artist: identity, vocals, cadence, lyrical fingerprint, sonic palette, excluded styles, and Suno defaults, saved at <code>personas/&lt;slug&gt;.md</code> in your working directory. Later requests like "write this as [persona]" load the file and treat it as a constraint. Style-reference personas decode a real act into a fingerprint and keep the name out of every prompt; the persona is a fictional act with your chosen name.</p>
+
+  <h2>Albums</h2>
+  <p>An album spec at <code>albums/&lt;slug&gt;.md</code> adds a concept, a shared Style kernel, cohesion rules (what stays constant vs what varies track to track), recurring elements, and a sequenced tracklist. Writing "track 4 of [album]" builds the song as the album's kernel plus that track's mood and theme, then updates the tracklist and the persona's song log in the same pass.</p>
+
+  <div class="callout">
+    <p>Spec files are never overwritten without confirmation. They live in your project so they travel with your work, not with the skill.</p>
+  </div>
+</section>
+
+<!-- ================= CONTROLS ================= -->
+<section class="page" data-page="controls">
+  <h1>Controls &amp; sliders</h1>
+  <p class="lede">What each Suno v5.5 input does, and how the skill sets it.</p>
+
+  <h2>Creative sliders</h2>
+  <div class="table-scroll"><table>
+    <tr><th>Goal</th><th>Weirdness</th><th>Style Influence</th></tr>
+    <tr><td>Clean commercial pop, country, ballads</td><td>15-35%</td><td>75-90%</td></tr>
+    <tr><td>Rap, trap, drill, phonk</td><td>25-50%</td><td>65-85%</td></tr>
+    <tr><td>EDM, house, dance pop</td><td>30-55%</td><td>65-85%</td></tr>
+    <tr><td>Hyperpop, glitch, art pop</td><td>55-80%</td><td>60-85%</td></tr>
+    <tr><td>Cross-genre fusion (anchor + accent)</td><td>45-60%</td><td>75-85%</td></tr>
+    <tr><td>Ambient, avant-garde experiments</td><td>70-100%</td><td>20-65%</td></tr>
+  </table></div>
+  <p>Always ranges, never false-precise single values. Troubleshooting moves in 5-to-10-point steps, one variable at a time.</p>
+
+  <h2>Duration</h2>
+  <p>v5.5's Create form has a Duration control: <strong>Auto</strong> (the model picks a natural length) or <strong>Custom</strong>, a slider from 0:10 to 6:00 in 5-second steps. Custom is for target cuts: TV-size themes, stings, loops of known length. The slider does not compress the lyric, so the structure is written to fit the time, Duration is set slightly long so the ending resolves, and Crop trims to the exact cut. The reliable band for full songs is roughly 2:00 to 3:30.</p>
+
+  <h2>Personalization</h2>
+  <ul>
+    <li><strong>Voices:</strong> with a trained Voice selected, the skill stops over-describing the vocal and trusts the Voice.</li>
+    <li><strong>Custom Models:</strong> prompts aim at song intent instead of fighting the model with contradictory genre tags.</li>
+    <li><strong>My Taste:</strong> the Styles-field Magic Wand seeds personalized ideas; the skill then edits for specificity.</li>
+  </ul>
+
+  <h2>Content filters</h2>
+  <p>Real-person names, brands, heavy profanity, and graphic content can make Suno silently reject a take or return something oddly bland. When a generation comes back flat, the skill suspects the filter before the sliders: soften or imply the offending material, and note the change so you know why a line moved.</p>
+</section>
+
+<!-- ================= ITERATION ================= -->
+<section class="page" data-page="iteration">
+  <h1>Studio &amp; iteration</h1>
+  <p class="lede">Getting from a promising take to a finished record.</p>
+
+  <h2>The toolkit</h2>
+  <div class="table-scroll"><table>
+    <tr><th>Tool</th><th>Use it when</th></tr>
+    <tr><td>Two takes per run</td><td>Always: compare before iterating on either.</td></tr>
+    <tr><td>Extend</td><td>A take ends early, or a song is split to beat the lyric limit.</td></tr>
+    <tr><td>Cover / Remix</td><td>Restyling a take you like into a different genre treatment.</td></tr>
+    <tr><td>Replace Section</td><td>One bad section in an otherwise good take.</td></tr>
+    <tr><td>Crop</td><td>Trimming to an exact edit length.</td></tr>
+    <tr><td>Stems</td><td>Handing off to a DAW or scoring to picture.</td></tr>
+    <tr><td>Remaster</td><td>A keeper take with mix problems.</td></tr>
+  </table></div>
+
+  <h2>Edit vs re-roll</h2>
+  <p>The skill's rule of thumb: fix a section, keep a take; fix a song, change the prompt. Slider changes move in small steps with the prompt held constant, so you can tell which change did what.</p>
+</section>
+
+<!-- ================= REFERENCES ================= -->
+<section class="page" data-page="references">
+  <h1>Reference index</h1>
+  <p class="lede">The skill loads these on demand. Each file owns one topic.</p>
+  <div class="table-scroll"><table>
+    <tr><th>File</th><th>Owns</th></tr>
+    <tr><td><code>output-templates.md</code></td><td>Complete output skeletons and quick invocation patterns</td></tr>
+    <tr><td><code>suno-v55-controls.md</code></td><td>Style, Excluded Styles, sliders, Duration, Voices, filters, troubleshooting</td></tr>
+    <tr><td><code>suno-meta-tags.md</code></td><td>In-lyric cues: solos, vocal delivery, hand-offs, ad-libs, endings</td></tr>
+    <tr><td><code>studio-and-iteration.md</code></td><td>Takes, Extend, Cover, Replace Section, Crop, stems, remaster</td></tr>
+    <tr><td><code>songwriting-craft.md</code></td><td>Hooks, verses, rhyme, meter, POV, vivid detail</td></tr>
+    <tr><td><code>song-structure.md</code></td><td>Forms: pop, AABA, 12-bar, EDM, rap, cue arcs</td></tr>
+    <tr><td><code>rule-of-3.md</code></td><td>Statement, repetition, twist; memorability patterns</td></tr>
+    <tr><td><code>eighty-twenty.md</code></td><td>Hook-first prioritization and revision decisions</td></tr>
+    <tr><td><code>instrumental.md</code></td><td>Lofi, OST, game loops, ambient, trailer cues</td></tr>
+    <tr><td><code>suno-sounds.md</code></td><td>One-shot samples, sound effects, ambience beds</td></tr>
+    <tr><td><code>cover-art.md</code></td><td>Cover images and animated covers</td></tr>
+    <tr><td><code>screen-music.md</code></td><td>Anime OP/ED, TV themes, trailers, idents, edit lengths</td></tr>
+    <tr><td><code>multilingual.md</code></td><td>Non-English lyrics, adaptation, script, pronunciation</td></tr>
+    <tr><td><code>style-selection.md</code></td><td>Lane selection, anti-lock-in, reference-artist translation</td></tr>
+    <tr><td><code>genre-palettes.md</code></td><td>45+ lanes: BPM bands, instruments, textures, structures</td></tr>
+    <tr><td><code>genre-fusion.md</code></td><td>Fusion blends, mid-song switches, multi-genre versions</td></tr>
+    <tr><td><code>remix-and-style-match.md</code></td><td>Lyric remixes, style fingerprints, analysis mode</td></tr>
+    <tr><td><code>personas.md</code></td><td>Reusable artist spec files</td></tr>
+    <tr><td><code>albums.md</code></td><td>Album and EP spec files, cohesion rules</td></tr>
+    <tr><td><code>evals.md</code></td><td>Smoke tests, trigger checks, output rubric</td></tr>
+  </table></div>
+</section>
+
+<!-- ================= CHANGELOG ================= -->
+<section class="page" data-page="changelog">
+  <h1>Changelog</h1>
+  <p class="lede">What changed, most recent first.</p>
+
+  <h2>Unreleased</h2>
+  <ul>
+    <li><strong>Added</strong> genre fusion: anchor + accent blends, mid-song genre switches, and multi-genre versions of one song, with smoke tests.</li>
+    <li><strong>Added</strong> a groove-narrative vocal mode for neo-soul, R&amp;B, and spoken-sung storytelling.</li>
+    <li><strong>Fixed</strong> the lyric quality gate: hook-first priorities, simpler choruses, singable line lengths.</li>
+    <li><strong>Fixed</strong> Instrumental Mode guidance to use only the fields Suno's instrumental flow exposes.</li>
+    <li><strong>Documented</strong> v5.5's Duration control (Auto, or Custom 0:10 to 6:00 in 5-second steps).</li>
+  </ul>
+
+  <h2>v1.1.0 (2026-05-12)</h2>
+  <ul><li>Added the cover art and animated covers reference.</li></ul>
+
+  <h2>v1.0.1</h2>
+  <ul><li>Shortened the SKILL.md description and dropped XML-style tokens for harness compatibility.</li></ul>
+
+  <h2>v1.0.0</h2>
+  <ul><li>First tagged release: core workflow, output contract, and the initial reference set.</li></ul>
+</section>
+
+</main>
+</div>
+
+<script>
+(function () {
+  var pages = document.querySelectorAll(".page");
+  var links = document.querySelectorAll(".nav-group a");
+  var sidebar = document.getElementById("sidebar");
+  var menuBtn = document.getElementById("menuBtn");
+
+  function route() {
+    var hash = location.hash.replace(/^#\//, "") || "overview";
+    var found = false;
+    pages.forEach(function (p) {
+      var match = p.dataset.page === hash;
+      p.classList.toggle("visible", match);
+      if (match) found = true;
+    });
+    if (!found) {
+      document.querySelector('[data-page="overview"]').classList.add("visible");
+      hash = "overview";
+    }
+    links.forEach(function (a) {
+      a.classList.toggle("active", a.getAttribute("href") === "#/" + hash);
+    });
+    sidebar.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    window.scrollTo(0, 0);
+    document.title = "suno-songwriter · " + hash.replace(/-/g, " ");
+  }
+
+  menuBtn.addEventListener("click", function () {
+    var open = sidebar.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", String(open));
+  });
+
+  window.addEventListener("hashchange", route);
+  route();
+})();
+</script>
+</body>
+</html>
