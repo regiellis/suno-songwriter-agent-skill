@@ -51,7 +51,7 @@ cp -R <repo>/SKILL.md <repo>/references <repo>/agents <repo>/README.md <repo>/CH
 gh release create vX.Y.Z pkg/suno-songwriter.zip --title "vX.Y.Z" --notes "<summary>"
 ```
 
-The zip excludes `CLAUDE.md`, `docs/`, and `.git`: repo-development files, not skill runtime. Claude Desktop requires the folder (not bare files) at the zip root and reads name/description/license from `SKILL.md`.
+The zip excludes `CLAUDE.md`, `KIKO.md`, `docs/`, and `.git`: repo-development files, not skill runtime. Never clobber a published release's zip with changed content; cut a patch release instead so the CHANGELOG and assets stay in step. Claude Desktop requires the folder (not bare files) at the zip root and reads name/description/license from `SKILL.md`.
 
 ## Installed Copy
 
