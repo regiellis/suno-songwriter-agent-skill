@@ -1,6 +1,6 @@
 # Albums
 
-Use this reference to plan and maintain a cohesive **album or EP** — a set of songs that sound like one body of work — captured in a Markdown file kept in the user's project. Any request to write or revise a track on the album loads the file and stays in cohesion.
+Use this reference to plan and maintain a cohesive **album or EP** (a set of songs that sound like one body of work) captured in a Markdown file kept in the user's project. Any request to write or revise a track on the album loads the file and stays in cohesion.
 
 An album may be tied to a **persona** (`references/personas.md`); if so, link it and the persona's vocals, cadence, and lyrical fingerprint carry across every track.
 
@@ -10,7 +10,7 @@ Triggers: "plan an album / EP / mixtape", "create an album concept", "I want a c
 
 ## Where The File Lives
 
-Write the album to `albums/<album-slug>.md` relative to the user's working directory; create `albums/` if it doesn't exist. Per-song outputs go wherever the user keeps songs; the album file links them by relative path. Don't overwrite an existing album file silently — confirm or use a new slug. An optional `albums/README.md` index is fine, not required. (These files go in the user's project, never in the skill repo.)
+Write the album to `albums/<album-slug>.md` relative to the user's working directory; create `albums/` if it doesn't exist. Per-song outputs go wherever the user keeps songs; the album file links them by relative path. Don't overwrite an existing album file silently: confirm or use a new slug. An optional `albums/README.md` index is fine, not required. (These files go in the user's project, never in the skill repo.)
 
 ## Album File Schema
 
@@ -29,7 +29,7 @@ status: planning | in-progress | complete
 # <Album Title>
 
 ## Concept
-<The throughline: theme, narrative or emotional arc, mood, era, what the record is "about." 2–5 sentences. This is what makes it an album and not a playlist.>
+<The throughline: theme, narrative or emotional arc, mood, era, what the record is "about." 2-5 sentences. This is what makes it an album and not a playlist.>
 
 ## Sonic Palette (album-wide)
 - Genre / lane(s): <the shared sound; one primary, optional secondary>
@@ -42,7 +42,7 @@ status: planning | in-progress | complete
 ## Cohesion Rules
 **Constant across all tracks:** <vocal identity; production aesthetic; recurring motifs / sounds; lyrical callbacks; any key or tempo relationships; interludes / segues; intro & outro framing>
 **Allowed to vary:** <tempo within the band; one or two "left-turn" tracks; feature vocalists on specific tracks; an acoustic / stripped track; etc.>
-<This is 80/20 applied to a tracklist — mostly one coherent identity, with deliberate variation. See references/eighty-twenty.md.>
+<This is 80/20 applied to a tracklist - mostly one coherent identity, with deliberate variation. See references/eighty-twenty.md.>
 
 ## Recurring Elements
 <Motifs (melodic / rhythmic), lyrical phrases or images that recur as callbacks, characters, sonic signatures, a sample or texture that threads through. List them and note which tracks use them.>
@@ -78,7 +78,7 @@ status: planning | in-progress | complete
 ## Creating An Album
 
 1. Get the concept: theme / arc / mood / era, the format (album / EP / mixtape), and whether it's tied to a persona. If a persona is named, read `personas/<slug>.md` and pull vocals, cadence, fingerprint, and palette from it.
-2. Define the sonic palette and the cohesion rules — what's constant, what's allowed to vary. Keep the constants tight; that's what makes it a record.
+2. Define the sonic palette and the cohesion rules: what's constant, what's allowed to vary. Keep the constants tight; that's what makes it a record.
 3. Draft a tracklist: number of tracks, each with a role, a working title, an energy level, and a theme / angle. Sequence for an energy curve. Mark everything `planned`.
 4. Note recurring elements (motifs, lyrical callbacks) to thread through, and which tracks carry them.
 5. Write `albums/<album-slug>.md` (creating `albums/` if needed). Don't overwrite without confirmation.

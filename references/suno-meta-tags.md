@@ -26,7 +26,7 @@ Put these on their own line where the band should take over:
 [Breakdown]
 ```
 
-These work in both vocal songs and as structural markers. Keep them sparse — one or two per song. A long stack of solo tags usually produces a muddy jam, not a clean arrangement.
+These work in both vocal songs and as structural markers. Keep them sparse: one or two per song. A long stack of solo tags usually produces a muddy jam, not a clean arrangement.
 
 ## Vocal Delivery
 
@@ -63,7 +63,7 @@ Hand off between voices:
 [Narrator]
 ```
 
-Use these when the song needs verse trading, a duet chorus, or a featured guest section. Keep the count low — two or three voices is reliable; more tends to blur. If the user has a trained Voice selected, do not fight it with vocal-gender tags.
+Use these when the song needs verse trading, a duet chorus, or a featured guest section. Keep the count low: two or three voices is reliable; more tends to blur. If the user has a trained Voice selected, do not fight it with vocal-gender tags.
 
 Parenthetical vocalist labels are also useful for duet/storytelling layouts:
 
@@ -128,16 +128,16 @@ Suno will often invent extra verses or fade awkwardly if the lyric block ends wi
 [Hard Stop]
 ```
 
-`[End]` after the final section is the most reliable way to stop the model adding material. For loopable instrumentals, do the opposite — avoid a hard ending and mark `[Loop Point]`.
+`[End]` after the final section is the most reliable way to stop the model adding material. For loopable instrumentals, do the opposite: avoid a hard ending and mark `[Loop Point]`.
 
 ## Rules and Failure Modes
 
-- **Tags get sung if placed mid-line.** Keep cues on their own line.
-- **Too many tags = ignored or muddy.** Budget tags by purpose. A groove-narrative song can carry more arrangement cues than a pop song, but each cue should affect the recording.
-- **Don't put production direction in tags.** Persistent genre/instrument/mix direction belongs in `Style:` for vocal/custom modes or `Instrumental Prompt:` for Instrumental Mode. Tags are for moment-to-moment changes.
-- **`[End]` controls length.** If the user complains Suno keeps adding verses, add `[End]`.
-- **Brackets in lyrics ≠ Suno-only.** Most other AI music tools that accept bracket tags handle section headers; many do not handle inline cues. Note that when writing portable prompts.
+- **Tags get sung if placed mid-line:** Keep cues on their own line.
+- **Too many tags = ignored or muddy:** Budget tags by purpose. A groove-narrative song can carry more arrangement cues than a pop song, but each cue should affect the recording.
+- **Don't put production direction in tags:** Persistent genre/instrument/mix direction belongs in `Style:` for vocal/custom modes or `Instrumental Prompt:` for Instrumental Mode. Tags are for moment-to-moment changes.
+- **`[End]` controls length:** If the user complains Suno keeps adding verses, add `[End]`.
+- **Brackets in lyrics ≠ Suno-only:** Most other AI music tools that accept bracket tags handle section headers; many do not handle inline cues. Note that when writing portable prompts.
 
 ## Output Note
 
-When meta-tags materially shape the arrangement, mention it briefly in `Suno v5.5 Notes:` (e.g. `Uses [Guitar Solo] after Chorus 2 and [End] to cap length`). Do not narrate every tag — the lyric body already shows them.
+When meta-tags materially shape the arrangement, mention it briefly in `Suno v5.5 Notes:` (e.g. `Uses [Guitar Solo] after Chorus 2 and [End] to cap length`). Do not narrate every tag: the lyric body already shows them.

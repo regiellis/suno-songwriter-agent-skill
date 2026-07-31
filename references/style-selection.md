@@ -19,7 +19,7 @@ Do not reuse `cinematic alt-R&B`, `gospel pads`, `warm male vocal`, `piano and s
 
 ## Translating Reference Artists
 
-When the user says "make it sound like [artist or band]", do not pass the name through to `Style:` — Suno's copyright filters can reject it or return a flattened result. Decode the reference into traits instead:
+When the user says "make it sound like [artist or band]", do not pass the name through to `Style:`. Suno's copyright filters can reject it or return a flattened result. Decode the reference into traits instead:
 
 - era / decade and scene: `late-90s East Coast hip hop`, `early-2010s Toronto melodic rap`, `1980s Manchester post-punk`
 - rhythm section: tempo feel, drum character, bass role

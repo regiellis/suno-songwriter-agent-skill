@@ -95,7 +95,7 @@ Every section should move that promise. If a section repeats the same emotional 
 - Bridge: new angle, confession, contradiction, time jump, or final realization.
 - Outro: resolve, echo the hook, or leave one memorable image.
 
-Make the chorus *mechanically* plainer than the verses, not just "more emotional": shorter lines, fewer new images, fewer proper nouns, more repetition of the title phrase, more open vowels at line ends. AI music models (Suno included) differentiate chorus from verse partly by this contrast — if the chorus lyrics are as dense and detail-packed as the verse, the generated chorus often fails to lift.
+Make the chorus *mechanically* plainer than the verses, not just "more emotional": shorter lines, fewer new images, fewer proper nouns, more repetition of the title phrase, more open vowels at line ends. AI music models (Suno included) differentiate chorus from verse partly by this contrast: if the chorus lyrics are as dense and detail-packed as the verse, the generated chorus often fails to lift.
 
 ## Point Of View And Tense
 

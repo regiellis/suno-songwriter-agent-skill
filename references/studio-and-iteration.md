@@ -1,10 +1,10 @@
 # Studio And Iteration
 
-Use this reference for what happens after the first generation: choosing between takes, extending, restyling, fixing a section, splitting stems, and deciding whether to edit or re-roll. This is workflow guidance to fold into `Suno v5.5 Notes:` when the user is iterating or preparing a production — not something to dump on every request.
+Use this reference for what happens after the first generation: choosing between takes, extending, restyling, fixing a section, splitting stems, and deciding whether to edit or re-roll. This is workflow guidance to fold into `Suno v5.5 Notes:` when the user is iterating or preparing a production, not something to dump on every request.
 
 ## Two Clips Per Run
 
-Suno returns two variations per generation. Treat the first run as "pick the stronger seed," not "the answer." Advise the user to keep the better take and build from it (Extend / Replace Section / Remix) rather than regenerating the whole prompt repeatedly — re-rolling from scratch throws away a take that was already 80% right.
+Suno returns two variations per generation. Treat the first run as "pick the stronger seed," not "the answer." Advise the user to keep the better take and build from it (Extend / Replace Section / Remix) rather than regenerating the whole prompt repeatedly: re-rolling from scratch throws away a take that was already 80% right.
 
 When a prompt is close but not landing, change **one** lever at a time between runs: the prompt, or for vocal/custom modes, Weirdness or Style Influence (see `references/suno-v55-controls.md` § Troubleshooting).
 
@@ -27,7 +27,7 @@ Tips:
 Re-generates a song in a new style while keeping the melody/structure (Cover) or reworks the arrangement (Remix), driven by a new Style line.
 
 Use for:
-- "same song, different genre" — write a fresh Style line for the target lane (see `references/genre-palettes.md`)
+- "same song, different genre": write a fresh Style line for the target lane (see `references/genre-palettes.md`)
 - turning a demo idea into a polished version
 - A/B-ing two production directions for the same lyrics
 
@@ -41,17 +41,17 @@ Regenerates a selected span (a verse, a chorus, a few bars) inside an otherwise-
 
 Use for:
 - one weak verse in an otherwise good take
-- fixing a mumbled or mispronounced line — rewrite that line simpler, then replace just that section
+- fixing a mumbled or mispronounced line: rewrite that line simpler, then replace just that section
 - swapping a section's energy without re-rolling the song
 - removing or replacing a section the model invented
 
 Tips:
 - Keep the replacement lyrics' syllable count and line shape close to the original span so the new audio fits the surrounding bars.
-- This is the fix for "everything's good except ___" — reach for it before regenerating.
+- This is the fix for "everything's good except ___": reach for it before regenerating.
 
 ## Crop / Trim
 
-Cuts the track to a span — for grabbing a clean loop, a stinger, or removing a bad intro/outro tail. Mention when the user needs a specific length or a loop for game/video use.
+Cuts the track to a span: for grabbing a clean loop, a stinger, or removing a bad intro/outro tail. Mention when the user needs a specific length or a loop for game/video use.
 
 ## Stems
 
@@ -62,7 +62,7 @@ Use for:
 - isolating an instrumental from a vocal take (or vice versa) without re-generating
 - replacing one layer with live performance
 
-Note in `Suno v5.5 Notes:` when stems are part of the intended workflow (e.g. `Plan: generate, pick take, split stems, mix in DAW`). Don't promise specific stem counts/quality — it varies.
+Note in `Suno v5.5 Notes:` when stems are part of the intended workflow (e.g. `Plan: generate, pick take, split stems, mix in DAW`). Don't promise specific stem counts/quality: it varies.
 
 ## Remaster
 
@@ -79,7 +79,7 @@ Re-renders an older or lower-fidelity generation at current model quality. Menti
 | Right song, wrong genre | Cover / Remix with a new Style line |
 | Need a loop or specific length | Crop |
 | Going to a DAW | Stems |
-| Whole vibe is off, structure too | New prompt — change one lever, re-roll |
+| Whole vibe is off, structure too | New prompt: change one lever, re-roll |
 | Old take, low fidelity, otherwise liked | Remaster |
 
 ## Output Note

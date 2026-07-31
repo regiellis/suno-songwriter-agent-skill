@@ -6,7 +6,7 @@ description: "Use this skill when the user wants to write, revise, remix, transl
 
 # Suno Songs, Lyrics, And Instrumental Prompts
 
-Use this skill to create release-quality AI song inputs. Target Suno v5.5 first (current as of 2026-07; if the platform's model has moved on, the field names and craft still apply — re-check version-specific limits), then keep the result portable enough for other AI music systems by separating style, lyrics, structure, and performance notes.
+Use this skill to create release-quality AI song inputs. Target Suno v5.5 first (current as of 2026-07; if the platform's model has moved on, the field names and craft still apply: re-check version-specific limits), then keep the result portable enough for other AI music systems by separating style, lyrics, structure, and performance notes.
 
 Highest priority for vocal requests: write a good song, not a feature-complete form. A useful Suno package with weak lyrics is a failed output. Default to Suno-native lyric phrasing: short, direct, emotional lines that sing easily.
 
@@ -21,12 +21,12 @@ Use references selectively:
 - Read `references/rule-of-3.md` when improving memorability, repeated phrases, melodic/rhythmic motifs, chorus payoff, or arrangement focus.
 - Read `references/eighty-twenty.md` when prioritizing the hook, identifying the highest-impact 20%, reducing over-polish, or balancing familiar genre signals with fresh ideas.
 - Read `references/instrumental.md` for lofi, OST, game loops, ambient, trailer cues, idents, vocal chops, or other non-lyric tracks.
-- Read `references/suno-sounds.md` when the user wants an individual audio sample rather than a song or track — a sound effect, foley hit, ambience bed, transition/whoosh, animal sound, or a musical one-shot / drum loop (Suno Sounds).
-- Read `references/cover-art.md` when the user wants a cover image or an animated (looping video) cover for a track — Suno's Generate Cover Art / Animate tools: text-to-image, text-to-video, image-to-video.
+- Read `references/suno-sounds.md` when the user wants an individual audio sample rather than a song or track: a sound effect, foley hit, ambience bed, transition/whoosh, animal sound, or a musical one-shot / drum loop (Suno Sounds).
+- Read `references/cover-art.md` when the user wants a cover image or an animated (looping video) cover for a track. Suno's Generate Cover Art / Animate tools: text-to-image, text-to-video, image-to-video.
 - Read `references/screen-music.md` for anime openings/endings, TV theme songs, end-credit songs, trailer cuts, idents, game themes, and edit-length (TV-size/sting) guidance.
-- Read `references/multilingual.md` for non-English lyrics, translation, bilingual writing, dialect, script, romanization, or pronunciation — including Korean lanes beyond K-pop.
+- Read `references/multilingual.md` for non-English lyrics, translation, bilingual writing, dialect, script, romanization, or pronunciation: including Korean lanes beyond K-pop.
 - Read `references/style-selection.md` when genre, vocalist, instrumentation, or production palette is missing, generic, or over-reused.
-- Read `references/genre-palettes.md` for a concrete BPM/instrument/production/vocal/structure menu per lane, used as a picker — not as defaults.
+- Read `references/genre-palettes.md` for a concrete BPM/instrument/production/vocal/structure menu per lane, used as a picker, not as defaults.
 - Read `references/genre-fusion.md` when a request involves more than one genre: a fusion blend in one Style line, a mid-song genre switch, or the same song in several genre versions.
 - Read `references/remix-and-style-match.md` when remixing or flipping an existing lyric, writing in the style/cadence of a named artist or song, or analyzing supplied lyrics for their style.
 - Read `references/personas.md` when creating, updating, or using a reusable artist persona (a consistent singer, rapper, or band saved as a spec file).
@@ -101,9 +101,9 @@ Use bracketed section tags. For vocal songs:
 
 You can add a short performance or energy descriptor inside a section tag to cue a dynamic change, for example `[Whispered Verse]`, `[Half-time Verse 2]`, `[Explosive Chorus, big guitars]`, `[Stripped Bridge, vocal and piano only]`, `[Double-time Outro]`. Keep these to a few words, use them only where the energy actually shifts, and keep persistent instrument/production direction in `Style:` for vocal/custom modes or `Instrumental Prompt:` for Instrumental Mode.
 
-The lyrics body also accepts inline cues on their own line: instrumental moments (`[Guitar Solo]`, `[Instrumental Break]`, `[Beat Drop]`), vocal delivery (`[Spoken]`, `[Whispered]`, `[Harmonies]`), vocalist hand-offs (`[Male Voice]`, `[Female Voice]`, `[Duet]`), ad-libs in parens (`(yeah)`), sound effects (`[Applause]`), and ending control (`[End]`, `[Fade Out]`). Use them sparingly — too many get ignored or sung aloud. `[End]` after the final section is the reliable way to stop Suno inventing extra verses. See `references/suno-meta-tags.md`.
+The lyrics body also accepts inline cues on their own line: instrumental moments (`[Guitar Solo]`, `[Instrumental Break]`, `[Beat Drop]`), vocal delivery (`[Spoken]`, `[Whispered]`, `[Harmonies]`), vocalist hand-offs (`[Male Voice]`, `[Female Voice]`, `[Duet]`), ad-libs in parens (`(yeah)`), sound effects (`[Applause]`), and ending control (`[End]`, `[Fade Out]`). Use them sparingly: too many get ignored or sung aloud. `[End]` after the final section is the reliable way to stop Suno inventing extra verses. See `references/suno-meta-tags.md`.
 
-Suno can silently reject or blandly average a generation that trips a content/copyright filter — real-person names (in `Style:`, `Instrumental Prompt:`, and lyrics), brand names, heavy profanity, or graphic content. If a result comes back blank or oddly generic, suspect the filter before the sliders; soften or imply the offending material and note the change in `Suno v5.5 Notes:`.
+Suno can silently reject or blandly average a generation that trips a content/copyright filter: real-person names (in `Style:`, `Instrumental Prompt:`, and lyrics), brand names, heavy profanity, or graphic content. If a result comes back blank or oddly generic, suspect the filter before the sliders; soften or imply the offending material and note the change in `Suno v5.5 Notes:`.
 
 For instrumentals:
 - `[Intro]`, `[Theme A]`, `[Theme B]`, `[Breakdown]`, `[Build]`, `[Climax]`, `[Loop Point]`, `[Outro]`
@@ -142,7 +142,7 @@ When genre is unspecified, pick one fitting lane and state it as an assumption, 
 
 Vary vocal identity, tempo, instrumentation, structure, and production language to match the lane. Do not reuse `cinematic alt-R&B`, `gospel pads`, `warm male vocal`, `piano and strings`, or similar defaults unless requested or clearly justified by the brief.
 
-When the request spans more than one genre — a hybrid blend, a mid-song genre switch, or the same song in several genre treatments — read `references/genre-fusion.md`: build blends as anchor + accent (never 50/50), state a switch in both `Style:` and a section tag, and give each genre version its own Style/Excluded Styles/sliders over the same lyric.
+When the request spans more than one genre (a hybrid blend, a mid-song genre switch, or the same song in several genre treatments) read `references/genre-fusion.md`: build blends as anchor + accent (never 50/50), state a switch in both `Style:` and a section tag, and give each genre version its own Style/Excluded Styles/sliders over the same lyric.
 
 ## Instrumental Mode
 
@@ -164,11 +164,11 @@ Instrumental prompt examples:
 
 ## Sound Samples (Suno Sounds)
 
-When the user wants an individual audio *sample* — a sound effect, transition/whoosh, riser, impact, foley hit, ambience bed, animal sound, or a musical one-shot / drum loop — that is Suno's "Sounds" feature, not a song or instrumental track. Read `references/suno-sounds.md`. Return a `Sound:` prompt plus `Type:` (One Shot / Loop), `BPM:`, `Key:`, and `Variations:` instead of the song or instrumental contract; write the prompt with specific, recognizable vocabulary (`whoosh`, `glitch`, `rumble`, `808 kick`, `ambiance`...), state a duration when it matters, and set BPM/Key only for musical material. If the user actually wants a short *piece of music* (a sting, an ident, a melodic loop), treat it as an instrumental track instead (`references/instrumental.md`).
+When the user wants an individual audio *sample* (a sound effect, transition/whoosh, riser, impact, foley hit, ambience bed, animal sound, or a musical one-shot / drum loop), that is Suno's "Sounds" feature, not a song or instrumental track. Read `references/suno-sounds.md`. Return a `Sound:` prompt plus `Type:` (One Shot / Loop), `BPM:`, `Key:`, and `Variations:` instead of the song or instrumental contract; write the prompt with specific, recognizable vocabulary (`whoosh`, `glitch`, `rumble`, `808 kick`, `ambiance`...), state a duration when it matters, and set BPM/Key only for musical material. If the user actually wants a short *piece of music* (a sting, an ident, a melodic loop), treat it as an instrumental track instead (`references/instrumental.md`).
 
 ## Cover Art And Animated Covers
 
-When the user wants visuals for a track — a still cover image or an animated (looping video) cover via Suno's **Generate Cover Art** / **Animate** tools (text-to-image, text-to-video, image-to-video) — read `references/cover-art.md`. This is artwork, not music: keep the song on its normal contract and return a separate `Cover Concept:` / `Image Prompt:` / `Motion Prompt:` / `Settings:` block (or append a `Cover Art:` block after a song package). Match the visual to the song's lane, era, mood, and key image; pick a deliberate medium and palette instead of an AI-art cliché; put no text, logos, or real artist/character names in the image prompt (same filter logic as `Style:`); compose for a 1:1 square crop; and write motion prompts that describe motion only and loop cleanly. A full multi-scene music video is beyond Suno's looping-cover tool — take the finished track into a dedicated video editor for that; **Suno Scenes** (camera → song) is the reverse direction and routes to the normal song contract.
+When the user wants visuals for a track, a still cover image or an animated looping-video cover via Suno's **Generate Cover Art** / **Animate** tools (text-to-image, text-to-video, image-to-video), read `references/cover-art.md`. This is artwork, not music: keep the song on its normal contract and return a separate `Cover Concept:` / `Image Prompt:` / `Motion Prompt:` / `Settings:` block (or append a `Cover Art:` block after a song package). Match the visual to the song's lane, era, mood, and key image; pick a deliberate medium and palette instead of an AI-art cliché; put no text, logos, or real artist/character names in the image prompt (same filter logic as `Style:`); compose for a 1:1 square crop; and write motion prompts that describe motion only and loop cleanly. A full multi-scene music video is beyond Suno's looping-cover tool: take the finished track into a dedicated video editor for that; **Suno Scenes** (camera → song) is the reverse direction and routes to the normal song contract.
 
 ## Multilingual Mode
 
@@ -195,7 +195,7 @@ If unsure about grammar, idiom, dialect, or cultural nuance, say so briefly and 
 
 Suno's Custom Mode Creative Sliders shape how much the model explores and how strictly it follows the style input. Use ranges, not false precision. Do not return slider suggestions for Instrumental Mode.
 
-v5.5 also has a **Duration** control: Auto by default, or a Custom slider from 0:10 to 6:00 in 5-second steps. Recommend Custom when the brief has a target length (TV-size cut, sting, loop) and leave Auto otherwise. The slider does not compress the lyric — write the structure to fit the time, set Duration slightly longer than the intended cut so the ending resolves, and Crop to the exact time (see `references/suno-v55-controls.md` § Duration).
+v5.5 also has a **Duration** control: Auto by default, or a Custom slider from 0:10 to 6:00 in 5-second steps. Recommend Custom when the brief has a target length (TV-size cut, sting, loop) and leave Auto otherwise. The slider does not compress the lyric: write the structure to fit the time, set Duration slightly longer than the intended cut so the ending resolves, and Crop to the exact time (see `references/suno-v55-controls.md` § Duration).
 
 - **Weirdness:** Safe to Chaos. Around 50% is Suno's normal expected result. Lower values are more conventional and stable; higher values add surprise, unusual transitions, and more risk.
 - **Style Influence:** Loose to Strong. Higher values make Suno follow the Style field more closely; lower values let the model interpret more freely.
@@ -328,23 +328,23 @@ When transforming reference lyrics, briefly identify the extracted theme before 
 
 When the user wants a **remix or flip** of an existing lyric, a song written **in the style of** a named artist or song, or an **analysis** of supplied lyrics' style, read `references/remix-and-style-match.md`. Key rules:
 
-- Style, cadence, rhyme strategy, structure, and subject matter are fair to imitate; specific lyrics, hooks, and distinctive phrases are not. Output original expression that matches the *fingerprint* (cadence, rhyme density, line shape, diction register, themes) — never reproduce or closely paraphrase source lines, and don't quote them back.
+- Style, cadence, rhyme strategy, structure, and subject matter are fair to imitate; specific lyrics, hooks, and distinctive phrases are not. Output original expression that matches the *fingerprint* (cadence, rhyme density, line shape, diction register, themes): never reproduce or closely paraphrase source lines, and don't quote them back.
 - Do not put the artist's name in `Style:` (see Excluded Styles / no-artist-names guidance); describe the sound via era, scene, and production instead. Add a `Style Reference:` line stating what was modeled and that all lyrics are original.
 - Pick a fresh subject so the result is clearly its own song, not a re-skin of one track.
-- If the harness has web/search, use it to sharpen the style fingerprint (era, themes, techniques) — but never pull verbatim lyrics into the working notes or output. Without search, build from general knowledge and say so.
-- For remixes of lyrics the user owns or public-domain/licensed material, close rework is fine — confirm ownership if unclear. If the user wants the actual lyrics of a copyrighted song or a near-verbatim continuation, decline and offer a style-match instead.
+- If the harness has web/search, use it to sharpen the style fingerprint (era, themes, techniques), but never pull verbatim lyrics into the working notes or output. Without search, build from general knowledge and say so.
+- For remixes of lyrics the user owns or public-domain/licensed material, close rework is fine: confirm ownership if unclear. If the user wants the actual lyrics of a copyrighted song or a near-verbatim continuation, decline and offer a style-match instead.
 
 ## Screen-Tied Songs And Cues
 
-For anime openings/endings, TV theme songs, end-credit songs, trailer cuts, idents, and game themes, read `references/screen-music.md`. These are tied to picture and to an edit length. Route the output shape by format: anime OP/ED, end-credit songs, and sitcom themes with words are vocal songs (`Lyrics:`); trailer cuts, atmospheric main titles, idents, and game cues are instrumental (`Instrumental Prompt:` plus `Arrangement:`). State the edit length (full / TV-size ~90s / sting ~30–60s / ident ~3–15s) in `Suno v5.5 Notes:`, make the hook or motif land early, end non-looping cuts with `[End]`, and mark loopable themes with `[Loop Point]`.
+For anime openings/endings, TV theme songs, end-credit songs, trailer cuts, idents, and game themes, read `references/screen-music.md`. These are tied to picture and to an edit length. Route the output shape by format: anime OP/ED, end-credit songs, and sitcom themes with words are vocal songs (`Lyrics:`); trailer cuts, atmospheric main titles, idents, and game cues are instrumental (`Instrumental Prompt:` plus `Arrangement:`). State the edit length (full / TV-size ~90s / sting ~30-60s / ident ~3-15s) in `Suno v5.5 Notes:`, make the hook or motif land early, end non-looping cuts with `[End]`, and mark loopable themes with `[Loop Point]`.
 
 ## Personas And Albums
 
 For a reusable artist identity (a consistent singer, rapper, or band across many songs), read `references/personas.md`. For a cohesive multi-track album or EP, read `references/albums.md`. Both work by writing a small Markdown spec file into the **user's working directory** that later requests load and follow:
 
 - Personas live at `personas/<slug>.md`; albums at `albums/<slug>.md`. Create the directory if needed. Never overwrite an existing spec file without confirming. These files belong in the user's project, not in the skill repo.
-- A persona can come from the user's own description or from a style-reference (a real artist or group). For style-references, decode the style, cadence, and vocal character into a fingerprint per `references/remix-and-style-match.md` and keep the real name out of the spec's operational sections and out of every prompt — the persona is a fictional act with a user-chosen name.
-- An album may link a persona; if so, the persona's vocals, cadence, and lyrical fingerprint carry across every track, and the album adds a concept, a shared sonic palette, cohesion rules (what's constant vs what may vary — 80/20 over a tracklist), recurring elements, and a sequenced tracklist.
+- A persona can come from the user's own description or from a style-reference (a real artist or group). For style-references, decode the style, cadence, and vocal character into a fingerprint per `references/remix-and-style-match.md` and keep the real name out of the spec's operational sections and out of every prompt: the persona is a fictional act with a user-chosen name.
+- An album may link a persona; if so, the persona's vocals, cadence, and lyrical fingerprint carry across every track, and the album adds a concept, a shared sonic palette, cohesion rules (what's constant vs what may vary: 80/20 over a tracklist), recurring elements, and a sequenced tracklist.
 - When the user asks for a song "as <persona>" or "track N of <album>", read the spec file(s), build the song to match (the Style kernel + the specific song's mood/tempo/theme; consistent vocals, cadence, lyrical fingerprint; the album's cohesion rules), apply the spec's Suno defaults, then update the spec's Song Log / tracklist. Add a `Persona:` and/or `Album:` line to the output and the matching consistency items to `Checks:`.
 - If a request conflicts with a saved persona or album (a ballad persona asked for a death-metal track), flag it and ask whether to bend the spec for one song or update the spec.
 

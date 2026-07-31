@@ -131,7 +131,7 @@ Covers:
 
 ## Suno Sounds
 
-Read `references/suno-sounds.md` when the user wants an individual audio sample rather than a song or track — a sound effect, transition/whoosh, riser, impact, foley hit, ambience bed, animal sound, or a musical one-shot / drum loop.
+Read `references/suno-sounds.md` when the user wants an individual audio sample rather than a song or track: a sound effect, transition/whoosh, riser, impact, foley hit, ambience bed, animal sound, or a musical one-shot / drum loop.
 
 Covers:
 - what Suno Sounds does (One Shot vs Loop, BPM, Key)
@@ -177,7 +177,7 @@ Covers:
 
 ## Genre Palettes
 
-Read `references/genre-palettes.md` when you need a concrete BPM band, signature instruments, production textures, vocal identities, or typical structure for a lane — used as a picker to fill gaps and avoid lock-in, not as a set of defaults.
+Read `references/genre-palettes.md` when you need a concrete BPM band, signature instruments, production textures, vocal identities, or typical structure for a lane: used as a picker to fill gaps and avoid lock-in, not as a set of defaults.
 
 Covers:
 - palette table across pop, rock, hip hop, electronic, folk/country, soul/gospel, world/regional (incl. Korean ballad, K-hip hop, Korean indie, trot, city pop), screen (anime OP/ED, TV theme), score, and niche lanes
@@ -207,7 +207,7 @@ Covers:
 
 ## Personas
 
-Read `references/personas.md` when creating, updating, or using a reusable artist persona — a consistent singer, rapper, or band saved as a spec file the user keeps in their project.
+Read `references/personas.md` when creating, updating, or using a reusable artist persona: a consistent singer, rapper, or band saved as a spec file the user keeps in their project.
 
 Covers:
 - custom vs style-reference personas (no real names in prompts)

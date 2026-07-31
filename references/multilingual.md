@@ -68,12 +68,12 @@ Language Notes: Japanese, native script with optional romaji hook; compact J-pop
 
 ## Pronunciation
 
-Suno (and AI music models generally) frequently anglicize vowels, mangle tonal languages, stress the wrong syllable, or slur unfamiliar consonant clusters — more so when the vocal model wasn't trained heavily on that language. Plan for it instead of hoping.
+Suno (and AI music models generally) frequently anglicize vowels, mangle tonal languages, stress the wrong syllable, or slur unfamiliar consonant clusters: more so when the vocal model wasn't trained heavily on that language. Plan for it instead of hoping.
 
 Two tools:
 
-1. **In-line phonetic respelling** — rewrite the troublesome word *in the lyric line itself* the way it should sound, when the literal spelling reliably fails. Example: write `cora-SOHN` instead of `corazón` if the model keeps saying "kor-uh-zon". Use this sparingly — only on words that actually break — and note it so the user can revert for a lyric sheet.
-2. **`Pronunciation Notes:` block** — keep the lyrics clean and put guidance separately:
+1. **In-line phonetic respelling**: rewrite the troublesome word *in the lyric line itself* the way it should sound, when the literal spelling reliably fails. Example: write `cora-SOHN` instead of `corazón` if the model keeps saying "kor-uh-zon". Use it sparingly, only on words that actually break, and note it so the user can revert for a lyric sheet.
+2. **`Pronunciation Notes:` block**: keep the lyrics clean and put guidance separately:
 
 ```text
 Pronunciation Notes: "corazón" = "co-ra-SOHN" (stress the last syllable, open "o"); keep "ll" in "lluvia" soft, not "y".
@@ -94,7 +94,7 @@ These are heuristics, not grammar guarantees. If publication quality matters, re
 | French | Prioritize smooth vowel flow and elegant phrasing; exact English-style end rhyme may sound forced. |
 | Italian | Strong vowels and melodic phrasing work well; keep lines singable and avoid overlong translations. |
 | Japanese | Short compact phrases, repetition, and occasional English hook phrases can work; choose native script or romaji intentionally. Anime OP/ED, city pop, and J-rock have their own phrasing norms (see `references/screen-music.md`). |
-| Korean | Not only K-pop — also Korean ballad (long emotive lines, big belted chorus), K-hip hop / K-R&B (conversational sung-rap, English ad-libs), Korean indie/folk (gentle, restrained), OST, and trot. K-pop itself uses code-switching, pre-chorus lift, post-chorus tags, dance-break sections, and compact repeated hooks. Ask or infer which lane; phrasing and structure differ a lot between them. Hangul by default; English hook phrases are common but should be intentional. |
+| Korean | Not only K-pop: also Korean ballad (long emotive lines, big belted chorus), K-hip hop / K-R&B (conversational sung-rap, English ad-libs), Korean indie/folk (gentle, restrained), OST, and trot. K-pop itself uses code-switching, pre-chorus lift, post-chorus tags, dance-break sections, and compact repeated hooks. Ask or infer which lane; phrasing and structure differ a lot between them. Hangul by default; English hook phrases are common but should be intentional. |
 | Mandarin | Tone and meaning matter; keep phrases simple, avoid dense metaphors, and consider native-speaker review. |
 | Arabic | Specify dialect or Modern Standard Arabic; melisma-friendly vowels and refrain/call-response can fit many styles. |
 | Hindi/Urdu | Hooks may lean on repeated title phrases and vowel-rich endings; specify script/romanization and avoid mixing registers accidentally. |

@@ -2,7 +2,7 @@
 
 Use this reference for non-lyric or mostly non-lyric tracks: lofi beats, OST cues, game loops, ambient, trailer music, underscore, menu themes, battle themes, meditation music, and background music.
 
-For music tied to picture and to an edit length — anime openings/endings, TV theme songs, idents, trailer cuts, game themes — see also `references/screen-music.md`; this file owns the purely instrumental cue craft, that one owns the screen-specific forms (including vocal ones like anime OP/ED).
+For music tied to picture and to an edit length (anime openings/endings, TV theme songs, idents, trailer cuts, game themes) see also `references/screen-music.md`; this file owns the purely instrumental cue craft, that one owns the screen-specific forms (including vocal ones like anime OP/ED).
 
 ## Instrumental Mode Rules
 
@@ -139,7 +139,7 @@ For the screen-specific three-beat trailer structure (setup → turn/braam → a
 
 ## Idents / Stings / Bumpers
 
-3–15 seconds: channel idents, logo audio, segment bumpers, app sounds. One motif, one gesture, a clean resolution or a clean loop. Treat as a micro-cue — describe the single sound idea, name the exact length, and end with `[End]` (or mark `[Loop Point]` if it must loop).
+3-15 seconds: channel idents, logo audio, segment bumpers, app sounds. One motif, one gesture, a clean resolution or a clean loop. Treat as a micro-cue: describe the single sound idea, name the exact length, and end with `[End]` (or mark `[Loop Point]` if it must loop).
 
 ```text
 [Logo Hit]
@@ -152,12 +152,12 @@ For the screen-specific three-beat trailer structure (setup → turn/braam → a
 "Instrumental" does not always mean "zero human voice." Many tracks want wordless vocals as texture: chopped/pitched samples, choir "aahs", "oohs", "la la" hooks, chants, hums, breaths.
 
 If the user wants these:
-- Do **not** put a blanket `no vocals` in the instrumental prompt — that fights the request.
+- Do **not** put a blanket `no vocals` in the instrumental prompt: that fights the request.
 - Describe the wordless vocal in `Instrumental Prompt:`: `ethereal vocal chops`, `wordless choir aahs`, `chanted "hey" hook`, `breathy hums`.
 - In `Arrangement:`, mark where they enter: `[Theme B] add chopped vocal stabs over the groove`, `[Climax] full wordless choir`.
 - If you need actual syllables sung, put them in `Lyrics:` with section tags and keep them non-lexical (`Ooh, ah, na na na`), and say so in `Suno v5.5 Notes:`.
 
-If the user genuinely wants nothing vocal at all, say `instrumental, no lead vocals, no choir, no vocal chops, no chants` in `Instrumental Prompt:`.
+If the user wants nothing vocal at all, say `instrumental, no lead vocals, no choir, no vocal chops, no chants` in `Instrumental Prompt:`.
 
 ## Stems And Handoff
 

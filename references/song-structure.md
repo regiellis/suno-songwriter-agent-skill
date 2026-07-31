@@ -115,7 +115,7 @@ Useful descriptors:
 
 Rules:
 - Keep the descriptor to a few words. Long descriptions inside a tag get unreliable.
-- Use a descriptor only where the energy or texture genuinely changes; tagging every section "explosive" flattens the dynamics.
+- Use a descriptor only where the energy or texture actually changes; tagging every section "explosive" flattens the dynamics.
 - Keep persistent genre, instrument, and production direction in `Style:` for vocal/custom modes. For Instrumental Mode, keep it in `Instrumental Prompt:`.
 - For instrumental tracks, cue tags handle moment-to-moment changes: `[Sparse Theme A]`, `[Layered Build]`, `[Climax, full orchestra]`, `[Fade Loop Point]`.
 
@@ -321,7 +321,7 @@ Make the loop return explicit.
 
 ## Screen-Tied Forms
 
-These are tied to picture and to an edit length — see `references/screen-music.md` for the full guidance.
+These are tied to picture and to an edit length: see `references/screen-music.md` for the full guidance.
 
 ### Anime OP (TV size, ~90s)
 
@@ -340,7 +340,7 @@ Vocal song, fast and anthemic; the instrumental riff bookends it; the hook lands
 
 Standard pop/ballad form, lower energy than the OP, often just one verse/chorus in a TV cut. End-credit songs deliver payoff and leave the world rather than introduce it.
 
-### TV Theme / Sting (~30–60s)
+### TV Theme / Sting (~30-60s)
 
 ```text
 [Intro Hook]

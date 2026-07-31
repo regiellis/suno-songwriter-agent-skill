@@ -15,7 +15,7 @@ Keep fields clean:
 
 ## Title Field
 
-Suno has a separate Title field. It is mostly a label, but the model does read it — a vivid, on-theme title nudges mood and lyrical content, and a generic one (`Untitled`, `Song 1`) wastes a small signal. Use the same `Title:` you put in the output. For vocal/custom modes, do not stuff genre or production words into the title; that belongs in `Style:`. For Instrumental Mode, put genre/production detail in `Instrumental Prompt:`.
+Suno has a separate Title field. It is mostly a label, but the model does read it: a vivid, on-theme title nudges mood and lyrical content, and a generic one (`Untitled`, `Song 1`) wastes a small signal. Use the same `Title:` you put in the output. For vocal/custom modes, do not stuff genre or production words into the title; that belongs in `Style:`. For Instrumental Mode, put genre/production detail in `Instrumental Prompt:`.
 
 ## Style Field
 
@@ -45,7 +45,7 @@ Avoid:
 pop, sad, cool, no country, no drums, no guitar, not too slow, make it viral
 ```
 
-A useful quick frame for the positive direction is three anchors plus modifiers: core genre/subgenre, vibe/texture, and the lead instrument or signature sound, then add tempo, vocal, and production. For example `Delta blues, dusty and analog, slide resonator guitar` or `synthwave, neon-cold and propulsive, fat analog bass and gated drums` — then extend with BPM, vocal, mix.
+A useful quick frame for the positive direction is three anchors plus modifiers: core genre/subgenre, vibe/texture, and the lead instrument or signature sound, then add tempo, vocal, and production. For example `Delta blues, dusty and analog, slide resonator guitar` or `synthwave, neon-cold and propulsive, fat analog bass and gated drums`: then extend with BPM, vocal, mix.
 
 ### No Artist Names
 
@@ -139,13 +139,13 @@ Lower Style Influence when:
 
 ## Duration
 
-v5.5's Create form has a **Duration control** (web): **Auto** (default — the model picks a natural length) or **Custom**, a slider from **0:10 to 6:00 in 5-second steps**.
+v5.5's Create form has a **Duration control** (web): **Auto** (default: the model picks a natural length) or **Custom**, a slider from **0:10 to 6:00 in 5-second steps**.
 
 - Leave **Auto** for standard full songs with no target cut.
-- Use **Custom** when the brief has a length: TV-size OP/ED (~1:30), sting (30–60s), ident, ad read, or a loop of known bar length. Recommend the setting in `Slider Suggestions:`.
-- **The slider does not compress the lyric.** Match the written structure to the set time — an oversized `Lyrics:`/`Arrangement:` body gets rushed or cut off mid-phrase. Write the cut to size *and* set the slider.
-- Set Custom **5–15s longer than the intended cut** so the ending resolves instead of clipping, then **Crop** to the exact time.
-- The most reliable band for full songs is roughly **2:00–3:30**; very long Custom settings stretch material thin.
+- Use **Custom** when the brief has a length: TV-size OP/ED (~1:30), sting (30-60s), ident, ad read, or a loop of known bar length. Recommend the setting in `Slider Suggestions:`.
+- **The slider does not compress the lyric:** Match the written structure to the set time: an oversized `Lyrics:`/`Arrangement:` body gets rushed or cut off mid-phrase. Write the cut to size *and* set the slider.
+- Set Custom **5-15s longer than the intended cut** so the ending resolves instead of clipping, then **Crop** to the exact time.
+- The most reliable band for full songs is roughly **2:00-3:30**; very long Custom settings stretch material thin.
 - `[End]` / `[Fade Out]` still control *how* the track closes; **Crop** trims and **Extend** lengthens after the fact.
 
 ## Personalization
@@ -184,7 +184,7 @@ Suggest the Magic Wand in the Styles field for personalized suggestions, then re
 
 Suno can silently reject, blank, or blandly average a generation when the inputs trip a content or copyright filter. Common triggers:
 
-- names of real living people, bands, or song titles — in `Style:`, `Instrumental Prompt:`, **and** `Lyrics:` (see `Style Field` § No Artist Names)
+- names of real living people, bands, or song titles: in `Style:`, `Instrumental Prompt:`, **and** `Lyrics:` (see `Style Field` § No Artist Names)
 - brand and trademark names
 - explicit profanity or slurs (some profanity is allowed; heavy use is risky)
 - graphic violence, sexual content, or self-harm depiction in the lyrics
@@ -193,7 +193,7 @@ If a generation comes back blank or weirdly generic, suspect the filter before t
 
 ## Iteration
 
-Suno returns two takes per generation — treat the first run as picking the stronger seed, not the final answer. Build from the better take with Extend / Replace Section / Remix rather than re-rolling the whole prompt. When you do re-roll, change one lever at a time: prompt, Weirdness, or Style Influence. For Extend, Cover/Remix, Replace Section, Crop, stems, and the edit-vs-re-roll decision, see `references/studio-and-iteration.md`.
+Suno returns two takes per generation: treat the first run as picking the stronger seed, not the final answer. Build from the better take with Extend / Replace Section / Remix rather than re-rolling the whole prompt. When you do re-roll, change one lever at a time: prompt, Weirdness, or Style Influence. For Extend, Cover/Remix, Replace Section, Crop, stems, and the edit-vs-re-roll decision, see `references/studio-and-iteration.md`.
 
 ## Troubleshooting
 
@@ -203,10 +203,10 @@ Suno returns two takes per generation — treat the first run as picking the str
 - Vocal identity drifts: lower Weirdness and simplify vocal descriptors.
 - Wrong genre appears: add it to `Excluded Styles` and keep Style Influence medium-high.
 - Generic or blocked result from an artist reference: remove the artist name and rebuild the Style line from era, subgenre, rhythm section, and mix character.
-- Blank or oddly generic generation: suspect a content/copyright filter — check for real names, brands, or explicit lyrics before touching sliders.
+- Blank or oddly generic generation: suspect a content/copyright filter: check for real names, brands, or explicit lyrics before touching sliders.
 - Vocals mumbled or unintelligible: cut syllables per line, use stronger open vowels, simplify the syntax, and slow the implied delivery; then Replace Section rather than re-rolling the whole take.
 - Model invents extra verses you didn't write: add `[End]` after the last section in the lyrics (see `references/suno-meta-tags.md`); to remove an already-generated extra section, use Replace Section.
-- Chorus sounds like just another verse: make the chorus lyrics mechanically simpler — shorter lines, fewer new images, more repetition of the title phrase.
+- Chorus sounds like just another verse: make the chorus lyrics mechanically simpler: shorter lines, fewer new images, more repetition of the title phrase.
 - Pronunciation or accent drift (esp. non-English): respell the problem word phonetically in the lyric line, or add a `Pronunciation Notes:` line; for one bad word in a good take, Replace Section.
 - Mix feels muddy: add positive style terms such as `clean production`, `wide stereo`, `clear vocal upfront`.
 - Prompt feels overcontrolled: remove half the adjectives before changing sliders.
