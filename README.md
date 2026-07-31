@@ -1,5 +1,8 @@
 # Suno Songwriter
 
+> [!TIP]
+> **Installing?** Download [`suno-songwriter.zip` from the latest release](https://github.com/regiellis/suno-songwriter-agent-skill/releases/latest), then upload it in Claude Desktop (Settings, Capabilities, Skills) or unzip it into `~/.codex/skills/` for Codex. Full steps per app are in [Installation](#installation); browseable docs are at [regiellis.github.io/suno-songwriter-agent-skill](https://regiellis.github.io/suno-songwriter-agent-skill/).
+
 Portable agent skill for creating Suno v5.5-ready vocal songs, instrumental tracks, vocal style prompts, excluded styles, vocal/custom slider suggestions, multilingual lyric adaptations, and broader AI music prompts.
 
 This is an agent skill, not a Codex-only package. Any harness can use it if it can read `SKILL.md`, decide when the skill applies, and optionally load files from `references/`.
