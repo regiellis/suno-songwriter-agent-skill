@@ -1,0 +1,7 @@
+interface:
+  display_name: "Suno Songwriter"
+  short_description: "Hook-first Suno songs and instrumental prompts"
+  default_prompt: "Use $suno-songwriter to write or revise a Suno v6-ready song or instrumental. For vocals, prioritize title, hook, structure, lyrics, Style, and Excluded Styles. For instrumentals, return Instrumental Prompt and Arrangement; add available Advanced controls when requested."
+
+policy:
+  allow_implicit_invocation: true

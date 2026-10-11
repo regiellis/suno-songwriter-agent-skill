@@ -1,0 +1,366 @@
+{
+  "suite_id": "songwriting-and-fusion-v1",
+  "version": 1,
+  "status": "authored_not_run",
+  "provenance": "All prompts and supplied lyric drafts are synthetic originals authored for this benchmark. No real Suno takes, observed before/after pairs, or artist lyrics are included.",
+  "scope": "Text-only skill behavior. Independent generation and judging protocol is in README.md. Audio quality and automatic skill discovery are out of scope.",
+  "global_requirements": [
+    "No em dashes (U+2014) or en dashes (U+2013) anywhere in the response.",
+    "Honor each prompt's requested scope and exact-content constraints.",
+    "Do not claim to generate, hear, measure, or verify audio when no audio tools or files were supplied."
+  ],
+  "cases": [
+    {
+      "id": "SW01",
+      "area": "targeted_revision",
+      "prompt": "Only revise line 2 of my original chorus because it feels crowded. Keep the title and the other three lines exactly as written. Return the complete chorus and one sentence explaining the edit.\nTitle: Leave the Hall Light\nI put your coffee by the door\nI keep on telling all our friends that I don't wait here anymore\nYour shoes still mark the kitchen floor\nLeave the hall light on once more",
+      "must": [
+        "Preserve the title and lines 1, 3, and 4 verbatim.",
+        "Change only line 2 of the lyric.",
+        "Return the chorus with a brief explanation; no full-song expansion."
+      ],
+      "quality_targets": [
+        "The revised line retains the tension between denying and demonstrating that the speaker waits.",
+        "Natural speech and stress improve without a forced rhyme.",
+        "The explanation identifies an actual textual change rather than claiming to have heard it."
+      ],
+      "failure_signals": [
+        "New title or unrelated edits.",
+        "Shorter but meaningless replacement.",
+        "Claims that musical fit has been auditioned."
+      ],
+      "deterministic_checks": [
+        {
+          "kind": "required_text",
+          "values": [
+            "Leave the Hall Light",
+            "I put your coffee by the door",
+            "Your shoes still mark the kitchen floor",
+            "Leave the hall light on once more"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SW02",
+      "area": "narrative_form",
+      "prompt": "Write a folk lyric with exactly three stanzas, four lines each. End every stanza with the exact line \"I kept the empty chair.\" Tell a story about someone gradually welcoming other people after a loss. No chorus, bridge, or explanation.",
+      "must": [
+        "Three four-line stanzas.",
+        "Exact refrain as the last line of each stanza.",
+        "No added chorus or bridge."
+      ],
+      "quality_targets": [
+        "The stanzas change the situation through action or consequence.",
+        "The unchanged refrain acquires a new context.",
+        "Details belong to one credible speaker rather than a list of unrelated images."
+      ],
+      "failure_signals": [
+        "Three paraphrases of the same emotion.",
+        "Changing the final refrain to force a resolution.",
+        "Adding mandatory pop sections."
+      ],
+      "deterministic_checks": [
+        {
+          "kind": "exact_occurrence_count",
+          "value": "I kept the empty chair.",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "id": "SW03",
+      "area": "hook_design",
+      "prompt": "Keep all of these original chorus words unchanged. It is intentionally dense. Suggest a phrase and arrangement plan that makes it recognizable without telling me to shorten it. No fixed melody exists yet.\nWe left before the morning shift could count the cups and notice\nTwo names erased in pencil where the next week's rota folded\nI told you I was fearless with my bus fare in my fist\nYou laughed and kept on walking; I have followed ever since",
+      "must": [
+        "No rewritten lyric words.",
+        "Treat the dense chorus as intentional.",
+        "Provide a plan rather than inventing an existing melody."
+      ],
+      "quality_targets": [
+        "Identify a recurring cadence, contour, landing phrase, or response that can carry recognition.",
+        "Allocate real breath/rest opportunities and accompaniment space.",
+        "Explain a concrete tradeoff if more bars are needed."
+      ],
+      "failure_signals": [
+        "Mandatory short chorus.",
+        "Only louder drums or generic soaring vocals.",
+        "Exact melody-compliance claim without a melody."
+      ],
+      "deterministic_checks": []
+    },
+    {
+      "id": "SW04",
+      "area": "rap_cadence",
+      "prompt": "Write a hookless boom-bap verse about a night-shift bus driver noticing the same passenger for a week. Use internal rhyme, a change of cadence when the passenger stops appearing, and space for breaths. Return lyrics and two short delivery notes. Do not print beat-count marks or add a sung hook.",
+      "must": [
+        "No added sung hook.",
+        "No printed beat-count marks.",
+        "Include the passenger disappearance and delivery notes."
+      ],
+      "quality_targets": [
+        "Internal rhymes serve observation and narrative movement.",
+        "Line shapes or syntax make the cadence change plausible.",
+        "Density varies and breath opportunities are credible."
+      ],
+      "failure_signals": [
+        "Generic hustle verse unrelated to the driver.",
+        "Cadence changes only named in a tag with no phrasing difference.",
+        "Claims that printed lines equal verified bars."
+      ],
+      "deterministic_checks": []
+    },
+    {
+      "id": "SW05",
+      "area": "heavy_form",
+      "prompt": "Plan a clean-vocal doom-metal song about a reservoir swallowing a village. Long instrumental gaps, no screaming and no metalcore breakdown. Return a title, Style, Excluded Styles, and a section plan. Do not write full lyrics.",
+      "must": [
+        "Clean vocals and no screaming.",
+        "No metalcore breakdown.",
+        "Plan only, with instrumental gaps."
+      ],
+      "quality_targets": [
+        "Riff sustain, decay, phrase space, and return shape the plan.",
+        "The submerged-village premise informs development.",
+        "The refrain or motif does not depend on constant peak intensity."
+      ],
+      "failure_signals": [
+        "Generic screamed-verse/clean-chorus template.",
+        "Fast busy sections replace the requested space.",
+        "Only a low-tuned guitar label, with no form or phrasing decisions."
+      ],
+      "deterministic_checks": []
+    },
+    {
+      "id": "SW06",
+      "area": "electronic_form",
+      "prompt": "Plan a strictly voiceless, hypnotic techno track with gradual change. No big drop, no narrative climax, no verse/chorus form. Give an Instrumental Prompt and Arrangement. Keep the recurring pattern recognizable.",
+      "must": [
+        "No vocal, choir, chant, or vocal-chop parts.",
+        "No big drop or imposed verse/chorus.",
+        "Use instrumental fields."
+      ],
+      "quality_targets": [
+        "A specific repeating cell or relationship organizes the piece.",
+        "Events change texture or interaction over time.",
+        "The arrangement describes a trajectory without replacing the hypnotic intent."
+      ],
+      "failure_signals": [
+        "Festival build/drop form.",
+        "Constant new motifs that erase recurrence.",
+        "An instrumental label paired with choir or vocal chops."
+      ],
+      "deterministic_checks": []
+    },
+    {
+      "id": "SW07",
+      "area": "dramatic_writing",
+      "prompt": "Write a short musical-theater duet. A station clerk wants a traveler to stay; the traveler needs to leave to care for a sibling. Neither states their real reason immediately. Give each character different tactics, and let the interaction change. No mandatory pop chorus.",
+      "must": [
+        "Both characters and their distinct objectives remain identifiable.",
+        "Do not state both real reasons immediately.",
+        "Write the duet, not only advice."
+      ],
+      "quality_targets": [
+        "Each response is affected by the other person.",
+        "Tactics change instead of merely increasing volume.",
+        "The turn is prepared and the diction is character-specific."
+      ],
+      "failure_signals": [
+        "Alternating identical feelings.",
+        "A late unrelated twist.",
+        "Scene exposition replacing playable interaction."
+      ],
+      "deterministic_checks": []
+    },
+    {
+      "id": "SW08",
+      "area": "jazz_form",
+      "prompt": "Plan an original 32-bar AABA vocal-jazz song called \"The Table for Two.\" Give section lengths, phrase jobs, and the title's placement. No full lyrics or modern pop chorus is needed.",
+      "must": [
+        "32 bars total with AABA organization.",
+        "No invented requirement for a separate modern chorus.",
+        "Plan only."
+      ],
+      "quality_targets": [
+        "The A statements relate and the B section provides a meaningful contrast.",
+        "Phrase arrivals and title placement make the return recognizable.",
+        "The plan leaves room for held notes and instrumental response."
+      ],
+      "failure_signals": [
+        "AABA misread as verse/chorus/bridge/chorus.",
+        "Bar arithmetic does not total 32.",
+        "Chord-name display without melodic or phrase reasoning."
+      ],
+      "deterministic_checks": []
+    },
+    {
+      "id": "MX01",
+      "area": "continuous_three_way_blend",
+      "prompt": "Create a song plan blending soul, post-punk, and ambient continuously. Do not make separate genre sections. The subject is someone deleting an unsent apology. Keep the chorus at roughly the verse's loudness. Give Style and a compact section plan, no lyrics.",
+      "must": [
+        "Continuous blend with all three influences.",
+        "No requested loudness jump in the chorus.",
+        "No full lyrics."
+      ],
+      "quality_targets": [
+        "Each influence has an audible job beyond a label.",
+        "The foreground is managed so voice, bass, and texture do not compete constantly.",
+        "The chorus contrasts through phrasing, register, harmony, or space."
+      ],
+      "failure_signals": [
+        "One genre per section.",
+        "Three genre tags with an unchanged generic arrangement.",
+        "Bigger drums and maximal layers presented as the only lift."
+      ],
+      "deterministic_checks": []
+    },
+    {
+      "id": "MX02",
+      "area": "meter_transition",
+      "prompt": "Plan a transition from a 6/8 folk ballad at dotted-quarter 72 BPM into 4/4 house. Keep a recognizable version of the sung hook. You may choose the destination tempo, but state it and explain the pulse relationship. The actual melody has not been written.",
+      "must": [
+        "State destination tempo and beat unit.",
+        "Explain a coherent relationship or explicit tempo change.",
+        "Do not claim a nonexistent melody is guaranteed to fit unchanged."
+      ],
+      "quality_targets": [
+        "Outgoing event, transition, and incoming event are clear.",
+        "Hook phrasing is considered alongside the rhythm change.",
+        "Any unusual tempo interpretation is acknowledged rather than hidden."
+      ],
+      "failure_signals": [
+        "Averaging genre tempo ranges.",
+        "Treating 6/8 and 4/4 as interchangeable.",
+        "No vocal rephrasing or timing consideration."
+      ],
+      "deterministic_checks": []
+    },
+    {
+      "id": "MX03",
+      "area": "exact_lyric_variants",
+      "prompt": "Give a folk-ballad treatment and a drill treatment of these original words. Keep the title and every lyric word identical in both. Change performance and arrangement only. Give each version its own Style and lyrics, followed by one short note about phrasing. No slider suggestions.\nTitle: The Last Receipt\nI kept the last receipt\nYou kept the keys to town\nI walked the longer street\nTo let the anger down",
+      "must": [
+        "Two versions with identical title and lyric words.",
+        "Distinct Style directions.",
+        "No slider suggestions."
+      ],
+      "quality_targets": [
+        "The versions differ through cadence, phrase allocation, groove, or instrumental interaction.",
+        "The drill treatment does not automatically change the subject to violence.",
+        "Half-time feel is considered if relevant rather than assuming higher BPM means faster words."
+      ],
+      "failure_signals": [
+        "Silent rewriting of the verse.",
+        "Only swapping guitar for 808 while giving no phrase decision.",
+        "Unrequested controls or claims of identical rendered melody."
+      ],
+      "deterministic_checks": []
+    },
+    {
+      "id": "MX04",
+      "area": "multi_section_suite",
+      "prompt": "Plan a five-section instrumental suite: chamber folk, dub, progressive metal, ambient, then chamber folk again. Preserve a four-note motif, but transform it across the sections. Give a transition plan for every boundary. No voices.",
+      "must": [
+        "Five sections in the requested order.",
+        "Four boundary transitions.",
+        "No voices.",
+        "Retain the four-note motif as a stated organizing idea."
+      ],
+      "quality_targets": [
+        "Motif transformations are specific rather than only increasing volume.",
+        "Transitions describe actual musical events.",
+        "The returning chamber-folk section has a purposeful relationship to the opening."
+      ],
+      "failure_signals": [
+        "Refusing more than two switches as a platform rule.",
+        "Replacing the suite with one generic fusion prompt.",
+        "Claiming exact note retention from text alone."
+      ],
+      "deterministic_checks": []
+    },
+    {
+      "id": "MX05",
+      "area": "evidence_based_revision",
+      "prompt": "I made a folk-house blend. Take A had clear storytelling but the groove kept disappearing. Take B held the groove, but the vocal rushed and the guitar hook vanished. I have not attached audio. Suggest one targeted next revision, state what to keep fixed, and give listening criteria. Do not generate audio or claim you heard the takes.",
+      "must": [
+        "One targeted next revision.",
+        "Keep-fixed conditions and listening criteria.",
+        "Attribute observations to the user; no claim of hearing audio."
+      ],
+      "quality_targets": [
+        "The proposed change addresses a specific conflict in vocal or instrument activity.",
+        "Preserves useful parts instead of restarting the whole song by default.",
+        "Avoids changing prompt, model, and several sliders simultaneously."
+      ],
+      "failure_signals": [
+        "Automatic higher Weirdness as the sole solution.",
+        "Diagnosing unheard frequency or timing defects as fact.",
+        "Many simultaneous changes with no interpretable comparison."
+      ],
+      "deterministic_checks": []
+    },
+    {
+      "id": "MX06",
+      "area": "regional_distinctions",
+      "prompt": "Give three short, distinct song plans about a neighborhood celebration: Afrobeats, Afrobeat, and amapiano. Use English lyrics as the intended language, but do not write them yet. Focus on groove, vocal phrasing, and development rather than a list of instruments.",
+      "must": [
+        "Three distinct plans.",
+        "No generated full lyrics or invented dialect.",
+        "Do not conflate the three labels."
+      ],
+      "quality_targets": [
+        "The plans differ in groove/phrase roles and development.",
+        "Afrobeat is not treated as a misspelling of Afrobeats.",
+        "Amapiano identity is not reduced to a log-drum layer on every plan."
+      ],
+      "failure_signals": [
+        "Identical verse/chorus and phrase plan with instrument substitutions only.",
+        "Unrequested language switching.",
+        "Unsupported claim of traditional authenticity."
+      ],
+      "deterministic_checks": []
+    },
+    {
+      "id": "X01",
+      "area": "melody_first_plan",
+      "prompt": "Help fit an original chorus idea to this text-only melody brief: four phrases, each spanning two bars of 4/4; phrases 1 and 3 begin with a pickup; phrase 4 ends on a long note. The message is \"I am ready to leave, but I want you to ask me to stay.\" Give a lyric draft and explain stress/breath choices. Exact pitches and rhythm are not supplied.",
+      "must": [
+        "Four planned phrases corresponding to the brief.",
+        "Account for pickups and final sustain.",
+        "No claim of verified fit without the missing melody detail."
+      ],
+      "quality_targets": [
+        "Stress and meaning reinforce each other.",
+        "The final word is chosen for expressive function and sustain.",
+        "The lyric conveys contradiction without explaining every detail."
+      ],
+      "failure_signals": [
+        "Only counting syllables with no stress reasoning.",
+        "Inventing exact source pitches.",
+        "Treating the text-only melody brief as heard audio."
+      ],
+      "deterministic_checks": []
+    },
+    {
+      "id": "X02",
+      "area": "punctuation_and_scope",
+      "prompt": "Return this original refrain with the words preserved, normalize the punctuation, and add one section cue for a group response. No explanation and no extra lines.\nStay\u2014if the road is too long\nStay\u2013we can wait for the dawn",
+      "must": [
+        "Preserve all lyric words and their order.",
+        "Normalize em/en dashes; none in the response.",
+        "One section cue and no explanation."
+      ],
+      "quality_targets": [
+        "Punctuation supports natural phrasing without introducing new words.",
+        "The cue is concise and kept separate from sung text."
+      ],
+      "failure_signals": [
+        "Dash punctuation left in any field or code block.",
+        "Adding a full package or unsolicited explanation.",
+        "Rewriting the refrain."
+      ],
+      "deterministic_checks": []
+    }
+  ]
+}
