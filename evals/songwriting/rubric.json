@@ -1,0 +1,62 @@
+{
+  "rubric_id": "songwriting-and-fusion-v1",
+  "scale": {
+    "0": "Missing, unusable, or fundamentally contradicts the requested musical task.",
+    "1": "Major problems; mostly generic, incoherent, or inadequately developed.",
+    "2": "Partly useful but a material weakness remains; evidence of the intended decision is incomplete.",
+    "3": "Useful and coherent; decisions fit the brief with only minor weaknesses.",
+    "4": "Distinctive and well integrated; concrete choices reinforce each other without unnecessary complexity."
+  },
+  "dimensions": [
+    {
+      "id": "craft",
+      "name": "Song Craft And Development",
+      "evaluate": "A specific angle or organizing idea, meaningful section/phrase development, and a recognizable hook, motif, cadence, or texture suited to the requested form.",
+      "do_not_require": "Narrative, concrete imagery, a chorus, or new words at every return when the requested form does not need them."
+    },
+    {
+      "id": "identity",
+      "name": "Musical Identity And Integration",
+      "evaluate": "Genre or scene choices affect groove, phrasing, form, harmony, or performance; mixed influences have coherent roles and retain their intended identity.",
+      "do_not_require": "A particular instrument, fixed tempo band, rigid anchor/accent hierarchy, or more genre labels."
+    },
+    {
+      "id": "phrasing",
+      "name": "Phrasing And Feasibility",
+      "evaluate": "Plausible stress, breath, density, pulse, duration, instrumental space, and transitions, with missing audio or melodic information acknowledged where relevant.",
+      "do_not_require": "Exact pitches or verified timing from text alone; shorter lines or simpler choruses in every genre."
+    },
+    {
+      "id": "usefulness",
+      "name": "Deliverable Usefulness And Scope",
+      "evaluate": "The requested artifact is ready to use or review, relevant distinctions are clear, wording is preserved at the requested edit depth, and optional explanations or fields serve the task.",
+      "do_not_require": "Long explanations, a full package for a focused edit, slider settings, or theory vocabulary absent from the user's need."
+    }
+  ],
+  "constraint_statuses": ["pass", "fail", "needs_review"],
+  "verdict_rule": {
+    "pass": "Every case and global constraint passes; every dimension scores at least 3; no unresolved grading uncertainty.",
+    "fail": "At least one confirmed constraint failure or dimension below 3.",
+    "needs_review": "No confirmed failure, but a constraint, score, or specialist judgment remains unresolved."
+  },
+  "result_format": {
+    "case_id": "ID from cases.json",
+    "response_label": "Anonymous candidate label",
+    "constraints": [
+      {
+        "requirement": "Exact case or global requirement text",
+        "status": "pass | fail | needs_review",
+        "evidence": "Short response excerpt or precise omission"
+      }
+    ],
+    "scores": {
+      "craft": {"score": "Integer 0-4, or null if not assessable", "evidence": "Specific evidence"},
+      "identity": {"score": "Integer 0-4, or null if not assessable", "evidence": "Specific evidence"},
+      "phrasing": {"score": "Integer 0-4, or null if not assessable", "evidence": "Specific evidence"},
+      "usefulness": {"score": "Integer 0-4, or null if not assessable", "evidence": "Specific evidence"}
+    },
+    "uncertainties": ["Any unresolved issue; empty when none"],
+    "verdict": "pass | fail | needs_review",
+    "main_revision_target": "One concrete improvement, or none"
+  }
+}
